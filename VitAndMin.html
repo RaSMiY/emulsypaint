@@ -1,0 +1,139 @@
+<! DOCTYPE HTML>
+
+<!-- Created by SMiY-->
+
+<!----author- SMiY-------
+  ----inspired by Universe---
+  ----on:11-7-17--------
+  credit to my fellows which helped me to be on my way
+{"name":"CompIncomp,
+"author":"SMiY",
+"comment_date":"16_AUG_2017",
+"comment_id":"##",
+"comment_author":"###"}
+
+... description ...
+
+Программа позволяет проверить произвольный набор из числа предопределённых объектов на взаимную совместимость
+/*/============================Блок лицензии============================================
+Copyright (c) SMiY semenov@razum.top
+This file is part of VitAndMin project.
+
+    VitAndMin project is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    VitAndMin project is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with VitAndMin project.  If not, see <http://www.gnu.org/licenses/>.
+
+  (Этот файл — часть VitAndMin project.
+
+   Проект VitAndMin - свободная программа: вы можете перераспространять ее и/или
+   изменять ее на условиях Стандартной общественной лицензии GNU в том виде,
+   в каком она была опубликована Фондом свободного программного обеспечения;
+   либо версии 3 лицензии, либо (по вашему выбору) любой более поздней
+   версии.
+
+   Проект VitAndMin распространяется в надежде, что она будет полезной,
+   но БЕЗО ВСЯКИХ ГАРАНТИЙ; даже без неявной гарантии ТОВАРНОГО ВИДА
+   или ПРИГОДНОСТИ ДЛЯ ОПРЕДЕЛЕННЫХ ЦЕЛЕЙ. Подробнее см. в Стандартной
+   общественной лицензии GNU.
+
+   Вы должны были получить копию Стандартной общественной лицензии GNU
+   вместе с этой программой. Если это не так, см.
+   <http://www.gnu.org/licenses/>.)
+//=============================Конец блока Лицензии=====================================*/
+  -->
+
+<html>
+	<head>
+		<title>Поиск совместимых и несовместимых наборов</title>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link rel="stylesheet" type="text/css" href="VitAndMin.css" media="all" />
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" />
+
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+		<script type="text/javascript" src="VitAndMin.js"></script>
+		<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+	</head>
+	
+	
+	<body>
+	  <nav class="navbar navbar-expand-md sticky-top navbar-inverse bg-warning">
+		<div class="container-fluid">
+		  <a class="navbar-brand" href="#">Navbar</a>
+		  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+			  <li class="nav-item active">
+				<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+			  </li>
+			  <li class="nav-item">
+				<a class="nav-link" href="#">Features</a>
+			  </li>
+			  <li class="nav-item">
+				<a class="nav-link" href="#">Pricing</a>
+			  </li>
+			  <li class="nav-item">
+				<a class="nav-link" href="#">About</a>
+			  </li>
+			</ul>
+			<form class="form-inline my-2 my-lg-0">
+			  <input class="form-control mr-sm-2" type="text" placeholder="Search">
+			  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+			</form>
+		  </div>
+		</div>
+	  </nav>
+
+		  <div class="py-5">
+			<div class="container-fluid">
+			  <div class="row">
+				<div class="col-md-12">
+				  <h1 class="">Составьте ваш дневной рацион, с учётом рекомендуемого содержания витаминов и минералов, перетащив нужные продукты в области соответствующие меню завтрака, обеда и ужина</h1>
+				</div>
+			  </div>
+			  <div class="row">
+				<div class="col-md-11">
+				  <div class="card">
+					<div class="card-block">
+					  <h4>Завтрак</h4>
+					  <p id="breakfast" ondrop="drop(event)" ondragover="allowDrop(event)">Some quick example text to build on the card title .</p>
+					</div>
+					<div class="card">
+					  <div class="card-block">
+						<h4>Обед</h4>
+						<p id="dinner" ondrop="drop(event)" ondragover="allowDrop(event)">Some quick example text to build on the card title .</p>
+					  </div>
+					  <div class="card">
+						<div class="card-block">
+						  <h4>Ужин</h4>
+						  <p id="supper" ondrop="drop(event)" ondragover="allowDrop(event)">Some quick example text to build on the card title .</p>
+						</div>
+					  </div>
+					</div>
+				  </div>
+				</div>
+				<div class="col-md-1 ">
+					<div class="card">
+					  <div class="card-block">
+						<h4>Витамины</h4>
+						<p id="rightColumn" ondrop="drop(event)" ondragover="allowDrop(event)"><img id="image" src="RazumLogo.png" draggable="true" ondragstart="drag(event)" alt='КоБЛаБ "РАЗУМ"' /></p>
+					  </div>
+					</div>
+				</div>
+			  </div>
+			</div>
+		  </div>
+<!------------------------------------------------------------------------------------------------------>
+		<div id="description"></div>
+	</body>
+</html>	
