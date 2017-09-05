@@ -39,10 +39,41 @@ This file is part of VitAndMin project.
 div {text-align: justify;}
 #image {position: relative; top: 10%; width: 5em; height: 5em;}
 #contentArea {border: 1px solid black; border-radius: 5px;}
-#breakfast {border: 1px solid black; border-radius: 5px; height: 10em;}
-#dinner {border: 1px solid black; border-radius: 5px; height: 10em;}
-#supper {border: 1px solid black; border-radius: 5px; height: 10em;}
-#rightColumn {border: 1px solid black; border-radius: 5px; height: 35em; text-align: center;}
+#breakfast {border: 1px solid black; border-radius: 5px; height: 10em; padding: 0;}
+#dinner {border: 1px solid black; border-radius: 5px; height: 10em; padding: 0;}
+#supper {border: 1px solid black; border-radius: 5px; height: 10em; padding: 0;}
+#vitandmins {border: 1px solid black; border-radius: 5px; height: 37.4em; text-align: center; padding: 0;}
 #description {text-align: justify; clear: both;}
+#description img {float: right; width: 10em; height: 10em;}
 
+.carousel-horizontal {
+	display: -ms-flexbox;
+	display: flex;
+/*  -ms-flex-wrap: wrap;
+	flex-wrap: wrap;*/
+  list-style: none;
+	overflow: auto;
+}
 
+.carousel-horizontal li {
+	padding: 2em 2em 2em 2em;
+	border: 1px dashed grey;
+}
+
+.carousel-vertical {
+/*  -ms-flex-wrap: wrap;
+	flex-wrap: wrap;*/
+  list-style: none;
+	overflow-X: hidden;
+	overflow-Y: auto;
+}
+
+.carousel-vertical li {
+	padding: 1em 0em 1em 0em;
+	border: 1px dashed grey;
+}
+
+.carousel-vertical li img{
+	width: 3em;
+	height: 3em;
+}

@@ -1,12 +1,26 @@
 <! DOCTYPE HTML>
 
-<!-- Created by SMiY-->
+<html>
+	<head>
+		<title>Составьте дневной рацион с учётом витаминов и минералов и их взаимной совместимости</title>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="CSS/VitAndMin.css" media="all" />
+
+		<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+		<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="JS/VitAndMin.js"></script>
+	</head>
+
+	<!-- Created by SMiY-->
 
 <!----author- SMiY-------
   ----inspired by Universe---
   ----on:11-7-17--------
   credit to my fellows which helped me to be on my way
-{"name":"CompIncomp,
+{"name":"VitAndMin,
 "author":"SMiY",
 "comment_date":"16_AUG_2017",
 "comment_id":"##",
@@ -14,7 +28,7 @@
 
 ... description ...
 
-Программа позволяет проверить произвольный набор из числа предопределённых объектов на взаимную совместимость
+Программа помагает составить дневной рацион исходя из суточной потребности в витаминах и минералах и их взаимной совместимости
 /*/============================Блок лицензии============================================
 Copyright (c) SMiY semenov@razum.top
 This file is part of VitAndMin project.
@@ -51,19 +65,7 @@ This file is part of VitAndMin project.
 //=============================Конец блока Лицензии=====================================*/
   -->
 
-<html>
-	<head>
-		<title>Поиск совместимых и несовместимых наборов</title>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<link rel="stylesheet" type="text/css" href="VitAndMin.css" media="all" />
-		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" />
-
-		<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-		<script type="text/javascript" src="VitAndMin.js"></script>
-		<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
-	</head>
 	
 	
 	<body>
@@ -106,7 +108,15 @@ This file is part of VitAndMin project.
 				  <div class="card">
 					<div class="card-block">
 					  <h4>Завтрак</h4>
-					  <p id="breakfast" ondrop="drop(event)" ondragover="allowDrop(event)">Some quick example text to build on the card title .</p>
+					  <p>Some quick example text to build on the card title .</p>
+						<ul id="breakfast" class="carousel-horizontal" ondrop="drop(event)" ondragover="allowDrop(event)">
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+						</ul>
 					</div>
 					<div class="card">
 					  <div class="card-block">
@@ -126,7 +136,9 @@ This file is part of VitAndMin project.
 					<div class="card">
 					  <div class="card-block">
 						<h4>Витамины</h4>
-						<p id="rightColumn" ondrop="drop(event)" ondragover="allowDrop(event)"><img id="image" src="RazumLogo.png" draggable="true" ondragstart="drag(event)" alt='КоБЛаБ "РАЗУМ"' /></p>
+						<ul id="vitandmins" class="carousel-vertical" ondrop="drop(event)" ondragover="allowDrop(event)">
+							<li><img id="image" src="RazumLogo.png" draggable="true" ondragstart="drag(event)" alt='КоБЛаБ "РАЗУМ"' /></li>
+						</ul>
 					  </div>
 					</div>
 				</div>
@@ -136,4 +148,4 @@ This file is part of VitAndMin project.
 <!------------------------------------------------------------------------------------------------------>
 		<div id="description"></div>
 	</body>
-</html>	
+</html>

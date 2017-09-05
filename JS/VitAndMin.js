@@ -291,49 +291,15 @@ Vit_and_Min = [
 
 //==========================конец блока определения объектов==============================
 
-//=========================Проверки===================================================
-
-onload = function() {
-	description=document.getElementById('description');
-//	alert('Функция выполняется');
-	for (vit=0; vit<Vit_and_Min.length; vit++) {
-		description.innerHTML+='<h2>'+(vit+1)+'. '+Vit_and_Min[vit].alias[0]+'</h2>';
-
-		description.innerHTML+='<h4>Основные функции</h4><ul></ul>';
-		for (vjt=0; vjt<Vit_and_Min[vit].appointments.length; vjt++) {
-			description.lastChild.innerHTML+='<li>'+Vit_and_Min[vit].appointments[vjt]+'</li>';
-		};
-		
-		description.innerHTML+='<h4>Симптомы нехватки</h4><ul></ul>';
-		for (vjt=0; vjt<Vit_and_Min[vit].symptoms_of_lack.length; vjt++) {
-			description.lastChild.innerHTML+='<li>'+Vit_and_Min[vit].symptoms_of_lack[vjt]+'</li>';
-		};
-		
-		description.innerHTML+='<h4>Суточная потребность</h4>';
-		
-		if (typeof Vit_and_Min[vit].daily_need == 'object'){
-			d_n=Object.keys(Vit_and_Min[vit].daily_need);
-			description.innerHTML+='<ul></ul>';
-			for (vjt in d_n) {
-//				description.innerHTML+='<li>'++'</li>';
-				description.lastChild.innerHTML+='<li>'+'<b>'+d_n[vjt]+': '+'</b>'+Vit_and_Min[vit].daily_need[d_n[vjt]]+'мг'+'</li>';
-			}
-		} else 
-			description.innerHTML+='<ul><li>'+Vit_and_Min[vit].daily_need+'мг'+'</li></ul>';
-		
-		description.innerHTML+='<hr/>';
-	}
-}
-
-//============================конец блока проверок======================================
 
 //==================Перемещение объектов===============================================
 function allowDrop(ev){
-	ev.preventDefault();
+//	alert(ev.target.tagName);
+	if (ev.target.tagName!='IMG') ev.preventDefault();  //else {ev=$(ev).target.parent().trigger('DragOver'); ev.preventDefault(); alert(ev.target.id);}
 }
 
 function drag(ev){
-	ev.dataTransfer.setData('text', ev.target.id);
+	ev.dataTransfer.setData('text',  ev.target.id);
 }
 function drop(ev){
 	ev.preventDefault();
@@ -342,3 +308,75 @@ function drop(ev){
 	
 }
 //==================Конец блока перемещения объектов=====================================
+
+//=========================Наполнение карусели витаминов=================================
+function fillVitAndMins() {
+	vitandmins=document.getElementById('vitandmins');
+//	vitandmins.innerHTML='';
+	for (vit=0; vit<Vit_and_Min.length; vit++) {
+		elementV=document.createElement("li");
+//		elementV.innerHTML+='<img src="Pictures/PNG/'+Vit_and_Min[vit].pict+'" alt="'+Vit_and_Min[vit].alias[0]+'" />';
+		
+		elementV.innerHTML+='<img src="Pictures/PNG/'+Vit_and_Min[vit].pict+'"  draggable="true" ondragstart="drag(event)"'+' alt="'+Vit_and_Min[vit].alias[0]+'" />';
+//		elementv.lastchild.ondrop='dropEvent(Event)';
+//		elementv.lastchild.ondragover='allowDrop(Event)';
+//		$(elementV).children().eq(0).attr('draggable', 'True');
+		$(elementV).children().eq(0).attr('id', Vit_and_Min[vit].alias[1]);
+//		$(elementV).children().eq(0).on('dragstart', drag);  // не работает совместно с JavaScript event
+//		elementV.addEventListener('dragstart', drag);
+		
+		vitandmins.append(elementV);
+	}
+}
+//=========================Конец блока наполнения карусели витаминов=======================
+
+//=========================Наполнение страницы=========================================
+function fillContent() {
+	description=document.getElementById('description');
+	for (vit=0; vit<Vit_and_Min.length; vit++) {
+		element=document.createElement("div");
+
+		element.innerHTML+='<img src="Pictures/PNG/'+Vit_and_Min[vit].pict+'" alt="'+Vit_and_Min[vit].alias[0]+'" />';
+		
+		element.innerHTML+='<h2>'+(vit+1)+'. '+Vit_and_Min[vit].alias[0]+'</h2><p></p>';
+		
+		element.lastChild.innerHTML+='<b>Другие названия: </b>'+Vit_and_Min[vit].alias[2];
+		for (vjt=3; vjt<Vit_and_Min[vit].alias.length; vjt++) {
+			element.lastChild.innerHTML+=', '+Vit_and_Min[vit].alias[vjt];
+		};
+
+		element.innerHTML+='<h4>Основные функции</h4><ul></ul>';
+		for (vjt=0; vjt<Vit_and_Min[vit].appointments.length; vjt++) {
+			element.lastChild.innerHTML+='<li>'+Vit_and_Min[vit].appointments[vjt]+'</li>';
+		};
+		
+		element.innerHTML+='<h4>Симптомы нехватки</h4><ul></ul>';
+		for (vjt=0; vjt<Vit_and_Min[vit].symptoms_of_lack.length; vjt++) {
+			element.lastChild.innerHTML+='<li>'+Vit_and_Min[vit].symptoms_of_lack[vjt]+'</li>';
+		};
+		
+		element.innerHTML+='<h4>Суточная потребность</h4>';
+		
+		if (typeof Vit_and_Min[vit].daily_need == 'object'){
+			d_n=Object.keys(Vit_and_Min[vit].daily_need);
+			element.innerHTML+='<ul></ul>';
+			for (vjt in d_n) {
+//				element.innerHTML+='<li>'++'</li>';
+				element.lastChild.innerHTML+='<li>'+'<b>'+d_n[vjt]+': '+'</b>'+Vit_and_Min[vit].daily_need[d_n[vjt]]+'мг'+'</li>';
+			}
+		} else 
+			element.innerHTML+='<ul><li>'+Vit_and_Min[vit].daily_need+'мг'+'</li></ul>';
+		
+		element.innerHTML+='<hr/>';
+		description.append(element);
+	}
+}
+
+//============================конец блока наполнения страницы=============================
+
+//===============================Пусковая функция================================
+onload = function() {
+	fillVitAndMins();
+//	fillContent();
+}
+//===============================Конец пусковой функции================================
