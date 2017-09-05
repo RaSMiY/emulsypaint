@@ -294,19 +294,53 @@ Vit_and_Min = [
 
 //==================Перемещение объектов===============================================
 function allowDrop(ev){
-//	alert(ev.target.tagName);
-	if (ev.target.tagName!='IMG') ev.preventDefault();  //else {ev=$(ev).target.parent().trigger('DragOver'); ev.preventDefault(); alert(ev.target.id);}
+//	alert(ev.target.tagName); 
+	if (ev.target.tagName!='IMG') {
+		ev.preventDefault();
+	 // Set the dropEffect to move
+		ev.dataTransfer.dropEffect = "move"
+	}
+//else {ev=$(ev).target.parent().trigger('DragOver'); ev.preventDefault(); alert(ev.target.id);} //попытка сделать вставку рядом с изображением, а не внутрь тега изображения
 }
 
 function drag(ev){
-	ev.dataTransfer.setData('text',  ev.target.id);
+ console.log("dragStart: target.id = " + ev.target.id);
+//	ev.dataTransfer.setData('text',  ev.target.id);
+//	alert($(ev.target).parent().length);
+//	$(ev.target).parent().attr('id'
+	ev.dataTransfer.setData('text/html', $(ev.target).parent('li').html());
+ console.log("dragStart: target.parent() = " + $(ev.target).parent());
 }
+
 function drop(ev){
+	ev.preventDefault();
+	var data = document.createElement('li');
+	data.innerHTML += ev.dataTransfer.getData('text/html');
+	(ev.target.tagName=='UL')?$(ev.target).append(data):$(ev.target).parent('ul').append(data);
+//	alert(Object.keys(data)[0]);
+//	$(ev.target).append($(data));
+
+/*	// Print each format type
+ if (ev.dataTransfer.types != null) {
+   for (var i=0; i < ev.dataTransfer.types.length; i++) {
+     console.log("... types[" + i + "] = " + ev.dataTransfer.types[i]);
+   }
+ }
+ // Print each item's "kind" and "type"
+ if (ev.dataTransfer.items != null) {
+   for (var i=0; i < ev.dataTransfer.items.length; i++) {
+     console.log("... items[" + i + "].kind = " + ev.dataTransfer.items[i].kind + " ; type = " + ev.dataTransfer.items[i].type);
+   }
+ }*/
+}
+
+function dropCopy(ev){ //Копирование элемента вместо переноса
 	ev.preventDefault();
 	var data = ev.dataTransfer.getData('text');
 	ev.target.appendChild(document.getElementById(data));
 	
 }
+
 //==================Конец блока перемещения объектов=====================================
 
 //=========================Наполнение карусели витаминов=================================
@@ -315,15 +349,19 @@ function fillVitAndMins() {
 //	vitandmins.innerHTML='';
 	for (vit=0; vit<Vit_and_Min.length; vit++) {
 		elementV=document.createElement("li");
-//		elementV.innerHTML+='<img src="Pictures/PNG/'+Vit_and_Min[vit].pict+'" alt="'+Vit_and_Min[vit].alias[0]+'" />';
-		
 		elementV.innerHTML+='<img src="Pictures/PNG/'+Vit_and_Min[vit].pict+'"  draggable="true" ondragstart="drag(event)"'+' alt="'+Vit_and_Min[vit].alias[0]+'" />';
+
 //		elementv.lastchild.ondrop='dropEvent(Event)';
 //		elementv.lastchild.ondragover='allowDrop(Event)';
-//		$(elementV).children().eq(0).attr('draggable', 'True');
+//		$(elementV).children().eq(0).attr('draggable', 'True'); //не требуется, поскольку устаноавливается в html
 		$(elementV).children().eq(0).attr('id', Vit_and_Min[vit].alias[1]);
+		$(elementV).children().eq(0).attr('title', Vit_and_Min[vit].alias[0]);
+		p=document.createElement("p");
+		$(p).html(Vit_and_Min[vit].alias[0]);
+		elementV.append(p);
+		
 //		$(elementV).children().eq(0).on('dragstart', drag);  // не работает совместно с JavaScript event
-//		elementV.addEventListener('dragstart', drag);
+//		elementV.addEventListener('dragstart', drag); //не требуется, поскольку обработчик события устаноавливается в html
 		
 		vitandmins.append(elementV);
 	}
@@ -376,6 +414,9 @@ function fillContent() {
 
 //===============================Пусковая функция================================
 onload = function() {
+//	$('#breakfast').on('drop', 'li', drop);
+//	$('#breakfast').on('dragover', 'li', allowDrop);
+//	$('#breakfast').on('drop', 'li img', drop);
 	fillVitAndMins();
 //	fillContent();
 }
