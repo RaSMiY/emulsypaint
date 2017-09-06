@@ -320,7 +320,8 @@ function drop(ev){
 //	alert(Object.keys(data)[0]);
 //	$(ev.target).append($(data));
 
-/*	// Print each format type
+/* //вывод сведений в консоль
+// Print each format type
  if (ev.dataTransfer.types != null) {
    for (var i=0; i < ev.dataTransfer.types.length; i++) {
      console.log("... types[" + i + "] = " + ev.dataTransfer.types[i]);
@@ -334,7 +335,7 @@ function drop(ev){
  }*/
 }
 
-function dropCopy(ev){ //Копирование элемента вместо переноса
+function dropCopy(ev){ //Исходная копия функции переноса
 	ev.preventDefault();
 	var data = ev.dataTransfer.getData('text');
 	ev.target.appendChild(document.getElementById(data));
@@ -418,6 +419,6 @@ onload = function() {
 //	$('#breakfast').on('dragover', 'li', allowDrop);
 //	$('#breakfast').on('drop', 'li img', drop);
 	fillVitAndMins();
-//	fillContent();
+	fillContent();
 }
 //===============================Конец пусковой функции================================
