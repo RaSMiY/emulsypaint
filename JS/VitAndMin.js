@@ -304,19 +304,46 @@ function allowDrop(ev){
 }
 
 function drag(ev){
- console.log("dragStart: target.id = " + ev.target.id);
-//	ev.dataTransfer.setData('text',  ev.target.id);
+	console.log("dragStart: target.id = " + ev.target.id);
+//	console.log("dragStart: target = ", $(ev.target).index());
+
+//определяем уникалный селектор выбранного элемента
+	uniqueSelector='';
+	par = ev.target;
+	while (par.parentNode.tagName!='HTML') {
+		count=1;
+		prev=par;
+		while (prev.previousElementSibling!=null){
+			count++;
+			prev=prev.previousElementSibling;
+		}
+		uniqueSelector = ' :nth-child(' + count + ')'+uniqueSelector;
+		par = par.parentNode;
+	}
+	uniqueSelector = 'body'+uniqueSelector;
+	
+//	par = ev.target;
+//	console.log('par.parentNode.tagName =',par.parentNode.tagName);
+//	console.log('par.previousElementSibling =',par.previousElementSibling);
+
+	console.log('uniqueSelector =',uniqueSelector);
+	console.log('uniqueSelector details = ',$(uniqueSelector).parent().html());
+//	console.log('относительный индекс элемента: ', $('body').index(ev.target));
+	
+	//	ev.dataTransfer.setData('text',  ev.target.id);
 //	alert($(ev.target).parent().length);
 //	$(ev.target).parent().attr('id'
 	ev.dataTransfer.setData('text/html', $(ev.target).parent('li').html());
- console.log("dragStart: target.parent() = " + $(ev.target).parent());
+// console.log("dragStart: target.parent() = " + $(ev.target).parent());
 }
 
 function drop(ev){
 	ev.preventDefault();
 	var data = document.createElement('li');
 	data.innerHTML += ev.dataTransfer.getData('text/html');
-	(ev.target.tagName=='UL')?$(ev.target).append(data):$(ev.target).parent('ul').append(data);
+	var tar= (ev.target.tagName=='UL')?$(ev.target):$(ev.target).parent('ul');
+	tar.append(data);
+//	$(tar).children(':last-child').attr('id', ev.target.id+'-'+)
 //	alert(Object.keys(data)[0]);
 //	$(ev.target).append($(data));
 
@@ -350,13 +377,16 @@ function fillVitAndMins() {
 //	vitandmins.innerHTML='';
 	for (vit=0; vit<Vit_and_Min.length; vit++) {
 		elementV=document.createElement("li");
-		elementV.innerHTML+='<img src="Pictures/PNG/'+Vit_and_Min[vit].pict+'"  draggable="true" ondragstart="drag(event)"'+' alt="'+Vit_and_Min[vit].alias[0]+'" />';
-
+//		elementV.innerHTML+='<img src="Pictures/PNG/'+Vit_and_Min[vit].pict+'"  draggable="true" ondragstart="drag(event)"'+' alt="'+Vit_and_Min[vit].alias[0]+'" />';
+		elementV.innerHTML+='<img src="Pictures/PNG/'+Vit_and_Min[vit].pict+'" alt="'+Vit_and_Min[vit].alias[0]+'" />';
+		$(elementV).attr('draggable', 'true');
+		$(elementV).attr('ondragstart', 'drag(event)')
+		
 //		elementv.lastchild.ondrop='dropEvent(Event)';
 //		elementv.lastchild.ondragover='allowDrop(Event)';
 //		$(elementV).children().eq(0).attr('draggable', 'True'); //не требуется, поскольку устаноавливается в html
-		$(elementV).children().eq(0).attr('id', Vit_and_Min[vit].alias[1]);
-		$(elementV).children().eq(0).attr('title', Vit_and_Min[vit].alias[0]);
+		$(elementV).attr('id', Vit_and_Min[vit].alias[1]);
+		$(elementV).children(':first-child').attr('title', Vit_and_Min[vit].alias[0]);
 		p=document.createElement("p");
 		$(p).html(Vit_and_Min[vit].alias[0]);
 		elementV.append(p);
@@ -419,6 +449,6 @@ onload = function() {
 //	$('#breakfast').on('dragover', 'li', allowDrop);
 //	$('#breakfast').on('drop', 'li img', drop);
 	fillVitAndMins();
-	fillContent();
+//	fillContent();
 }
 //===============================Конец пусковой функции================================
