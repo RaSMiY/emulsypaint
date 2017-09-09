@@ -291,6 +291,37 @@ Vit_and_Min = [
 
 //==========================конец блока определения объектов==============================
 
+//===============================Вспомогательные функции===============================
+function getUniqueSelector(element) {
+//определяем уникалный селектор выбранного элемента
+	uniqueSelector='';
+	par = element;
+	while (par.parentNode.tagName!='HTML') {
+		count=1;
+		prev=par;
+		while (prev.previousElementSibling!=null){
+			count++;
+			prev=prev.previousElementSibling;
+		}
+		uniqueSelector = ' :nth-child(' + count + ')'+uniqueSelector;
+		par = par.parentNode;
+	}
+	uniqueSelector = 'body'+uniqueSelector;
+	return uniqueSelector;
+//	par = ev.target;
+//	console.log('par.parentNode.tagName =',par.parentNode.tagName);
+//	console.log('par.previousElementSibling =',par.previousElementSibling);
+
+//	console.log('uniqueSelector =',uniqueSelector);
+//	console.log('uniqueSelector details = ',$(uniqueSelector).parent().html());
+//	console.log('относительный индекс элемента: ', $('body').index(ev.target));
+	
+	//	ev.dataTransfer.setData('text',  ev.target.id);
+//	alert($(ev.target).parent().length);
+//	$(ev.target).parent().attr('id'
+}
+//===========================конец блока вспомогательных функций==========================
+
 
 //==================Перемещение объектов===============================================
 function allowDrop(ev){
@@ -307,32 +338,6 @@ function drag(ev){
 	console.log("dragStart: target.id = " + ev.target.id);
 //	console.log("dragStart: target = ", $(ev.target).index());
 
-//определяем уникалный селектор выбранного элемента
-	uniqueSelector='';
-	par = ev.target;
-	while (par.parentNode.tagName!='HTML') {
-		count=1;
-		prev=par;
-		while (prev.previousElementSibling!=null){
-			count++;
-			prev=prev.previousElementSibling;
-		}
-		uniqueSelector = ' :nth-child(' + count + ')'+uniqueSelector;
-		par = par.parentNode;
-	}
-	uniqueSelector = 'body'+uniqueSelector;
-	
-//	par = ev.target;
-//	console.log('par.parentNode.tagName =',par.parentNode.tagName);
-//	console.log('par.previousElementSibling =',par.previousElementSibling);
-
-	console.log('uniqueSelector =',uniqueSelector);
-	console.log('uniqueSelector details = ',$(uniqueSelector).parent().html());
-//	console.log('относительный индекс элемента: ', $('body').index(ev.target));
-	
-	//	ev.dataTransfer.setData('text',  ev.target.id);
-//	alert($(ev.target).parent().length);
-//	$(ev.target).parent().attr('id'
 	ev.dataTransfer.setData('text/html', $(ev.target).parent('li').html());
 // console.log("dragStart: target.parent() = " + $(ev.target).parent());
 }
@@ -341,6 +346,7 @@ function drop(ev){
 	ev.preventDefault();
 	var data = document.createElement('li');
 	data.innerHTML += ev.dataTransfer.getData('text/html');
+	$(data).append("<button class='rem'>X</button>");
 	var tar= (ev.target.tagName=='UL')?$(ev.target):$(ev.target).parent('ul');
 	tar.append(data);
 //	$(tar).children(':last-child').attr('id', ev.target.id+'-'+)
@@ -448,6 +454,9 @@ onload = function() {
 //	$('#breakfast').on('drop', 'li', drop);
 //	$('#breakfast').on('dragover', 'li', allowDrop);
 //	$('#breakfast').on('drop', 'li img', drop);
+	$("body").on("click", ".rem", function() {
+		$(this).parent().remove();
+	});
 	fillVitAndMins();
 //	fillContent();
 }

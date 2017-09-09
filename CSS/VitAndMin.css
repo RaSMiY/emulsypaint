@@ -45,7 +45,16 @@ div {text-align: justify;}
 #vitandmins {border: 1px solid black; border-radius: 5px; height: 42.3em; text-align: center; padding: 0;}
 #description {text-align: justify; clear: both;}
 #description img {float: right; width: 10em; height: 10em;}
-.pocket {float:right; background-color: lightgrey;}
+.rem {
+	position: absolute;
+	top: 0.3em;
+	right: 0.3em;
+	margin-left: 5px;
+    background-color: white;
+    color: red;
+    border: none;
+    cursor: pointer;
+}
 
 .carousel-horizontal {
 	display: -ms-flexbox;
@@ -58,6 +67,7 @@ div {text-align: justify;}
 }
 
 .carousel-horizontal li {
+	position: relative;
 	padding: 1em 2em 1em 2em;
 	border: 1px dashed grey;
 }
