@@ -109,7 +109,9 @@ This file is part of VitAndMin project.
 						<div class="card-block">
 							<h4>Завтрак (<i>примерный список витаминов и минералов</i>)</h4>
 							<p><b>витамины:</b> B5, B12, K, H, D; <b>минералы:</b> кальций, хром; <b>каротиноиды:</b> лютеин, ликопин</p>
-								<ul id="breakfast" class="carousel-horizontal" ondrop="drop(event)" ondragover="allowDrop(event)"></ul>
+							<ul id="breakfast" class="carousel-horizontal" ondrop="drop(event)" ondragover="allowDrop(event)">
+								<li class="conflict"></li>
+							</ul>
 						<!--span class="pocket">Бросьте элемент сюда</span-->
 						</div>
 					</div>
@@ -132,7 +134,7 @@ This file is part of VitAndMin project.
 					<div class="card">
 						<div class="card-block">
 							<h4>Витамины</h4>
-							<ul id="vitandmins" class="carousel-vertical" ondrop="drop(event)" ondragover="allowDrop(event)">
+							<ul id="vitandmins" class="carousel-vertical">
 								<li><img id="image" src="RazumLogo.png" draggable="true" ondragstart="drag(event)" alt='КоБЛаБ "РАЗУМ"' title='КоБЛаБ "РАЗУМ"'/></li>
 							</ul>
 						</div>

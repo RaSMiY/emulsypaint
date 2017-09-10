@@ -335,21 +335,53 @@ function allowDrop(ev){
 }
 
 function drag(ev){
-	console.log("dragStart: target.id = " + ev.target.id);
+//	console.log("dragStart: target.id = " + ev.target.id);
 //	console.log("dragStart: target = ", $(ev.target).index());
 
-	ev.dataTransfer.setData('text/html', $(ev.target).parent('li').html());
+//	ev.dataTransfer.setData('text/html', $(ev.target).parent('li').html());
+	ev.dataTransfer.setData('text/html', getUniqueSelector(ev.target));
+	ev.dataTransfer.setData('text', $(ev.target).parent('ul').attr('id'));
 // console.log("dragStart: target.parent() = " + $(ev.target).parent());
 }
 
 function drop(ev){
 	ev.preventDefault();
-	var data = document.createElement('li');
-	data.innerHTML += ev.dataTransfer.getData('text/html');
-	$(data).append("<button class='rem'>X</button>");
+//	var data = document.createElement('li');
+//	data.innerHTML += ev.dataTransfer.getData('text/html');
+//	$(data).append("<button class='rem'>X</button>");
 	var tar= (ev.target.tagName=='UL')?$(ev.target):$(ev.target).parent('ul');
-	tar.append(data);
-//	$(tar).children(':last-child').attr('id', ev.target.id+'-'+)
+//	tar.append(data);
+
+	data1=ev.dataTransfer.getData('text/html');
+	data2=ev.dataTransfer.getData('text');
+	if (data2=='vitandmins') {
+		elem = $(data1).clone().append("<button class='rem'>X</button>");
+		console.log('$(data1)', $(data1));
+		console.log('$(data1).html()', $(elem).html());
+		$(tar).append(elem);
+	}
+	else {
+		if (data2!=$(tar).attr('id')) {
+			elem = $(data1).clone();
+			console.log('$(data1)', $(data1));
+			console.log('$(data1).html()', $(elem).html());
+			$(tar).append(elem);
+		}
+		else {
+			elem = $(data1);
+			console.log('$(data1)', $(data1));
+			console.log('$(data1).html()', $(elem).html());
+			$(tar).append(elem);
+		}
+	}
+//		tar.appendChild(document.querySelectorAll(data1)[0]);
+//		console.log('document.querySelectorAll(data1)[0]', document.querySelectorAll(data1));
+
+	console.log('ev.dataTransfer.getData("text/html"): ', data1);
+	console.log('ev.dataTransfer.getData("text"): ', data2);
+	console.log('tar.id = ', $(tar)[0].id);
+	
+	//	$(tar).children(':last-child').attr('id', ev.target.id+'-'+)
 //	alert(Object.keys(data)[0]);
 //	$(ev.target).append($(data));
 
@@ -368,12 +400,14 @@ function drop(ev){
  }*/
 }
 
-function dropCopy(ev){ //Исходная копия функции переноса
+
+
+/*function drop(ev){ //Исходная копия функции переноса
 	ev.preventDefault();
 	var data = ev.dataTransfer.getData('text');
 	ev.target.appendChild(document.getElementById(data));
 	
-}
+}*/
 
 //==================Конец блока перемещения объектов=====================================
 
@@ -383,15 +417,17 @@ function fillVitAndMins() {
 //	vitandmins.innerHTML='';
 	for (vit=0; vit<Vit_and_Min.length; vit++) {
 		elementV=document.createElement("li");
-//		elementV.innerHTML+='<img src="Pictures/PNG/'+Vit_and_Min[vit].pict+'"  draggable="true" ondragstart="drag(event)"'+' alt="'+Vit_and_Min[vit].alias[0]+'" />';
-		elementV.innerHTML+='<img src="Pictures/PNG/'+Vit_and_Min[vit].pict+'" alt="'+Vit_and_Min[vit].alias[0]+'" />';
+
+//		elementV.innerHTML+='<img src="Pictures/PNG/'+Vit_and_Min[vit].pict+'" alt="'+Vit_and_Min[vit].alias[0]+'" />';
+		$(elementV).addClass(Vit_and_Min[vit].alias[1]);
+		
 		$(elementV).attr('draggable', 'true');
-		$(elementV).attr('ondragstart', 'drag(event)')
+		$(elementV).attr('ondragstart', 'drag(event)');
 		
 //		elementv.lastchild.ondrop='dropEvent(Event)';
 //		elementv.lastchild.ondragover='allowDrop(Event)';
 //		$(elementV).children().eq(0).attr('draggable', 'True'); //не требуется, поскольку устаноавливается в html
-		$(elementV).attr('id', Vit_and_Min[vit].alias[1]);
+//		$(elementV).attr('id', Vit_and_Min[vit].alias[1]);
 		$(elementV).children(':first-child').attr('title', Vit_and_Min[vit].alias[0]);
 		p=document.createElement("p");
 		$(p).html(Vit_and_Min[vit].alias[0]);
@@ -401,6 +437,8 @@ function fillVitAndMins() {
 //		elementV.addEventListener('dragstart', drag); //не требуется, поскольку обработчик события устаноавливается в html
 		
 		vitandmins.append(elementV);
+
+		$('.'+Vit_and_Min[vit].alias[1]).css('background-image', 'url("Pictures/PNG/'+Vit_and_Min[vit].pict+'")');
 	}
 }
 //=========================Конец блока наполнения карусели витаминов=======================
