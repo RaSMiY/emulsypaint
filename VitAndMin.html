@@ -71,15 +71,15 @@ This file is part of VitAndMin project.
 	<body>
 	  <nav class="navbar navbar-expand-md sticky-top navbar-inverse bg-warning">
 		<div class="container-fluid">
-		  <a class="navbar-brand" href="#">Navbar</a>
+		  <a class="navbar-brand" href="http://razum.top"><img id="logo" src="RazumLogo.png" draggable="true" ondragstart="drag(event)" alt='КоБЛаБ "РАЗУМ"' title='КоБЛаБ "РАЗУМ"'/></a>
 		  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
 		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
 			  <li class="nav-item active">
-				<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+				<a class="nav-link" href="#" onclick="{$('#description').hide(); $('#kitchen').show();}">Главная <span class="sr-only">(current)</span></a>
 			  </li>
 			  <li class="nav-item">
-				<a class="nav-link" href="#">Features</a>
+				<a class="nav-link" href="#" onclick="{$('#description').show(); $('#kitchen').hide(); if ($('#description').html()=='') fillContent();}" >Описание</a>
 			  </li>
 			  <li class="nav-item">
 				<a class="nav-link" href="#">Pricing</a>
@@ -96,53 +96,52 @@ This file is part of VitAndMin project.
 		</div>
 	  </nav>
 
-		  <div class="py-5">
+		<div id="kitchen" class="py-5">
 			<div class="container-fluid">
-			  <div class="row">
-				<div class="col-md-12">
-					<h3 class="">Составьте ваш дневной рацион, с учётом рекомендуемого содержания витаминов и минералов, перетащив нужные продукты в области соответствующие меню завтрака, обеда и ужина</h3>
-				</div>
-			  </div>
-			  <div class="row">
-				<div class="col-md-11">
-					<div class="card">
-						<div class="card-block">
-							<h4>Завтрак (<i>примерный список витаминов и минералов</i>)</h4>
-							<p><b>витамины:</b> B5, B12, K, H, D; <b>минералы:</b> кальций, хром; <b>каротиноиды:</b> лютеин, ликопин</p>
-							<ul id="breakfast" class="carousel-horizontal" ondrop="drop(event)" ondragover="allowDrop(event)">
-								<li class="conflict"></li>
-							</ul>
-						<!--span class="pocket">Бросьте элемент сюда</span-->
+				<div class="row">
+					<div class="col-md-12">
+						<h3 class="">Составьте ваш дневной рацион, с учётом рекомендуемого содержания витаминов и минералов, перетащив нужные продукты в области соответствующие меню завтрака, обеда и ужина</h3>
+					</div>
+			  	</div>
+				<div class="row">
+					<div class="col-md-11">
+						<div class="card">
+							<div class="card-block">
+								<h4>Завтрак (<i>примерный список витаминов и минералов</i>)</h4>
+								<p><b>витамины:</b> B5, B12, K, H, D; <b>минералы:</b> кальций, хром; <b>каротиноиды:</b> лютеин, ликопин</p>
+								<ul id="breakfast" class="carousel-horizontal" ondrop="drop(event)" ondragover="allowDrop(event)">
+								</ul>
+							<!--span class="pocket">Бросьте элемент сюда</span-->
+							</div>
+						</div>
+						<div class="card">
+							<div class="card-block">
+								<h4>Обед (<i>примерный список витаминов и минералов</i>)</h4>
+								<p><b>витамины:</b> B2, B3, B6, C, E; <b>минералы:</b> магний, цинк, марганец, йод, молибден, селен; <b>каротиноиды:</b> бета-каротин; стоит добавить лесные ягоды</p>
+								<ul id="dinner" class="carousel-horizontal" ondrop="drop(event)" ondragover="allowDrop(event)"></ul>
+							</div>
+						</div>
+						<div class="card">
+							<div class="card-block">
+								<h4>Ужин (<i>примерный список витаминов и минералов</i>)</h4>
+								<p><b>витамины:</b> B1, B9, C, A; <b>минералы:</b> железо, медь</p>
+								<ul id="supper" class="carousel-horizontal" ondrop="drop(event)" ondragover="allowDrop(event)"></ul>
+							</div>
 						</div>
 					</div>
-					<div class="card">
-						<div class="card-block">
-							<h4>Обед (<i>примерный список витаминов и минералов</i>)</h4>
-							<p><b>витамины:</b> B2, B3, B6, C, E; <b>минералы:</b> магний, цинк, марганец, йод, молибден, селен; <b>каротиноиды:</b> бета-каротин; стоит добавить лесные ягоды</p>
-							<ul id="dinner" class="carousel-horizontal" ondrop="drop(event)" ondragover="allowDrop(event)"></ul>
-						</div>
-					</div>
-					<div class="card">
-						<div class="card-block">
-							<h4>Ужин (<i>примерный список витаминов и минералов</i>)</h4>
-							<p><b>витамины:</b> B1, B9, C, A; <b>минералы:</b> железо, медь</p>
-							<ul id="supper" class="carousel-horizontal" ondrop="drop(event)" ondragover="allowDrop(event)"></ul>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-1 ">
-					<div class="card">
-						<div class="card-block">
-							<h4>Витамины</h4>
-							<ul id="vitandmins" class="carousel-vertical">
-								<li><img id="image" src="RazumLogo.png" draggable="true" ondragstart="drag(event)" alt='КоБЛаБ "РАЗУМ"' title='КоБЛаБ "РАЗУМ"'/></li>
-							</ul>
+					<div class="col-md-1 ">
+						<div class="card">
+							<div class="card-block">
+								<h4>Витамины</h4>
+								<ul id="vitandmins" class="carousel-vertical">
+									<li><img id="image" src="RazumLogo.png" draggable="true" ondragstart="drag(event)" alt='КоБЛаБ "РАЗУМ"' title='КоБЛаБ "РАЗУМ"'/></li>
+								</ul>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 <!------------------------------------------------------------------------------------------------------>
 		<div id="description"></div>
 	</body>

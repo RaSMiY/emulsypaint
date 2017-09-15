@@ -37,7 +37,8 @@ This file is part of VitAndMin project.
 /*  *{margin:0;padding:0;}body{background:#222;} */
 
 div {text-align: justify;}
-#image {position: relative; top: 10%; width: 5em; height: 5em;}
+#image {position: relative; top: 0.4em; width: 4em; height: 4em;}
+#logo {width: 2em; height; 2em;}
 #contentArea {border: 1px solid black; border-radius: 5px;}
 #breakfast {border: 1px solid black; border-radius: 5px; height: 10em; padding: 0;}
 #dinner {border: 1px solid black; border-radius: 5px; height: 10em; padding: 0;}
@@ -50,7 +51,7 @@ div {text-align: justify;}
 	top: 0.3em;
 	right: 0.3em;
 	margin-left: 5px;
-    background-color: white;
+    background-color: rgba(255,255,255,0);
     color: red;
     border: none;
     cursor: pointer;
