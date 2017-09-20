@@ -37,7 +37,7 @@ This file is part of VitAndMin project.
 /*  *{margin:0;padding:0;}body{background:#222;} */
 
 div {text-align: justify;}
-#image {position: relative; top: 0.4em; width: 4em; height: 4em;}
+#image {position: relative; top: 0.7em; width: 4em; height: 4em;}
 #logo {width: 2em; height; 2em;}
 #contentArea {border: 1px solid black; border-radius: 5px;}
 #breakfast {border: 1px solid black; border-radius: 5px; height: 10em; padding: 0;}
@@ -86,7 +86,7 @@ div {text-align: justify;}
 }
 
 .carousel-vertical li {
-	padding: 1em 0em 1em 0em;
+	padding: 0.5em 0em 0.5em 0em;
 	border: 1px dashed grey;
 	position: relative;
 	height: 7em;
@@ -98,20 +98,23 @@ div {text-align: justify;}
 .carousel-vertical li img{
 	width: 3em;
 	height: 3em;
+	
 }
 
 .carousel-horizontal li p {
-	position: absolute;
+	text-align: center;
+/*	position: absolute;
 	bottom: 1.5em;
-	margin: 0;
+	margin: 0;*/
 /*	vertical-align: bottom;
 	display: inline-block;*/
 }
 
 .carousel-vertical li p {
-	position: absolute;
+	text-align: center;
+/*	position: absolute;
 	bottom: 0.5em;
-	margin: 0;
+	margin: 0;*/
 /*	vertical-align: bottom;
 	display: inline-block;*/
 }

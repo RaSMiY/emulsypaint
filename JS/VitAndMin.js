@@ -378,10 +378,17 @@ function allowDrop(ev){
 function drag(ev){
 //	console.log("dragStart: target.id = " + ev.target.id);
 //	console.log("dragStart: target = ", $(ev.target).index());
+//	var tar= (ev.target.tagName=='LI')?$(ev.target):$(ev.target).parent('ul');
+	switch (ev.target.tagName) {
+		case 'LI':
+			var tar = ev.target; console.log('тащим "li"', tar.classList); break;
+		case 'IMG':
+			var tar = ev.target.parentNode; console.log('тащим "img"', tar.classList); break;
+	}
 
 //	ev.dataTransfer.setData('text/html', $(ev.target).parent('li').html());
-	ev.dataTransfer.setData('text/html', getUniqueSelector(ev.target));
-	ev.dataTransfer.setData('text', $(ev.target).parent('ul').attr('id'));
+	ev.dataTransfer.setData('text/html', getUniqueSelector(tar));
+	ev.dataTransfer.setData('text', tar.parentNode.id);
 // console.log("dragStart: target.parent() = " + $(ev.target).parent());
 }
 
@@ -390,42 +397,54 @@ function drop(ev){
 //	var data = document.createElement('li');
 //	data.innerHTML += ev.dataTransfer.getData('text/html');
 //	$(data).append("<button class='rem'>X</button>");
-	var tar= (ev.target.tagName=='UL')?$(ev.target):$(ev.target).parent('ul');
+//	var tar= (ev.target.tagName=='UL')?ev.target:$(ev.target).parent('ul');
+	switch (ev.target.tagName) {
+		case 'UL':
+			var tar = ev.target; console.log('бросаем в "ul"', ev.target.id); break;
+		case 'LI':
+			var tar = ev.target.parentNode; console.log('бросаем в "li"', ev.target.classList[0]); break;
+		case 'IMG':
+			var tar = ev.target.parentNode.parentNode; console.log('бросаем в "img"', ev.target.classList[0]); break;
+		case 'P':
+			var tar = ev.target.parentNode.parentNode; console.log('бросаем в "p"', ev.target.parentNode.classList[0]); break;
+		case 'BUTTON':
+			var tar = ev.target.parentNode.parentNode; console.log('бросаем в "button"', ev.target.parentNode.classList[0]); break;
+	}
 //	tar.append(data);
 
 	data1=ev.dataTransfer.getData('text/html');
 	data2=ev.dataTransfer.getData('text');
 	if (data2=='vitandmins') {
-		elem = $(data1).clone().append("<button class='rem'>X</button>");
-		console.log('$(data1)', $(data1));
-		console.log('$(data1).html()', $(elem).html());
-		$(tar).append(elem);
+//		elem = $(data1).clone();
+		elem = document.querySelectorAll(data1)[0].cloneNode(true);
+		elem.innerHTML+="<button class='rem'>X</button>";
+		tar.appendChild(elem);
 	}
 	else {
-		if (data2!=$(tar).attr('id')) {
-			elem = $(data1).clone();
-			console.log('$(data1)', $(data1));
-			console.log('$(data1).html()', $(elem).html());
-			$(tar).append(elem);
-			checkCompatibility($(tar).attr('id'));
+		if (data2!=tar.id) {
+//			elem = $(data1).clone();
+			elem = document.querySelectorAll(data1)[0].cloneNode(true);
+			tar.appendChild(elem);
+			checkCompatibility(tar.id);
 		}
 		else {
-			elem = $(data1);
-			console.log('$(data1)', $(data1));
-			console.log('$(data1).html()', $(elem).html());
-			$(tar).append(elem);
+//			elem = $(data1);
+			elem = document.querySelectorAll(data1)[0];
+			tar.appendChild(elem);
 		}
 	}
 //		tar.appendChild(document.querySelectorAll(data1)[0]);
 //		console.log('document.querySelectorAll(data1)[0]', document.querySelectorAll(data1));
 
+	console.log('data1', elem);
+	console.log('data1.innerHTML', elem.innerHTML);
 	console.log('ev.dataTransfer.getData("text/html"): ', data1);
 	console.log('ev.dataTransfer.getData("text"): ', data2);
-	console.log('tar.id = ', $(tar)[0].id);
-	console.log('menu ' + $(tar)[0].id, menu($(tar)[0].id));
+	console.log('tar.id = ', tar.id);
+	console.log('menu ' + tar.id, menu(tar.id));
 
 //проверка элементов списка на совместимость и включение соответствующей подсветки
-	checkCompatibility($(tar)[0].id);
+	checkCompatibility(tar.id);
 	
 	//	$(tar).children(':last-child').attr('id', ev.target.id+'-'+)
 //	alert(Object.keys(data)[0]);
@@ -464,11 +483,12 @@ function fillVitAndMins() {
 	for (vit=0; vit<Vit_and_Min.length; vit++) {
 		elementV=document.createElement("li");
 
-//		elementV.innerHTML+='<img src="Pictures/PNG/'+Vit_and_Min[vit].pict+'" alt="'+Vit_and_Min[vit].alias[0]+'" />';
+		elementV.innerHTML+='<img src="Pictures/PNG/'+Vit_and_Min[vit].pict+'" alt="'+Vit_and_Min[vit].alias[0]+'" />';
 		$(elementV).addClass(Vit_and_Min[vit].alias[1]);
 		
 		$(elementV).attr('draggable', 'true');
-		$(elementV).attr('ondragstart', 'drag(event)');
+//		$(elementV).on('dragstart', drag, true);
+		elementV.addEventListener('dragstart', drag, true);
 		
 //		elementv.lastchild.ondrop='dropEvent(Event)';
 //		elementv.lastchild.ondragover='allowDrop(Event)';
@@ -484,7 +504,7 @@ function fillVitAndMins() {
 		
 		vitandmins.append(elementV);
 
-		$('.'+Vit_and_Min[vit].alias[1]).css('background-image', 'url("Pictures/PNG/'+Vit_and_Min[vit].pict+'")');
+//		$('.'+Vit_and_Min[vit].alias[1]).css('background-image', 'url("Pictures/PNG/'+Vit_and_Min[vit].pict+'")');
 	}
 }
 //=========================Конец блока наполнения карусели витаминов=======================
@@ -539,8 +559,9 @@ onload = function() {
 //	$('#breakfast').on('dragover', 'li', allowDrop);
 //	$('#breakfast').on('drop', 'li img', drop);
 	$("body").on("click", ".rem", function() {
-		checkCompatibility($(this).parent().parent().attr('id'));
-		$(this).parent().remove();
+		data2=this.parentNode.parentNode.id;
+		this.parentNode.parentNode.removeChild(this.parentNode);
+		checkCompatibility(data2);
 	});
 	fillVitAndMins();
 //	fillContent();
