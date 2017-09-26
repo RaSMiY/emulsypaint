@@ -4,14 +4,12 @@
 	<head>
 		<title>Составьте дневной рацион с учётом витаминов и минералов и их взаимной совместимости</title>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!--meta name="viewport" content="width=device-width, initial-scale=1"-->
+		<meta name="viewport" content="width=960px">
 
 		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" />
 		<link rel="stylesheet" type="text/css" href="CSS/VitAndMin.css" media="all" />
 
-		<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
-		<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="JS/VitAndMin.js"></script>
 	</head>
 
 	<!-- Created by SMiY-->
@@ -82,7 +80,7 @@ This file is part of VitAndMin project.
 				<a class="nav-link" href="#" onclick="{$('#description').show(); $('#kitchen').hide(); if ($('#description').html()=='') fillContent();}" >Описание</a>
 			  </li>
 			  <li class="nav-item">
-				<a class="nav-link" href="#">Pricing</a>
+				<a class="nav-link" href="#">Таблица совместимости</a>
 			  </li>
 			  <li class="nav-item">
 				<a class="nav-link" href="#">About</a>
@@ -144,5 +142,8 @@ This file is part of VitAndMin project.
 		</div>
 <!------------------------------------------------------------------------------------------------------>
 		<div id="description"></div>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+		<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="JS/VitAndMin.js"></script>
 	</body>
 </html>

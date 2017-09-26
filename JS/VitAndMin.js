@@ -308,35 +308,20 @@ function getUniqueSelector(element) {
 	}
 	uniqueSelector = 'body'+uniqueSelector;
 	return uniqueSelector;
-//	par = ev.target;
-//	console.log('par.parentNode.tagName =',par.parentNode.tagName);
-//	console.log('par.previousElementSibling =',par.previousElementSibling);
-
-//	console.log('uniqueSelector =',uniqueSelector);
-//	console.log('uniqueSelector details = ',$(uniqueSelector).parent().html());
-//	console.log('относительный индекс элемента: ', $('body').index(ev.target));
-	
-	//	ev.dataTransfer.setData('text',  ev.target.id);
-//	alert($(ev.target).parent().length);
-//	$(ev.target).parent().attr('id'
 }
 
 function ind(el) {
 // возвращает индекс элемента  el в массиве  Vit_and_Mins
-	for (vit=0; vit<Vit_and_Min.length; vit++) {
-		if (Vit_and_Min[vit].alias[1]==el) {
-			//console.log('проверка индекса элемента ' + el, Vit_and_Min[vit].alias[1]); 
-			return vit};
-	}
+	for (vit=0; vit<Vit_and_Min.length; vit++)
+		if (Vit_and_Min[vit].alias[1]==el) return vit;
 }
 
 function menu(cat) {
 // Функция возвращает список продуктов в соответствующем меню
+// на вход подаётся id соответствующего списка
 	list=[];
-//	console.log('составляем меню #' , cat);
-	for (i=0; i<document.getElementById(cat).children.length; i++) {
+	for (i=0; i<document.getElementById(cat).children.length; i++) 
 		list.push(document.getElementById(cat).children[i].classList.item(0));
-	}
 	return list;
 }
 
@@ -346,6 +331,7 @@ function checkCompatibility(cat) {
 //конфликтующие, зелёным - блогоприятствующие друг другу и отсутствие цвета говорит о нейтральном влиянии
 //друг на друга
 	list=menu(cat);
+	console.log('функция checkCompatibility(); menu(cat)=', list);
 	for (i=0; i<document.getElementById(cat).children.length; i++) {
 		document.getElementById(cat).children[i].classList.remove('conflict', 'support');
 		for (j in list) {
@@ -366,19 +352,14 @@ function checkCompatibility(cat) {
 
 //==================Перемещение объектов===============================================
 function allowDrop(ev){
-//	alert(ev.target.tagName); 
 	if (ev.target.tagName!='IMG') {
 		ev.preventDefault();
-	 // Set the dropEffect to move
+// Set the dropEffect to move
 		ev.dataTransfer.dropEffect = "move"
 	}
-//else {ev=$(ev).target.parent().trigger('DragOver'); ev.preventDefault(); alert(ev.target.id);} //попытка сделать вставку рядом с изображением, а не внутрь тега изображения
 }
 
 function drag(ev){
-//	console.log("dragStart: target.id = " + ev.target.id);
-//	console.log("dragStart: target = ", $(ev.target).index());
-//	var tar= (ev.target.tagName=='LI')?$(ev.target):$(ev.target).parent('ul');
 	switch (ev.target.tagName) {
 		case 'LI':
 			var tar = ev.target; console.log('тащим "li"', tar.classList); break;
@@ -386,50 +367,47 @@ function drag(ev){
 			var tar = ev.target.parentNode; console.log('тащим "img"', tar.classList); break;
 	}
 
-//	ev.dataTransfer.setData('text/html', $(ev.target).parent('li').html());
+	ev.dataTransfer = ev.originalEvent.dataTransfer;
 	ev.dataTransfer.setData('text/html', getUniqueSelector(tar));
 	ev.dataTransfer.setData('text', tar.parentNode.id);
-// console.log("dragStart: target.parent() = " + $(ev.target).parent());
+ console.log('dragStart uniqueSelector: ', getUniqueSelector(tar));
 }
 
 function drop(ev){
 	ev.preventDefault();
-//	var data = document.createElement('li');
-//	data.innerHTML += ev.dataTransfer.getData('text/html');
-//	$(data).append("<button class='rem'>X</button>");
-//	var tar= (ev.target.tagName=='UL')?ev.target:$(ev.target).parent('ul');
 	switch (ev.target.tagName) {
 		case 'UL':
 			var tar = ev.target; console.log('бросаем в "ul"', ev.target.id); break;
 		case 'LI':
 			var tar = ev.target.parentNode; console.log('бросаем в "li"', ev.target.classList[0]); break;
 		case 'IMG':
-			var tar = ev.target.parentNode.parentNode; console.log('бросаем в "img"', ev.target.classList[0]); break;
+			var tar = ev.target.parentNode.parentNode; console.log('бросаем в "img"', ev.target.parentNode.classList[0]); break;
 		case 'P':
 			var tar = ev.target.parentNode.parentNode; console.log('бросаем в "p"', ev.target.parentNode.classList[0]); break;
 		case 'BUTTON':
 			var tar = ev.target.parentNode.parentNode; console.log('бросаем в "button"', ev.target.parentNode.classList[0]); break;
 	}
-//	tar.append(data);
 
 	data1=ev.dataTransfer.getData('text/html');
 	data2=ev.dataTransfer.getData('text');
+	
 	if (data2=='vitandmins') {
-//		elem = $(data1).clone();
 		elem = document.querySelectorAll(data1)[0].cloneNode(true);
 		elem.innerHTML+="<button class='rem'>X</button>";
 		tar.appendChild(elem);
 	}
 	else {
 		if (data2!=tar.id) {
-//			elem = $(data1).clone();
-			elem = document.querySelectorAll(data1)[0].cloneNode(true);
+			elem = document.querySelectorAll(data1)[0];
+			console.log('функция drop(ev); document.querySelectorAll(data1)[0]=', elem.tagName);
+			console.log('функция drop(ev); data1=', data1);
 			tar.appendChild(elem);
+			checkCompatibility(data2);
 			checkCompatibility(tar.id);
 		}
 		else {
-//			elem = $(data1);
 			elem = document.querySelectorAll(data1)[0];
+			console.log('функция drop(ev); document.querySelectorAll(data1)[0]=', elem.tagName);
 			tar.appendChild(elem);
 		}
 	}
@@ -488,7 +466,7 @@ function fillVitAndMins() {
 		
 		$(elementV).attr('draggable', 'true');
 //		$(elementV).on('dragstart', drag, true);
-		elementV.addEventListener('dragstart', drag, true);
+//		elementV.addEventListener('dragstart', drag, true);
 		
 //		elementv.lastchild.ondrop='dropEvent(Event)';
 //		elementv.lastchild.ondragover='allowDrop(Event)';
@@ -558,11 +536,12 @@ onload = function() {
 //	$('#breakfast').on('drop', 'li', drop);
 //	$('#breakfast').on('dragover', 'li', allowDrop);
 //	$('#breakfast').on('drop', 'li img', drop);
-	$("body").on("click", ".rem", function() {
+	$("#kitchen").on("click", ".rem", function() {
 		data2=this.parentNode.parentNode.id;
 		this.parentNode.parentNode.removeChild(this.parentNode);
 		checkCompatibility(data2);
 	});
+	$("#kitchen").on("dragstart", "img", drag); 
 	fillVitAndMins();
 //	fillContent();
 }
