@@ -44,8 +44,34 @@ div {text-align: justify;}
 #dinner {border: 1px solid black; border-radius: 5px; height: 10em; padding: 0;}
 #supper {border: 1px solid black; border-radius: 5px; height: 10em; padding: 0;}
 #vitandmins {border: 1px solid black; border-radius: 5px; height: 42.3em; text-align: center; padding: 0;}
-#description {text-align: justify; clear: both;}
+#description {text-align: justify; clear: both; display: none;}
 #description img {float: right; width: 10em; height: 10em;}
+
+#table-of-compatibility {
+	display: none;
+	padding: 2em;
+}
+table {
+    width:100%;
+}
+table, th, td {
+    border: 1px solid black;
+}
+th, td {
+    padding: 5px;
+    text-align: left;
+}
+table tr:nth-child(even) {
+    background-color: #eee;
+}
+table tr:nth-child(odd) {
+   background-color:#fff;
+}
+table th, table tr td:first-child {
+    background-color: orange;
+    color: purple;
+}
+
 .rem {
 	position: absolute;
 	top: 0.3em;

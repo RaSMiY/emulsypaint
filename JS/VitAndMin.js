@@ -303,7 +303,7 @@ function getUniqueSelector(element) {
 			count++;
 			prev=prev.previousElementSibling;
 		}
-		uniqueSelector = ' :nth-child(' + count + ')'+uniqueSelector;
+		uniqueSelector = '>:nth-child(' + count + ')'+uniqueSelector;
 		par = par.parentNode;
 	}
 	uniqueSelector = 'body'+uniqueSelector;
@@ -331,7 +331,7 @@ function checkCompatibility(cat) {
 //конфликтующие, зелёным - блогоприятствующие друг другу и отсутствие цвета говорит о нейтральном влиянии
 //друг на друга
 	list=menu(cat);
-	console.log('функция checkCompatibility(); menu(cat)=', list);
+//	console.log('функция checkCompatibility(); menu(cat)=', list);
 	for (i=0; i<document.getElementById(cat).children.length; i++) {
 		document.getElementById(cat).children[i].classList.remove('conflict', 'support');
 		for (j in list) {
@@ -351,6 +351,7 @@ function checkCompatibility(cat) {
 
 
 //==================Перемещение объектов===============================================
+/* Turned-off because dragging made by using Dragula api
 function allowDrop(ev){
 	if (ev.target.tagName!='IMG') {
 		ev.preventDefault();
@@ -426,9 +427,9 @@ function drop(ev){
 	
 	//	$(tar).children(':last-child').attr('id', ev.target.id+'-'+)
 //	alert(Object.keys(data)[0]);
-//	$(ev.target).append($(data));
+//	$(ev.target).append($(data));*/
 
-/* //вывод сведений в консоль
+/*//вывод сведений в консоль
 // Print each format type
  if (ev.dataTransfer.types != null) {
    for (var i=0; i < ev.dataTransfer.types.length; i++) {
@@ -441,7 +442,7 @@ function drop(ev){
      console.log("... items[" + i + "].kind = " + ev.dataTransfer.items[i].kind + " ; type = " + ev.dataTransfer.items[i].type);
    }
  }*/
-}
+//}
 
 
 
@@ -464,21 +465,11 @@ function fillVitAndMins() {
 		elementV.innerHTML+='<img src="Pictures/PNG/'+Vit_and_Min[vit].pict+'" alt="'+Vit_and_Min[vit].alias[0]+'" />';
 		$(elementV).addClass(Vit_and_Min[vit].alias[1]);
 		
-		$(elementV).attr('draggable', 'true');
-//		$(elementV).on('dragstart', drag, true);
-//		elementV.addEventListener('dragstart', drag, true);
-		
-//		elementv.lastchild.ondrop='dropEvent(Event)';
-//		elementv.lastchild.ondragover='allowDrop(Event)';
-//		$(elementV).children().eq(0).attr('draggable', 'True'); //не требуется, поскольку устаноавливается в html
-//		$(elementV).attr('id', Vit_and_Min[vit].alias[1]);
 		$(elementV).children(':first-child').attr('title', Vit_and_Min[vit].alias[0]);
 		p=document.createElement("p");
 		$(p).html(Vit_and_Min[vit].alias[0]);
 		elementV.append(p);
 		
-//		$(elementV).children().eq(0).on('dragstart', drag);  // не работает совместно с JavaScript event
-//		elementV.addEventListener('dragstart', drag); //не требуется, поскольку обработчик события устаноавливается в html
 		
 		vitandmins.append(elementV);
 
@@ -486,6 +477,51 @@ function fillVitAndMins() {
 	}
 }
 //=========================Конец блока наполнения карусели витаминов=======================
+
+//=============================Создание таблицы совместимости===========================
+function fillTableOfComatibility() {
+	elTable=document.createElement("table");
+	elTableBody=document.createElement("tbody");
+//	Создаём названия столбцов
+	elRow=document.createElement("tr");
+	elCell=document.createElement("th"); //пустая ячейка с координатами [0;0]
+	elRow.append(elCell);
+	for (vjt=0; vjt<Vit_and_Min.length; vjt++) {
+		elCell=document.createElement("th");
+		elName=document.createElement("p");
+		elName.innerHTML+=Vit_and_Min[vjt].alias[0];
+		elCell.append(elName);
+		elRow.append(elCell);
+	}
+	elTableBody.append(elRow);
+//	конец блока создания названий столбцов
+
+//	создаём и заполняем строки
+	for (vit=0; vit<Vit_and_Min.length; vit++) {
+		elRow=document.createElement("tr");
+//	первая ячейка каждой строки содержит название элемента
+		elCell=document.createElement("td");
+		elName=document.createElement("p");
+		elName.innerHTML+='<b>'+Vit_and_Min[vit].alias[0]+'</b>';
+		elCell.append(elName);
+		elRow.append(elCell);
+//	конец блока создания первой ячейки
+		for (vjt=0; vjt<Vit_and_Min.length; vjt++) {
+			elCell=document.createElement("td");
+			elComp=document.createElement("p");
+			elComp.innerHTML+=Vit_and_Min[vit].compatibility[Vit_and_Min[vjt].alias[1]];
+			elCell.append(elComp);
+			elRow.append(elCell);
+		}
+		elTableBody.append(elRow);
+	}
+//	конец блока создания строк
+	
+	elTable.append(elTableBody);
+	compatibilityTable=document.getElementById('table-of-compatibility');
+	compatibilityTable.append(elTable);
+}
+//=====================конец блока создания таблицы совместимости===========================
 
 //=========================Наполнение страницы=========================================
 function fillContent() {
@@ -533,17 +569,15 @@ function fillContent() {
 
 //===============================Пусковая функция================================
 onload = function() {
-//	$('#breakfast').on('drop', 'li', drop);
-//	$('#breakfast').on('dragover', 'li', allowDrop);
-//	$('#breakfast').on('drop', 'li img', drop);
-	$("#kitchen").on("click", ".rem", function() {
+/*	$("#kitchen").on("click", ".rem", function() {
 		data2=this.parentNode.parentNode.id;
 		this.parentNode.parentNode.removeChild(this.parentNode);
 		checkCompatibility(data2);
-	});
+	});*/
 //	$("#kitchen").on("dragstart", "img", drag); 
 	fillVitAndMins();
-	dragula([document.getElementById('vitandmins'), document.getElementById('breakfast'), document.getElementById('dinner'), document.getElementById('supper')], {
+	fillTableOfComatibility();
+	drake = dragula([document.getElementById('vitandmins'), document.getElementById('breakfast'), document.getElementById('dinner'), document.getElementById('supper')], {
 		copy: function (el, source) {
 			return source === document.getElementById('vitandmins')
 		},
@@ -553,7 +587,8 @@ onload = function() {
 		removeOnSpill: true,
 		ignoreInputTextSelection: true,
 		direction: 'horizontal'
-	}).on('drop', function(el, target, source, sibling) {
+	});
+	drake.on('drop', function(el, target, source, sibling) {
 			checkCompatibility(target.id)
 			if (source.id !== 'vitandmins') {
 				checkCompatibility(source.id)

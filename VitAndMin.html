@@ -75,13 +75,13 @@ This file is part of VitAndMin project.
 		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
 			  <li class="nav-item active">
-				<a class="nav-link" href="#" onclick="{$('#description').hide(); $('#kitchen').show();}">Главная <span class="sr-only">(current)</span></a>
+				<a class="nav-link" href="#" onclick="{$('#description').hide(); $('#table-of-compatibility').hide(); $('#kitchen').show();}">Главная <span class="sr-only">(current)</span></a>
 			  </li>
 			  <li class="nav-item">
-				<a class="nav-link" href="#" onclick="{$('#description').show(); $('#kitchen').hide(); if ($('#description').html()=='') fillContent();}" >Описание</a>
+				<a class="nav-link" href="#" onclick="{$('#description').show();  $('#table-of-compatibility').hide(); $('#kitchen').hide(); if ($('#description').html()=='') fillContent();}" >Описание</a>
 			  </li>
 			  <li class="nav-item">
-				<a class="nav-link" href="#">Таблица совместимости</a>
+				<a class="nav-link" href="#" onclick="{$('#description').hide();  $('#table-of-compatibility').show(); $('#kitchen').hide();}">Таблица совместимости</a>
 			  </li>
 			  <li class="nav-item">
 				<a class="nav-link" href="#">About</a>
@@ -134,7 +134,7 @@ This file is part of VitAndMin project.
 							<div class="card-block">
 								<h4>Витамины</h4>
 								<ul id="vitandmins" class="carousel-vertical">
-									<li><img id="image" src="RazumLogo.png" draggable="true" ondragstart="drag(event)" alt='КоБЛаБ "РАЗУМ"' title='КоБЛаБ "РАЗУМ"'/></li>
+									<!--li><img id="image" src="RazumLogo.png" draggable="true" ondragstart="drag(event)" alt='КоБЛаБ "РАЗУМ"' title='КоБЛаБ "РАЗУМ"'/></li-->
 								</ul>
 							</div>
 						</div>
@@ -144,9 +144,11 @@ This file is part of VitAndMin project.
 		</div>
 <!------------------------------------------------------------------------------------------------------>
 		<div id="description"></div>
+		<div id="table-of-compatibility"></div>
 		<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.5/umd/popper.js" integrity="sha256-qT83xcMtAwodgxtQI7aym8kykPVCPeuvR8g7ZERSgFk=" crossorigin="anonymous"></script>
 		<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
-		<script src='https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.2/dragula.min.js'></script>
+		<script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.2/dragula.min.js'></script>
 		<script type="text/javascript" src="JS/VitAndMin.js"></script>
 	</body>
 </html>
