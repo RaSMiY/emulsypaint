@@ -5,9 +5,10 @@
 		<title>Составьте дневной рацион с учётом витаминов и минералов и их взаимной совместимости</title>
 		<meta charset="UTF-8" />
 		<!--meta name="viewport" content="width=device-width, initial-scale=1"-->
-		<meta name="viewport" content="width=960px">
+		<meta name="viewport" content="width=device-width">
 
 		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href='https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.2/dragula.min.css' />
 		<link rel="stylesheet" type="text/css" href="CSS/VitAndMin.css" media="all" />
 
 	</head>
@@ -99,6 +100,7 @@ This file is part of VitAndMin project.
 				<div class="row">
 					<div class="col-md-12">
 						<h3 class="">Составьте ваш дневной рацион, с учётом рекомендуемого содержания витаминов и минералов, перетащив нужные продукты в области соответствующие меню завтрака, обеда и ужина</h3>
+						<h6>Наполняйте меню, перетаскивая элементы из правого списка или из одного списка в другой. Чтобы удалить элемент, перетащите его на пространство вне списков.</h6>
 					</div>
 			  	</div>
 				<div class="row">
@@ -107,7 +109,7 @@ This file is part of VitAndMin project.
 							<div class="card-block">
 								<h4>Завтрак (<i>примерный список витаминов и минералов</i>)</h4>
 								<p><b>витамины:</b> B5, B12, K, H, D; <b>минералы:</b> кальций, хром; <b>каротиноиды:</b> лютеин, ликопин</p>
-								<ul id="breakfast" class="carousel-horizontal" ondrop="drop(event)" ondragover="allowDrop(event)">
+								<ul id="breakfast" class="carousel-horizontal">
 								</ul>
 							<!--span class="pocket">Бросьте элемент сюда</span-->
 							</div>
@@ -116,14 +118,14 @@ This file is part of VitAndMin project.
 							<div class="card-block">
 								<h4>Обед (<i>примерный список витаминов и минералов</i>)</h4>
 								<p><b>витамины:</b> B2, B3, B6, C, E; <b>минералы:</b> магний, цинк, марганец, йод, молибден, селен; <b>каротиноиды:</b> бета-каротин; стоит добавить лесные ягоды</p>
-								<ul id="dinner" class="carousel-horizontal" ondrop="drop(event)" ondragover="allowDrop(event)"></ul>
+								<ul id="dinner" class="carousel-horizontal"></ul>
 							</div>
 						</div>
 						<div class="card">
 							<div class="card-block">
 								<h4>Ужин (<i>примерный список витаминов и минералов</i>)</h4>
 								<p><b>витамины:</b> B1, B9, C, A; <b>минералы:</b> железо, медь</p>
-								<ul id="supper" class="carousel-horizontal" ondrop="drop(event)" ondragover="allowDrop(event)"></ul>
+								<ul id="supper" class="carousel-horizontal"></ul>
 							</div>
 						</div>
 					</div>
@@ -144,6 +146,7 @@ This file is part of VitAndMin project.
 		<div id="description"></div>
 		<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
 		<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.2/dragula.min.js'></script>
 		<script type="text/javascript" src="JS/VitAndMin.js"></script>
 	</body>
 </html>

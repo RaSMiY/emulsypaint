@@ -541,8 +541,24 @@ onload = function() {
 		this.parentNode.parentNode.removeChild(this.parentNode);
 		checkCompatibility(data2);
 	});
-	$("#kitchen").on("dragstart", "img", drag); 
+//	$("#kitchen").on("dragstart", "img", drag); 
 	fillVitAndMins();
+	dragula([document.getElementById('vitandmins'), document.getElementById('breakfast'), document.getElementById('dinner'), document.getElementById('supper')], {
+		copy: function (el, source) {
+			return source === document.getElementById('vitandmins')
+		},
+		accepts: function (el, target) {
+			return target !== document.getElementById('vitandmins')
+		},
+		removeOnSpill: true,
+		ignoreInputTextSelection: true,
+		direction: 'horizontal'
+	}).on('drop', function(el, target, source, sibling) {
+			checkCompatibility(target.id)
+			if (source.id !== 'vitandmins') {
+				checkCompatibility(source.id)
+			}
+		});
 //	fillContent();
 }
 //===============================Конец пусковой функции================================
