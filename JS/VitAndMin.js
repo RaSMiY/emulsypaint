@@ -465,7 +465,11 @@ function fillVitAndMins() {
 		elementV.innerHTML+='<img src="Pictures/PNG/'+Vit_and_Min[vit].pict+'" alt="'+Vit_and_Min[vit].alias[0]+'" />';
 		$(elementV).addClass(Vit_and_Min[vit].alias[1]);
 		
-		$(elementV).children(':first-child').attr('title', Vit_and_Min[vit].alias[0]);
+		title='Источники: ';
+		for (i in Vit_and_Min[vit].sources) {
+			i!=Vit_and_Min[vit].sources.length-1?title+=Vit_and_Min[vit].sources[i]+', ':title+=Vit_and_Min[vit].sources[i];
+		}
+		$(elementV).children(':first-child').attr('title', title);
 		p=document.createElement("p");
 		$(p).html(Vit_and_Min[vit].alias[0]);
 		elementV.append(p);
@@ -528,7 +532,7 @@ function fillContent() {
 	description=document.getElementById('description');
 	for (vit=0; vit<Vit_and_Min.length; vit++) {
 		element=document.createElement("div");
-
+		
 		element.innerHTML+='<img src="Pictures/PNG/'+Vit_and_Min[vit].pict+'" alt="'+Vit_and_Min[vit].alias[0]+'" />';
 		
 		element.innerHTML+='<h2>'+(vit+1)+'. '+Vit_and_Min[vit].alias[0]+'</h2><p></p>';
@@ -582,7 +586,7 @@ onload = function() {
 			return source === document.getElementById('vitandmins')
 		},
 		accepts: function (el, target) {
-			return target !== document.getElementById('vitandmins')
+			return (target !== document.getElementById('vitandmins'))&&(menu(target.id).toString().indexOf(el.classList.item(0))==menu(target.id).toString().lastIndexOf(el.classList.item(0)));
 		},
 		removeOnSpill: true,
 		ignoreInputTextSelection: true,
