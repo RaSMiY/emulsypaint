@@ -325,6 +325,15 @@ function menu(cat) {
 	return list;
 }
 
+function contains(list, el) {
+// Возвращает число вхождений элемента el в массив list
+	count=0;
+	for (i in list) {
+		if (list[i]==el) count++;
+	}
+	return count;
+}
+
 function checkCompatibility(cat) {
 //В качестве входного аргумента указываем id завтрака, обеда или ужина.
 //Функция раскрашивает элементы списка в соответствии с их взаимной совместимостью - красным подсвечивает
@@ -514,6 +523,13 @@ function fillTableOfComatibility() {
 			elCell=document.createElement("td");
 			elComp=document.createElement("p");
 			elComp.innerHTML+=Vit_and_Min[vit].compatibility[Vit_and_Min[vjt].alias[1]];
+			if (vit==vjt) {
+				elCell.classList.toggle("self");
+			} else if (Vit_and_Min[vit].compatibility[Vit_and_Min[vjt].alias[1]]>0) {
+				elCell.classList.toggle("support");
+			} else if (Vit_and_Min[vit].compatibility[Vit_and_Min[vjt].alias[1]]<0) {
+				elCell.classList.toggle("conflict");
+			}
 			elCell.append(elComp);
 			elRow.append(elCell);
 		}
@@ -583,20 +599,22 @@ onload = function() {
 	fillTableOfComatibility();
 	drake = dragula([document.getElementById('vitandmins'), document.getElementById('breakfast'), document.getElementById('dinner'), document.getElementById('supper')], {
 		copy: function (el, source) {
-			return source === document.getElementById('vitandmins')
+			return source === document.getElementById('vitandmins');
 		},
 		accepts: function (el, target) {
-			return (target !== document.getElementById('vitandmins'))&&(menu(target.id).toString().indexOf(el.classList.item(0))==menu(target.id).toString().lastIndexOf(el.classList.item(0)));
+			return (target !== document.getElementById('vitandmins'))&&(contains(menu(target.id),el.classList.item(0))<=1);
 		},
 		removeOnSpill: true,
 		ignoreInputTextSelection: true,
 		direction: 'horizontal'
-	});
-	drake.on('drop', function(el, target, source, sibling) {
+	}).on('drop', function(el, target, source, sibling) {
 			checkCompatibility(target.id)
 			if (source.id !== 'vitandmins') {
 				checkCompatibility(source.id)
 			}
+		})
+		.on('remove', function(el, container, source) {
+			checkCompatibility(source.id);
 		});
 //	fillContent();
 }
