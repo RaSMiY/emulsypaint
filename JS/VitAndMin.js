@@ -342,18 +342,51 @@ function checkCompatibility(cat) {
 	list=menu(cat);
 //	console.log('функция checkCompatibility(); menu(cat)=', list);
 	for (i=0; i<document.getElementById(cat).children.length; i++) {
-		document.getElementById(cat).children[i].classList.remove('conflict', 'support');
+		element=document.getElementById(cat).children[i];
+		element.classList.remove('conflict', 'support', 'support-n-conflict');
+		element.removeAttribute('support');
+		element.removeAttribute('conflict');
+
+		if (name=document.getElementById(cat).children[i].classList.item(0)=='razum')
+			continue; //проверка необходима на случай  присутствия отладочных элементов в списке
+
 		for (j in list) {
-			name=document.getElementById(cat).children[i].classList.item(0);
+			// для каждого элемента в меню строим списки конфликтов и поддержек
+			name=document.getElementById(cat).children[i].classList.item(0); 
+			
 			if (Vit_and_Min[ind(name)].compatibility[list[j]]<0) {
-				document.getElementById(cat).children[i].classList.add('conflict');
+				if (element.hasAttribute('conflict')) {
+					element.setAttribute('conflict', element.getAttribute('conflict')+' '+list[j]);
+//					console.log('conflict add', element.getAttribute('conflict'), list);
+				}
+				else {
+					element.setAttribute("conflict", list[j]);
+//					console.log('conflict new', element.getAttribute('conflict'), list);
+				}
 			}
 			else {
 				if (Vit_and_Min[ind(name)].compatibility[list[j]]>0) {
-					document.getElementById(cat).children[i].classList.add('support');
+					if (element.hasAttribute('support')) {
+						element.setAttribute('support', element.getAttribute('support')+' '+list[j]);
+//						console.log('support add', element.getAttribute('support'), list);
+					}
+					else {
+						element.setAttribute("support", list[j]);
+//						console.log('support new', element.getAttribute('support'), list);
+					}
 				}
 			}
 		}
+
+//	теперь, в зависимости от наличиствующих списков, назначаем класс
+		if (element.hasAttribute("support")&&element.hasAttribute("conflict")) 
+			element.classList.add('support-n-conflict');
+		else 
+			if (element.hasAttribute("conflict")) 
+				element.classList.add('conflict');
+			else 
+				if (element.hasAttribute("support")) 
+					element.classList.add('support');
 	}
 }
 //===========================конец блока вспомогательных функций==========================
@@ -494,52 +527,83 @@ function fillVitAndMins() {
 //=============================Создание таблицы совместимости===========================
 function fillTableOfComatibility() {
 	elTable=document.createElement("table");
-	elTableBody=document.createElement("tbody");
-//	Создаём названия столбцов
-	elRow=document.createElement("tr");
-	elCell=document.createElement("th"); //пустая ячейка с координатами [0;0]
-	elRow.append(elCell);
-	for (vjt=0; vjt<Vit_and_Min.length; vjt++) {
-		elCell=document.createElement("th");
-		elName=document.createElement("p");
-		elName.innerHTML+=Vit_and_Min[vjt].alias[0];
-		elCell.append(elName);
-		elRow.append(elCell);
-	}
-	elTableBody.append(elRow);
-//	конец блока создания названий столбцов
-
-//	создаём и заполняем строки
-	for (vit=0; vit<Vit_and_Min.length; vit++) {
-		elRow=document.createElement("tr");
-//	первая ячейка каждой строки содержит название элемента
-		elCell=document.createElement("td");
-		elName=document.createElement("p");
-		elName.innerHTML+='<b>'+Vit_and_Min[vit].alias[0]+'</b>';
-		elCell.append(elName);
-		elRow.append(elCell);
-//	конец блока создания первой ячейки
-		for (vjt=0; vjt<Vit_and_Min.length; vjt++) {
-			elCell=document.createElement("td");
-			elComp=document.createElement("p");
-			elComp.innerHTML+=Vit_and_Min[vit].compatibility[Vit_and_Min[vjt].alias[1]];
-			if (vit==vjt) {
-				elCell.classList.toggle("self");
-			} else if (Vit_and_Min[vit].compatibility[Vit_and_Min[vjt].alias[1]]>0) {
-				elCell.classList.toggle("support");
-			} else if (Vit_and_Min[vit].compatibility[Vit_and_Min[vjt].alias[1]]<0) {
-				elCell.classList.toggle("conflict");
-			}
-			elCell.append(elComp);
+//	Создаём заглавную строку (названия столбцов)
+		elTableHead=document.createElement("thead");
+			elRow=document.createElement("tr");
+				elCell=document.createElement("th"); //первая ячейка с координатами [0;0]
+					elName=document.createElement("p");
+						elName.innerHTML="Элементы"
+				elCell.append(elName);
 			elRow.append(elCell);
+			for (vjt=0; vjt<Vit_and_Min.length; vjt++) {
+				elCell=document.createElement("th");
+					elName=document.createElement("p");
+						elName.innerHTML+=Vit_and_Min[vjt].alias[0];
+					elCell.append(elName);
+				elRow.append(elCell);
+			}
+			elTableHead.append(elRow);
+		elTable.append(elTableHead);
+//	конец блока создания заглавной строки
+
+//	Создаём нижнюю строку названия столбцов (футтер)
+		elTableFoot=document.createElement("tfoot");
+			elRow=document.createElement("tr");
+				elCell=document.createElement("td"); //пустая ячейка с координатами [0;<последняя строка>]
+					elName=document.createElement("p");
+						elName.innerHTML="Элементы"
+					elCell.append(elName);
+			elRow.append(elCell);
+			for (vjt=0; vjt<Vit_and_Min.length; vjt++) {
+				elCell=document.createElement("td");
+					elName=document.createElement("p");
+						elName.innerHTML+=Vit_and_Min[vjt].alias[0];
+					elCell.append(elName);
+				elRow.append(elCell);
+			}
+			elTableFoot.append(elRow);
+		elTable.append(elTableFoot);
+//	конец блока создания нижней строки названий
+
+		elTableBody=document.createElement("tbody");
+//	создаём и заполняем строки
+		for (vit=0; vit<Vit_and_Min.length; vit++) {
+			elRow=document.createElement("tr");
+//	первая ячейка каждой строки содержит название элемента
+				elCell=document.createElement("td");
+					elName=document.createElement("p");
+						elName.innerHTML+='<b>'+Vit_and_Min[vit].alias[0]+'</b>';
+					elCell.append(elName);
+				elRow.append(elCell);
+//	конец блока создания первой ячейки
+				for (vjt=0; vjt<Vit_and_Min.length; vjt++) {
+					elCell=document.createElement("td");
+						elComp=document.createElement("p");
+							elComp.innerHTML+=Vit_and_Min[vit].compatibility[Vit_and_Min[vjt].alias[1]];
+							if (vit==vjt) {
+								elCell.classList.toggle("self");
+							} else if (Vit_and_Min[vit].compatibility[Vit_and_Min[vjt].alias[1]]>0) {
+								elCell.classList.toggle("support");
+							} else if (Vit_and_Min[vit].compatibility[Vit_and_Min[vjt].alias[1]]<0) {
+								elCell.classList.toggle("conflict");
+							}
+						elCell.append(elComp);
+					elRow.append(elCell);
+				}
+			elTableBody.append(elRow);
 		}
-		elTableBody.append(elRow);
-	}
 //	конец блока создания строк
 	
-	elTable.append(elTableBody);
+		elTable.append(elTableBody);
 	compatibilityTable=document.getElementById('table-of-compatibility');
+	
+// Определяем ширину окна
+//	$(window).width()
+	wWidth=String(document.body.clientWidth*0.96);
+	wHeight=String(document.body.clientHeight*0.88);
+	
 	compatibilityTable.append(elTable);
+//	$('#table-of-compatibility table').fixedHeaderTable({ width: wWidth, height: wHeight, footer: true, cloneHeadToFoot: true, fixedColumn: true });
 }
 //=====================конец блока создания таблицы совместимости===========================
 
@@ -589,12 +653,13 @@ function fillContent() {
 
 //===============================Пусковая функция================================
 onload = function() {
-/*	$("#kitchen").on("click", ".rem", function() {
-		data2=this.parentNode.parentNode.id;
+	$("#kitchen").on("click", ".rem", function() {
+		cat=this.parentNode.parentNode.id;
 		this.parentNode.parentNode.removeChild(this.parentNode);
-		checkCompatibility(data2);
-	});*/
+		checkCompatibility(cat);
+	});
 //	$("#kitchen").on("dragstart", "img", drag); 
+	
 	fillVitAndMins();
 	fillTableOfComatibility();
 	drake = dragula([document.getElementById('vitandmins'), document.getElementById('breakfast'), document.getElementById('dinner'), document.getElementById('supper')], {
@@ -604,10 +669,13 @@ onload = function() {
 		accepts: function (el, target) {
 			return (target !== document.getElementById('vitandmins'))&&(contains(menu(target.id),el.classList.item(0))<=1);
 		},
-		removeOnSpill: true,
+		revertOnSpill: true,
 		ignoreInputTextSelection: true,
 		direction: 'horizontal'
 	}).on('drop', function(el, target, source, sibling) {
+			if (source.id=='vitandmins') 
+				el.innerHTML="<button class='rem'>X</button>"+el.innerHTML;
+		
 			checkCompatibility(target.id)
 			if (source.id !== 'vitandmins') {
 				checkCompatibility(source.id)

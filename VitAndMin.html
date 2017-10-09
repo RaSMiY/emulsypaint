@@ -8,6 +8,7 @@
 
 		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" />
 		<link rel="stylesheet" type="text/css" href='https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.2/dragula.min.css' />
+		<link rel="stylesheet" type="text/css" href="CSS/Fixed-Header-Table.css" media="all" />
 		<link rel="stylesheet" type="text/css" href="CSS/VitAndMin.css" media="all" />
 
 	</head>
@@ -99,7 +100,8 @@ This file is part of VitAndMin project.
 				<div class="row">
 					<div class="col-md-12">
 						<h3 class="">Составьте ваш дневной рацион, с учётом рекомендуемого содержания витаминов и минералов, перетащив нужные продукты в области соответствующие меню завтрака, обеда и ужина</h3>
-						<h6>Наполняйте меню, перетаскивая элементы из правого списка или из одного списка в другой. Чтобы удалить элемент, перетащите его на пространство вне списков.</h6>
+						<!--h6>Наполняйте меню, перетаскивая элементы из правого списка или из одного списка в другой. Чтобы удалить элемент, перетащите его на пространство вне списков.</h6-->
+						<h6>Наполняйте меню, перетаскивая элементы из правого списка или из одного списка в другой. Чтобы удалить элемент, щёлкните по крестику в его правом верхнем углу.</h6>
 					</div>
 			  	</div>
 				<div class="row">
@@ -109,6 +111,24 @@ This file is part of VitAndMin project.
 								<h4>Завтрак (<i>примерный список витаминов и минералов</i>)</h4>
 								<p><b>витамины:</b> B5, B12, K, H, D; <b>минералы:</b> кальций, хром; <b>каротиноиды:</b> лютеин, ликопин</p>
 								<ul id="breakfast" class="carousel-horizontal">
+									<!--li class="razum support-n-conflict">
+										<div class="dropdown">
+											<button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Tutorials
+												<span class="caret"></span>
+											</button>
+											<ul class="dropdown-menu" role="menu" aria-labelledby="menu1" style="overflow: visible;">
+												<li role="presentation" class="dropdown-header">Dropdown header 1</li>
+												<li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
+												<li role="presentation"><a role="menuitem" tabindex="-1" href="#">CSS</a></li>
+												<li role="presentation"><a role="menuitem" tabindex="-1" href="#">JavaScript</a></li>
+												<li role="presentation" class="divider"></li>
+												<li role="presentation" class="dropdown-header">Dropdown header 2</li>
+												<li role="presentation"><a role="menuitem" tabindex="-1" href="#">About Us</a></li>
+											</ul>
+										</div>
+										<img id="image" src="RazumLogo.png" draggable="true" ondragstart="drag(event)" alt='КоБЛаБ "РАЗУМ"' title='КоБЛаБ "РАЗУМ"'/>
+										<img id="image" src="RazumLogo.png" alt='КоБЛаБ "РАЗУМ"' title='КоБЛаБ "РАЗУМ"'/>
+									</li-->
 								</ul>
 							<!--span class="pocket">Бросьте элемент сюда</span-->
 							</div>
@@ -133,7 +153,9 @@ This file is part of VitAndMin project.
 							<div class="card-block">
 								<h4>Витамины</h4>
 								<ul id="vitandmins" class="carousel-vertical">
-									<!--li><img id="image" src="RazumLogo.png" draggable="true" ondragstart="drag(event)" alt='КоБЛаБ "РАЗУМ"' title='КоБЛаБ "РАЗУМ"'/></li-->
+									<!--li class="razum">
+										<img id="image" src="RazumLogo.png" draggable="true" ondragstart="drag(event)" alt='КоБЛаБ "РАЗУМ"' title='КоБЛаБ "РАЗУМ"'/>
+									</li-->
 								</ul>
 							</div>
 						</div>
@@ -148,6 +170,7 @@ This file is part of VitAndMin project.
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 		<script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.2/dragula.min.js'></script>
+		<script type="text/javascript" src="JS/jquery.fixedheadertable.min.js"></script>
 		<script type="text/javascript" src="JS/VitAndMin.js"></script>
 	</body>
 </html>
