@@ -78,7 +78,7 @@ Vit_and_Min = [
 		appointments: ['входит в состав коэнзима А &mdash; важнейшего соединения, которое участвует во множестве биохимических реакций организма; коэнзим А необходим для получения энергии из пищи, для синтеза жиров, холестерина, некоторых гормонов (например, мелатонина), для образования гемоглобина; коэнзим А способствует нейтрализации токсинов в печени'],
 		symptoms_of_lack: ['покалывание и онемение пальцев ног', 'покраснение кожи стоп', 'депрессия', 'поскольку витамин В5 синтезируется микрофлорой кишечника, к его дефициту может привести только сильное истощение или различные заболевания тонкого кишечника' ],
 		daily_need: 5, //мг
-		compatibility: {vitA: 0, vitB1: 1, vitB2: 1, vitB3: 0, vitB5: 0, vitB6: 0, vitB9: 1, vitB12: 1, vitC: 1, vitD: 0, vitE: 0, vitK: 0, vitH: 0, Lyc: 0, Lut: 0, Bcar: 0, Fe: 0, I: 0, K: 0, Ca: 0, Mg: 1, Mn: 0, Mo: 0, Cu: -1, Se: 0, Cr: 0, Zn: 0, P: 0}
+		compatibility: {vitA: 0, vitB1: 1, vitB2: 1, vitB3: 0, vitB5: 0, vitB6: 0, vitB9: 1, vitB12: 1, vitC: 1, vitD: 0, vitE: 0, vitK: 0, vitH: 1, Lyc: 0, Lut: 0, Bcar: 0, Fe: 0, I: 0, K: 0, Ca: 0, Mg: 1, Mn: 0, Mo: 0, Cu: -1, Se: 0, Cr: 0, Zn: 0, P: 0}
 	},
 	{
 		alias: ['витамин B6', 'vitB6', 'vitamin B6', 'пиридоксин и его производные', 'витамин Б6'],
@@ -346,6 +346,13 @@ function checkCompatibility(cat) {
 		element.classList.remove('conflict', 'support', 'support-n-conflict');
 		element.removeAttribute('support');
 		element.removeAttribute('conflict');
+		if (element.children[1].tagName=='BUTTON') {
+			element.removeChild(element.children[1]);
+			element.removeChild(element.children[0]);
+		}
+		else if (element.children[0].tagName=='BUTTON') {
+			element.removeChild(element.children[0]);
+		}
 
 		if (name=document.getElementById(cat).children[i].classList.item(0)=='razum')
 			continue; //проверка необходима на случай  присутствия отладочных элементов в списке
@@ -378,16 +385,49 @@ function checkCompatibility(cat) {
 			}
 		}
 
-//	теперь, в зависимости от наличиствующих списков, назначаем класс
-		if (element.hasAttribute("support")&&element.hasAttribute("conflict")) 
+//	теперь, в зависимости от наличиствующих списков, назначаем класс, и, заодно, добавляем описание "что взаимодействует с чем и каким образом"
+		if (element.hasAttribute("support")&&element.hasAttribute("conflict")) {
 			element.classList.add('support-n-conflict');
+
+			supportList=element.getAttribute('conflict').split(" ");
+			ll='';
+			for (l in supportList) {
+				(l<supportList.length-1)?ll+=Vit_and_Min[ind(supportList[l])].alias[0]+', ':ll+=Vit_and_Min[ind(supportList[l])].alias[0];
+			}
+			element.innerHTML='<button class="conflict" data-toggle="popover" title="Усвоение элемента сдерживают" data-content="'+ll+'" data-placement="bottom">ослабл.</button>'+element.innerHTML;
+			
+			supportList=element.getAttribute('support').split(" ");
+			ll='';
+			for (l in supportList) {
+				(l<supportList.length-1)?ll+=Vit_and_Min[ind(supportList[l])].alias[0]+', ':ll+=Vit_and_Min[ind(supportList[l])].alias[0];
+			}
+			element.innerHTML='<button class="support" data-toggle="popover" title="Усвоение элемента усиливают" data-content="'+ll+'" data-placement="bottom">усилен.</button>'+element.innerHTML;
+		}
 		else 
-			if (element.hasAttribute("conflict")) 
+			if (element.hasAttribute("conflict")) {
 				element.classList.add('conflict');
+				supportList=element.getAttribute('conflict').split(" ");
+//				console.log(element.getAttribute('conflict'), suportList);
+				
+				ll='';
+				for (l in supportList) {
+					(l<supportList.length-1)?ll+=Vit_and_Min[ind(supportList[l])].alias[0]+', ':ll+=Vit_and_Min[ind(supportList[l])].alias[0];
+				}
+				element.innerHTML='<button class="conflict" data-toggle="popover" title="Усвоение элемента сдерживают" data-content="'+ll+'" data-placement="bottom">ослабл.</button>'+element.innerHTML;
+			}
 			else 
-				if (element.hasAttribute("support")) 
+				if (element.hasAttribute("support")) {
 					element.classList.add('support');
+					supportList=element.getAttribute('support').split(" ");
+					ll='';
+					for (l in supportList) {
+						(l<supportList.length-1)?ll+=Vit_and_Min[ind(supportList[l])].alias[0]+', ':ll+=Vit_and_Min[ind(supportList[l])].alias[0];
+					}
+					element.innerHTML='<button class="support" data-toggle="popover" title="Усвоение элемента усиливают" data-content="'+ll+'" data-placement="bottom">усилен.</button>'+element.innerHTML;
+				}
 	}
+
+	$('[data-toggle="popover"]').popover({trigger: "hover"});   
 }
 //===========================конец блока вспомогательных функций==========================
 
@@ -653,6 +693,8 @@ function fillContent() {
 
 //===============================Пусковая функция================================
 onload = function() {
+//	$('[data-toggle="popover"]').popover();   
+	
 	$("#kitchen").on("click", ".rem", function() {
 		cat=this.parentNode.parentNode.id;
 		this.parentNode.parentNode.removeChild(this.parentNode);
@@ -674,7 +716,7 @@ onload = function() {
 		direction: 'horizontal'
 	}).on('drop', function(el, target, source, sibling) {
 			if (source.id=='vitandmins') 
-				el.innerHTML="<button class='rem'>X</button>"+el.innerHTML;
+				el.innerHTML+="<button class='rem'>X</button>";
 		
 			checkCompatibility(target.id)
 			if (source.id !== 'vitandmins') {

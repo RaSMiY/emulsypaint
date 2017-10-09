@@ -37,7 +37,7 @@ This file is part of VitAndMin project.
 /*  *{margin:0;padding:0;}body{background:#222;} */
 
 div {text-align: justify;}
-#image {position: relative; top: 0.7em; width: 4em; height: 4em;}
+#image {position: relative; top: 2.5em; left: 0.5em; width: 4em; height: 4em;}
 #logo {width: 2em; height; 2em;}
 #contentArea {border: 1px solid black; border-radius: 5px;}
 #breakfast {border: 1px solid black; border-radius: 5px; height: 10em; padding: 0;}
@@ -150,7 +150,27 @@ table th, table tfoot td, table tr td:first-child {
 }
 
 .conflict {background-color: #fbb;}
+button.conflict {
+	position: absolute;
+	top: 8.8em;
+	right: 0.3em;
+	color: #f22;
+	background-color: rgba(255, 200, 200,0);
+	font-size: 30%;
+	z-index:0;
+	border: none;
+}
 .support {background-color: #bfb;}
+button.support {
+	position: absolute;
+	top: 8.8em;
+	left: 0.3em;
+	color: green;
+	background-color: rgba(200, 255, 200,0);
+	font-size: 30%;
+	z-index: 0;
+	border: none;
+}
 .support-n-conflict {
 	background: -moz-linear-gradient(left, #bfb 50%, #fbb 50%);
 	background: -webkit-linear-gradient(left, #bfb 50%, #fbb 50%);
