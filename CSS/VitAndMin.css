@@ -35,7 +35,22 @@ This file is part of VitAndMin project.
 //=============================Конец блока Лицензии=====================================*/
 
 /*  *{margin:0;padding:0;}body{background:#222;} */
+#advertisment-top div, #advertisment-bottom div {
+/*	display: inline-table;*/
+	text-align: center;
+}
+#advertisment-top, #advertisment-bottom {
+/*	display: table-cell;
+	vertical-align: middle;*/
+	border: 1px solid black; border-radius: 5px;
+	margin: 0.2em;
+}
 
+/*.navbar li ul li {
+	list-style: none;
+	list-style-position: inside;
+	margin-left: 0.8em;
+}*/
 div {text-align: justify;}
 #image {position: relative; top: 2.5em; left: 0.5em; width: 4em; height: 4em;}
 #logo {width: 2em; height; 2em;}
@@ -52,15 +67,30 @@ div {text-align: justify;}
 	padding: 2em;
 	width: 100%;
 }
-table {
-/*    width: 100%;*/
+table p {
+	margin: 0;
 }
-table, th, td {
+table {
+}
+table {
+	border: 3px solid black;
+}
+th, td {
     border: 1px solid black;
 }
 th, td {
     padding: 5px;
+    text-align: center;
+	vertical-align: middle;
+}
+th, table tfoot td {
+	width: 1em;
+	height: 5.6em;
+	border: 2px solid black;
+}
+td:first-child, th:first-child {
     text-align: left;
+	border: 2px solid black;
 }
 table tr:nth-child(even) {
     background-color: #eee;
@@ -68,9 +98,22 @@ table tr:nth-child(even) {
 table tr:nth-child(odd) {
    background-color:#fff;
 }
-table th, table tfoot td, table tr td:first-child {
+table th, table tfoot td, table tr td:first-child, table tr td:last-child {
     background-color: orange;
     color: purple;
+}
+table caption {
+ /*   background-color: orange;*/
+    color: black;
+	font-size: 150%;
+	font-weight: bold;
+	text-indent: 1em;
+}
+table tfoot td {
+	font-weight: bold;
+}
+.vertical-text {
+   transform: rotate(-90deg);
 }
 
 .rem {

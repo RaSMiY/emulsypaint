@@ -75,16 +75,27 @@ This file is part of VitAndMin project.
 		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
 			  <li class="nav-item active">
-				<a class="nav-link" href="#" onclick="{$('#description').hide(); $('#table-of-compatibility').hide(); $('#kitchen').show();}">Главная <span class="sr-only">(current)</span></a>
+				<a class="nav-link" href="#" onclick="{showMainPage();}">Главная <span class="sr-only">(current)</span></a>
 			  </li>
 			  <li class="nav-item">
-				<a class="nav-link" href="#" onclick="{$('#description').show();  $('#table-of-compatibility').hide(); $('#kitchen').hide(); if ($('#description').html()=='') fillContent();}" >Описание</a>
+				<a class="nav-link" href="#" onclick="{showDescription();}" >Витамины и минералы</a>
 			  </li>
 			  <li class="nav-item">
-				<a class="nav-link" href="#" onclick="{$('#description').hide();  $('#table-of-compatibility').show(); $('#kitchen').hide();}">Таблица совместимости</a>
+				<a class="nav-link" href="#" onclick="{showCompatibilityTable();}">Таблица совместимости</a>
 			  </li>
 			  <li class="nav-item">
-				<a class="nav-link" href="#">About</a>
+				<!--a class="nav-link" href="#">О портале</a-->
+				<div class="dropdown">
+					<a href="#"class="nav-link dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">О портале<span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+						<li class="dropdown-item" role="presentation"><a role="menuitem" tabindex="-1" href="#">Сведения</a></li>
+						<li class="dropdown-item" role="presentation"><a role="menuitem" tabindex="-1" href="#">Реклама</a></li>
+						<li role="presentation" class="dropdown-divider"></li>
+						<li class="dropdown-item" role="presentation"><a role="menuitem" tabindex="-1" href="#">Обратная связь</a></li>
+					</ul>
+				</div>
+				
 			  </li>
 			</ul>
 			<form class="form-inline my-2 my-lg-0">
@@ -95,6 +106,32 @@ This file is part of VitAndMin project.
 		</div>
 	  </nav>
 
+		<div id="advertisment-top" class="py-5">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-7">
+						<div class="card">
+							<div class="card-block">
+								<div><h3>Рекламное место сдаётся</h3></div>
+							</div>
+						</div>
+					</div>
+						
+					<div class="col-md-5">
+						<div class="card">
+							<div class="card-block">
+								<div id="profport">
+									<a href="http://profport.org" target="blanc">
+										<img src="Pictures/Advirtisment/profport-banner.png" alt="Профпорт" title="О проекте   ПрофПорт находит компетентных сотрудников через профессиональное портфолио и резюме"/>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
 		<div id="kitchen" class="py-5">
 			<div class="container-fluid">
 				<div class="row">
@@ -168,6 +205,21 @@ This file is part of VitAndMin project.
 <!------------------------------------------------------------------------------------------------------>
 		<div id="description"></div>
 		<div id="table-of-compatibility"></div>
+
+		<div id="advertisment-bottom" class="py-5">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="card">
+							<div class="card-block">
+								<div><h3>Рекламное место сдаётся</h3></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
 		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>

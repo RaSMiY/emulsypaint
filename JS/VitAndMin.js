@@ -567,6 +567,10 @@ function fillVitAndMins() {
 //=============================Создание таблицы совместимости===========================
 function fillTableOfComatibility() {
 	elTable=document.createElement("table");
+		elCaption=document.createElement("caption");
+			elCaption.innerHTML='Таблица совместимости витаминов и минералов';
+		elTable.append(elCaption);
+
 //	Создаём заглавную строку (названия столбцов)
 		elTableHead=document.createElement("thead");
 			elRow=document.createElement("tr");
@@ -579,17 +583,25 @@ function fillTableOfComatibility() {
 				elCell=document.createElement("th");
 					elName=document.createElement("p");
 						elName.innerHTML+=Vit_and_Min[vjt].alias[0];
+						elName.classList.toggle("vertical-text", true);
 					elCell.append(elName);
 				elRow.append(elCell);
 			}
-			elTableHead.append(elRow);
-		elTable.append(elTableHead);
+
+				elCell=document.createElement("th"); //ячейка с координатами [<последний столбец>;0]
+					elName=document.createElement("p");
+						elName.innerHTML="Элементы"
+				elCell.append(elName);
+			elRow.append(elCell);
+
+		elTableHead.append(elRow);
+	elTable.append(elTableHead);
 //	конец блока создания заглавной строки
 
 //	Создаём нижнюю строку названия столбцов (футтер)
 		elTableFoot=document.createElement("tfoot");
 			elRow=document.createElement("tr");
-				elCell=document.createElement("td"); //пустая ячейка с координатами [0;<последняя строка>]
+				elCell=document.createElement("td"); //ячейка с координатами [0;<последняя строка>]
 					elName=document.createElement("p");
 						elName.innerHTML="Элементы"
 					elCell.append(elName);
@@ -598,9 +610,17 @@ function fillTableOfComatibility() {
 				elCell=document.createElement("td");
 					elName=document.createElement("p");
 						elName.innerHTML+=Vit_and_Min[vjt].alias[0];
+						elName.classList.toggle("vertical-text", true);
 					elCell.append(elName);
 				elRow.append(elCell);
 			}
+
+				elCell=document.createElement("td"); //ячейка с координатами [<последний столбец>;<последняя строка>]
+					elName=document.createElement("p");
+						elName.innerHTML="Элементы"
+				elCell.append(elName);
+			elRow.append(elCell);
+
 			elTableFoot.append(elRow);
 		elTable.append(elTableFoot);
 //	конец блока создания нижней строки названий
@@ -630,6 +650,13 @@ function fillTableOfComatibility() {
 						elCell.append(elComp);
 					elRow.append(elCell);
 				}
+//	последняя ячейка каждой строки тоже содержит название элемента
+				elCell=document.createElement("td");
+					elName=document.createElement("p");
+						elName.innerHTML+='<b>'+Vit_and_Min[vit].alias[0]+'</b>';
+					elCell.append(elName);
+				elRow.append(elCell);
+//	конец блока создания последней ячейки
 			elTableBody.append(elRow);
 		}
 //	конец блока создания строк
@@ -640,10 +667,13 @@ function fillTableOfComatibility() {
 // Определяем ширину окна
 //	$(window).width()
 	wWidth=String(document.body.clientWidth*0.96);
-	wHeight=String(document.body.clientHeight*0.88);
+	wHeight=String(document.body.clientHeight*0.92);
 	
+//	compatibilityTable.style.width=wWidth;
+//	compatibilityTable.style.height=wHeight;
 	compatibilityTable.append(elTable);
 //	$('#table-of-compatibility table').fixedHeaderTable({ width: wWidth, height: wHeight, footer: true, cloneHeadToFoot: true, fixedColumn: true });
+//	$('#table-of-compatibility table').fixedHeaderTable({ footer: true, cloneHeadToFoot: true, fixedColumn: true });
 }
 //=====================конец блока создания таблицы совместимости===========================
 
@@ -691,7 +721,29 @@ function fillContent() {
 
 //============================конец блока наполнения страницы=============================
 
-//===============================Пусковая функция================================
+//=============================функции показа/скрытия разделов============================
+function showDescription() {
+	$('#description').show();
+	$('#table-of-compatibility').hide(); 
+	$('#kitchen').hide(); 
+	
+	if ($('#description').html()=='') fillContent();
+}
+
+function showCompatibilityTable() {
+	$('#description').hide();  
+	$('#table-of-compatibility').show(); 
+	$('#kitchen').hide();
+}
+
+function showMainPage() {
+	$('#description').hide(); 
+	$('#table-of-compatibility').hide(); 
+	$('#kitchen').show();
+}
+//=======================конец блока функций показа/скрытия разделов========================
+
+//==================================Пусковая функция===================================
 onload = function() {
 //	$('[data-toggle="popover"]').popover();   
 	
