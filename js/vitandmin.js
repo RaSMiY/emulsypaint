@@ -544,7 +544,7 @@ function fillVitAndMins() {
 	for (vit=0; vit<Vit_and_Min.length; vit++) {
 		elementV=document.createElement("li");
 
-		elementV.innerHTML+='<img src="Pictures/PNG/'+Vit_and_Min[vit].pict+'" alt="'+Vit_and_Min[vit].alias[0]+'" />';
+		elementV.innerHTML+='<img src="pictures/vitandmins/png/'+Vit_and_Min[vit].pict+'" alt="'+Vit_and_Min[vit].alias[0]+'" />';
 		$(elementV).addClass(Vit_and_Min[vit].alias[1]);
 		
 		title='Источники: ';
@@ -559,7 +559,7 @@ function fillVitAndMins() {
 		
 		vitandmins.append(elementV);
 
-//		$('.'+Vit_and_Min[vit].alias[1]).css('background-image', 'url("Pictures/PNG/'+Vit_and_Min[vit].pict+'")');
+//		$('.'+Vit_and_Min[vit].alias[1]).css('background-image', 'url("pictures/vitandmins/png/'+Vit_and_Min[vit].pict+'")');
 	}
 }
 //=========================Конец блока наполнения карусели витаминов=======================
@@ -567,9 +567,15 @@ function fillVitAndMins() {
 //=============================Создание таблицы совместимости===========================
 function fillTableOfComatibility() {
 	elTable=document.createElement("table");
-		elCaption=document.createElement("caption");
+
+	compatibilityTable=document.getElementById('table-of-compatibility');
+		elHeader=document.createElement("h3");
+			elHeader.innerHTML='Таблица совместимости витаминов и минералов';
+	compatibilityTable.append(elHeader);
+
+/*		elCaption=document.createElement("caption");
 			elCaption.innerHTML='Таблица совместимости витаминов и минералов';
-		elTable.append(elCaption);
+		elTable.append(elCaption);*/
 
 //	Создаём заглавную строку (названия столбцов)
 		elTableHead=document.createElement("thead");
@@ -601,13 +607,13 @@ function fillTableOfComatibility() {
 //	Создаём нижнюю строку названия столбцов (футтер)
 		elTableFoot=document.createElement("tfoot");
 			elRow=document.createElement("tr");
-				elCell=document.createElement("td"); //ячейка с координатами [0;<последняя строка>]
+				elCell=document.createElement("th"); //ячейка с координатами [0;<последняя строка>]
 					elName=document.createElement("p");
 						elName.innerHTML="Элементы"
 					elCell.append(elName);
 			elRow.append(elCell);
 			for (vjt=0; vjt<Vit_and_Min.length; vjt++) {
-				elCell=document.createElement("td");
+				elCell=document.createElement("th");
 					elName=document.createElement("p");
 						elName.innerHTML+=Vit_and_Min[vjt].alias[0];
 						elName.classList.toggle("vertical-text", true);
@@ -615,7 +621,7 @@ function fillTableOfComatibility() {
 				elRow.append(elCell);
 			}
 
-				elCell=document.createElement("td"); //ячейка с координатами [<последний столбец>;<последняя строка>]
+				elCell=document.createElement("th"); //ячейка с координатами [<последний столбец>;<последняя строка>]
 					elName=document.createElement("p");
 						elName.innerHTML="Элементы"
 				elCell.append(elName);
@@ -632,7 +638,7 @@ function fillTableOfComatibility() {
 //	первая ячейка каждой строки содержит название элемента
 				elCell=document.createElement("td");
 					elName=document.createElement("p");
-						elName.innerHTML+='<b>'+Vit_and_Min[vit].alias[0]+'</b>';
+						elName.innerHTML+=Vit_and_Min[vit].alias[0];
 					elCell.append(elName);
 				elRow.append(elCell);
 //	конец блока создания первой ячейки
@@ -653,7 +659,7 @@ function fillTableOfComatibility() {
 //	последняя ячейка каждой строки тоже содержит название элемента
 				elCell=document.createElement("td");
 					elName=document.createElement("p");
-						elName.innerHTML+='<b>'+Vit_and_Min[vit].alias[0]+'</b>';
+						elName.innerHTML+=Vit_and_Min[vit].alias[0];
 					elCell.append(elName);
 				elRow.append(elCell);
 //	конец блока создания последней ячейки
@@ -662,18 +668,17 @@ function fillTableOfComatibility() {
 //	конец блока создания строк
 	
 		elTable.append(elTableBody);
-	compatibilityTable=document.getElementById('table-of-compatibility');
 	
 // Определяем ширину окна
 //	$(window).width()
-	wWidth=String(document.body.clientWidth*0.96);
-	wHeight=String(document.body.clientHeight*0.92);
+//	wWidth=String(document.body.clientWidth*0.96);
+//	wHeight=String(document.body.clientHeight*0.92);
 	
 //	compatibilityTable.style.width=wWidth;
 //	compatibilityTable.style.height=wHeight;
 	compatibilityTable.append(elTable);
-//	$('#table-of-compatibility table').fixedHeaderTable({ width: wWidth, height: wHeight, footer: true, cloneHeadToFoot: true, fixedColumn: true });
-//	$('#table-of-compatibility table').fixedHeaderTable({ footer: true, cloneHeadToFoot: true, fixedColumn: true });
+//	$('#table-of-compatibility table').fixedHeaderTable({ width: wWidth, height: wHeight, footer: true, cloneHeadToFoot: false, fixedColumn: true });
+//	setTimeout(function(){$('#table-of-compatibility table').fixedHeaderTable({ footer: true, cloneHeadToFoot: false, fixedColumn: true })}, 2000);
 }
 //=====================конец блока создания таблицы совместимости===========================
 
@@ -683,7 +688,7 @@ function fillContent() {
 	for (vit=0; vit<Vit_and_Min.length; vit++) {
 		element=document.createElement("div");
 		
-		element.innerHTML+='<img src="Pictures/PNG/'+Vit_and_Min[vit].pict+'" alt="'+Vit_and_Min[vit].alias[0]+'" />';
+		element.innerHTML+='<img src="pictures/vitandmins/png/'+Vit_and_Min[vit].pict+'" alt="'+Vit_and_Min[vit].alias[0]+'" />';
 		
 		element.innerHTML+='<h2>'+(vit+1)+'. '+Vit_and_Min[vit].alias[0]+'</h2><p></p>';
 		
@@ -731,6 +736,14 @@ function showDescription() {
 }
 
 function showCompatibilityTable() {
+	if ($('#table-of-compatibility').html()=='') {
+		fillTableOfComatibility();
+		setTimeout(function(){$('#table-of-compatibility table').fixedHeaderTable({ footer: true, cloneHeadToFoot: false, fixedColumn: true })}, 100);
+//		setTimeout(function(){$(".fht-fixed-body thead th p, .fht-fixed-body tfoot th p").css("height", "7em")}, 100);
+//		$(".fht-fixed-body thead th p, .fht-fixed-body tfoot th p").css("height", "7em");
+//		$("table tr td:first-child p, table tr td:last-child p").css("width", "7em");
+//		setTimeout(function(){$(".fht-fixed-body thead th p, .fht-fixed-body tfoot th p").css("width", "1em")}, 100);
+	}
 	$('#description').hide();  
 	$('#table-of-compatibility').show(); 
 	$('#kitchen').hide();
@@ -755,7 +768,6 @@ onload = function() {
 //	$("#kitchen").on("dragstart", "img", drag); 
 	
 	fillVitAndMins();
-	fillTableOfComatibility();
 	drake = dragula([document.getElementById('vitandmins'), document.getElementById('breakfast'), document.getElementById('dinner'), document.getElementById('supper')], {
 		copy: function (el, source) {
 			return source === document.getElementById('vitandmins');
