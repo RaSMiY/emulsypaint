@@ -720,6 +720,23 @@ function fillContent() {
 			element.innerHTML+='<ul><li>'+Vit_and_Min[vit].daily_need+'мг'+'</li></ul>';
 		
 		element.innerHTML+='<hr/>';
+
+		if ((vit+1)%4==0&&(vit+1<Vit_and_Min.length)) 
+			element.innerHTML+='<div id="advertisment'+(vit+1)/4+'" class="py-5 advertisment">'+
+				'<div class="container-fluid">'+
+					'<div class="row">'+
+						'<div class="col-md-12">'+
+							'<div class="card">'+
+								'<div class="card-block">'+
+									'<div><h3>Рекламное место сдаётся</h3></div>'+
+								'</div>'+
+							'</div>'+
+						'</div>'+
+					'</div>'+
+				'</div>'+
+			'</div>'+
+			'<hr/>';
+								
 		description.append(element);
 	}
 }
@@ -732,7 +749,14 @@ function showDescription() {
 	$('#table-of-compatibility').hide(); 
 	$('#kitchen').hide(); 
 	
-	if ($('#description').html()=='') fillContent();
+	if ($('#description').html()=='') {
+//		$('#description').html('<p style="text-align: center;"><img src="pictures/Loading-circles-acs-rectangles.gif" style="float: unset;"/></p>');
+		
+//		setTimeout(fillContent(), 4000);
+		fillContent();
+
+//		$('#description>:first-child').remove();
+	}
 }
 
 function showCompatibilityTable() {

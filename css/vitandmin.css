@@ -35,11 +35,11 @@ This file is part of VitAndMin project.
 //=============================Конец блока Лицензии=====================================*/
 
 /*  *{margin:0;padding:0;}body{background:#222;} */
-#advertisment-top div, #advertisment-bottom div {
+.advertisment div {
 /*	display: inline-table;*/
 	text-align: center;
 }
-#advertisment-top, #advertisment-bottom {
+.advertisment {
 /*	display: table-cell;
 	vertical-align: middle;*/
 	border: 1px solid black; border-radius: 5px;
@@ -59,7 +59,7 @@ div {text-align: justify;}
 #dinner {border: 1px solid black; border-radius: 5px; height: 10em; padding: 0;}
 #supper {border: 1px solid black; border-radius: 5px; height: 10em; padding: 0;}
 #vitandmins {border: 1px solid black; border-radius: 5px; height: 42.3em; text-align: center; padding: 0;}
-#description {text-align: justify; clear: both; display: none;}
+#description {text-align: justify; clear: both; display: none; padding: 1em;}
 #description img {float: right; width: 10em; height: 10em;}
 
 #table-of-compatibility {
