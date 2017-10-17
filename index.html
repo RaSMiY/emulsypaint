@@ -89,6 +89,8 @@ This file is part of VitAndMin project.
 					<ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
 						<li class="dropdown-item" role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="{showDescription();}">Описание</a></li>
 						<li class="dropdown-item" role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="{showCompatibilityTable();}">Таблица совместимости</a></li>
+						<li role="presentation" class="dropdown-divider"></li>
+						<li class="dropdown-item" role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="{show4Smartphones();}">Для смартфонов</a></li>
 					</ul>
 				</div>
 </li>
@@ -129,8 +131,8 @@ This file is part of VitAndMin project.
 					</a>
 					<ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
 						<li class="dropdown-item" role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="{showInformation();}">Сведения</a></li>
-						<li class="dropdown-item" role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="{showADdescription();}">Реклама</a></li>
 						<li role="presentation" class="dropdown-divider"></li>
+						<li class="dropdown-item" role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="{showADdescription();}">Реклама</a></li>
 						<li class="dropdown-item" role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="{showContactUs();}">Обратная связь</a></li>
 					</ul>
 				</div>
@@ -176,7 +178,7 @@ This file is part of VitAndMin project.
 					<div class="col-md-12">
 						<h3 class="">Составьте ваш дневной рацион, с учётом рекомендуемого содержания витаминов и минералов, перетащив нужные продукты в области соответствующие меню завтрака, обеда и ужина</h3>
 						<!--h6>Наполняйте меню, перетаскивая элементы из правого списка или из одного списка в другой. Чтобы удалить элемент, перетащите его на пространство вне списков.</h6-->
-						<!--h6>Наполняйте меню, перетаскивая элементы из правого списка или из одного списка в другой. Чтобы удалить элемент, щёлкните по крестику в его правом верхнем углу.</h6-->
+						<h6>Наполняйте меню, перетаскивая элементы из правого списка или из одного списка в другой. Чтобы удалить элемент, щёлкните по крестику в его правом верхнем углу.</h6>
 					</div>
 			  	</div>
 				<div class="row">
@@ -187,27 +189,12 @@ This file is part of VitAndMin project.
 								<p><b>витамины:</b> B5, B12, K, H, D; <b>минералы:</b> кальций, хром; <b>каротиноиды:</b> лютеин, ликопин</p>
 								<ul id="breakfast" class="carousel-horizontal">
 									<!--li class="razum support-n-conflict">
-										<div class="dropdown">
-											<button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Tutorials
-												<span class="caret"></span>
-											</button>
-											<ul class="dropdown-menu" role="menu" aria-labelledby="menu1" style="overflow: visible;">
-												<li role="presentation" class="dropdown-header">Dropdown header 1</li>
-												<li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
-												<li role="presentation"><a role="menuitem" tabindex="-1" href="#">CSS</a></li>
-												<li role="presentation"><a role="menuitem" tabindex="-1" href="#">JavaScript</a></li>
-												<li role="presentation" class="divider"></li>
-												<li role="presentation" class="dropdown-header">Dropdown header 2</li>
-												<li role="presentation"><a role="menuitem" tabindex="-1" href="#">About Us</a></li>
-											</ul>
-										</div>
 										<a href="#" class="support" data-toggle="popover" title="Усвоение элемента усиливают" data-content="Отображаются элементы, оказывающие поддержку" data-placement="bottom">support</a>
 										<a href="#" class="conflict" data-toggle="popover" title="Усвоение элемента сдерживают" data-content="Отображаются элементы, вызывающие конфликт" data-placement="bottom">conflict</a>
 										<img id="image" src="RazumLogo.png" draggable="true" ondragstart="drag(event)" alt='КоБЛаБ "РАЗУМ"' title='КоБЛаБ "РАЗУМ"'/>
 										<img id="image" src="RazumLogo.png" alt='КоБЛаБ "РАЗУМ"' title='КоБЛаБ "РАЗУМ"'/>
 									</li-->
 								</ul>
-							<!--span class="pocket">Бросьте элемент сюда</span-->
 							</div>
 						</div>
 						<div class="card">
@@ -243,6 +230,13 @@ This file is part of VitAndMin project.
 <!------------------------------------------------------------------------------------------------------>
 		<div id="description"></div>
 		<div id="table-of-compatibility"></div>
+		<div id="for-smartphones">
+			<h3>Скачайте приложение для вашего смартфона</h3>
+			<ul>
+				<li><a href="#" tarrget="blanc">Андроид</a></li>
+				<li><a href="#" tarrget="blanc">iOS</a></li>
+			</ul>
+		</div>
 		<div id="information" style="display: none;">
 			<h3>О портале</h3>
 			<h2>Здравствуй, путник!</h2>
@@ -263,23 +257,23 @@ This file is part of VitAndMin project.
 				Случай 2. Каждая категория отдельно. Ничего точно не пострадает, но и лучше не станет. Опять же, затраты на упаковку.<br />
 				Случай 3. Одежда с ГСМ, запчасти отдельно. С запчастей смазка не вытрется, но одежда всё равно измажется, а кол-во ГСМ - уменьшится.<br />
 				Случай 4. Запчасти с одеждой, ГСМ отдельно. Запчасти лишатся защитного ГСМ-покрытия, на одежде будут следы ГСМ, хотя и не в такой степени, как в предыдущих случаях.<br />
-				Случай 5. Запчасти с ГСМ, одежду отдельно. Дополнительная смазка запчастям не повредит и одежда буде чистой.
+				Случай 5. Запчасти с ГСМ, одежду отдельно. Дополнительная смазка запчастям не повредит и одежда будет чистой.
 			</p>
 			<p>
-				Из этого простого примера видно, в каких условиях находится наш организм, при усвоении пищи. В одних случаях, ему просто надо усвоить каждый продукт по отдельности. (Помните статьи о пользе раздельного питания?) В других случаях, ему, не только не удаётся усвоить то количество полезных веществ, которое содержалось в первоначальных продуктах, но и надо заниматься устранением последствий от вновь образованных нежелательных сочетаний микроэлементов. И, лишь, в особых случаях, сочетание продуктов благоприятствует их совместному усвоению (Одна из причин, возможно главная, пользы сыроедения - в хорошей сочетаемости элементов, входящих в состав овощей и фруктов).
+				Из этого простого примера видно, какое значение имеет правильное сочетание элементов. В подобных же условиях находится и наш организм, при усвоении пищи. В одних случаях, ему просто надо усвоить каждый продукт по отдельности. (Помните статьи о пользе раздельного питания?) В других случаях, ему, не только не удаётся усвоить то количество полезных веществ, которое содержалось в первоначальных продуктах, но и надо заниматься устранением последствий от вновь образованных нежелательных сочетаний микроэлементов. И, лишь, в особых случаях, сочетание продуктов благоприятствует их совместному усвоению (Одна из причин, возможно главная, пользы сыроедения - в хорошей сочетаемости элементов, входящих в состав овощей и фруктов).
 			</p>
 			<p>
 				На нашем портале мы создали инструмент для правильного, научно подкреплённого составления ежедненого рациона, который позволит вам не только сохранять здоровье, молодость и энергию, но и экономить. Судите сами - если пища лучше усваивается, то и требуется её меньше!
 			</p>
-			<p style="font-style: italic; text-align: right;">
-				<strong>С уважением,</strong><br />коллектив портала VitAndMin
+			<p style="text-align: right;">
+				<em><strong>С уважением,</strong><br />коллектив портала VitAndMin</em>
 			</p>
 			<p>
 				P.S. Портал постоянно пополняется новыми статьями и приложениями, а инструмент составления меню - новыми продуктами и элементами. Заходите почаще!
 			</p>
 		</div>
 		<div id="articles" style="display: none;">
-			<h3>Страница - в стадии разработки...</h3>
+			<h3>Страница находится в стадии разработки</h3>
 		</div>
 		<div id="advertisment-description" style="display: none;"></div>
 		<div id="contact-us" style="display: none;">
