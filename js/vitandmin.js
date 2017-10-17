@@ -697,6 +697,11 @@ function fillContent() {
 			element.lastChild.innerHTML+=', '+Vit_and_Min[vit].alias[vjt];
 		};
 
+		element.innerHTML+='<p><b>Источники: </b>'+Vit_and_Min[vit].sources[0]+'</p>';
+		for (vjt=1; vjt<Vit_and_Min[vit].sources.length; vjt++) {
+			element.lastChild.innerHTML+=', '+Vit_and_Min[vit].sources[vjt];
+		};
+
 		element.innerHTML+='<h4>Основные функции</h4><ul></ul>';
 		for (vjt=0; vjt<Vit_and_Min[vit].appointments.length; vjt++) {
 			element.lastChild.innerHTML+='<li>'+Vit_and_Min[vit].appointments[vjt]+'</li>';
@@ -756,6 +761,7 @@ function showDescription() {
 
 	$('#description').show();
 	$('#table-of-compatibility').hide(); 
+	$('#for-smartphones').hide(); 
 	$('#kitchen').hide(); 
 	$('#vk_comments').show();
 	$('#vk_community_messages').hide();
@@ -775,6 +781,7 @@ function showCompatibilityTable() {
 	}
 	$('#description').hide();  
 	$('#table-of-compatibility').show(); 
+	$('#for-smartphones').hide(); 
 	$('#contact-us').hide();
 	$('#kitchen').hide();
 	$('#vk_comments').show();
@@ -784,9 +791,23 @@ function showCompatibilityTable() {
 	$('#articles').hide();
 }
 
+function show4Smartphones() {
+	$('#description').hide(); 
+	$('#table-of-compatibility').hide(); 
+	$('#for-smartphones').show(); 
+	$('#contact-us').hide();
+	$('#kitchen').hide();
+	$('#vk_comments').hide();
+	$('#vk_community_messages').show();
+	$('#information').hide();
+	$('#advertisment-description').hide();
+	$('#articles').hide();
+}
+
 function showMainPage() {
 	$('#description').hide(); 
 	$('#table-of-compatibility').hide(); 
+	$('#for-smartphones').hide(); 
 	$('#contact-us').hide();
 	$('#kitchen').show();
 	$('#vk_comments').show();
@@ -799,6 +820,7 @@ function showMainPage() {
 function showContactUs() {
 	$('#description').hide(); 
 	$('#table-of-compatibility').hide(); 
+	$('#for-smartphones').hide(); 
 	$('#contact-us').show();
 	$('#kitchen').hide();
 	$('#vk_comments').hide();
@@ -811,6 +833,7 @@ function showContactUs() {
 function showInformation() {
 	$('#description').hide(); 
 	$('#table-of-compatibility').hide(); 
+	$('#for-smartphones').hide(); 
 	$('#contact-us').hide();
 	$('#kitchen').hide();
 	$('#vk_comments').hide();
@@ -823,6 +846,7 @@ function showInformation() {
 function showADdescription() {
 	$('#description').hide(); 
 	$('#table-of-compatibility').hide(); 
+	$('#for-smartphones').hide(); 
 	$('#contact-us').hide();
 	$('#kitchen').hide();
 	$('#vk_comments').hide();
@@ -835,6 +859,7 @@ function showADdescription() {
 function showArticles() {
 	$('#description').hide(); 
 	$('#table-of-compatibility').hide(); 
+	$('#for-smartphones').hide(); 
 	$('#contact-us').hide();
 	$('#kitchen').hide();
 	$('#vk_comments').show();
