@@ -59,7 +59,7 @@ div {text-align: justify;}
 #dinner {border: 1px solid black; border-radius: 5px; height: 10em; padding: 0;}
 #supper {border: 1px solid black; border-radius: 5px; height: 10em; padding: 0;}
 #vitandmins {border: 1px solid black; border-radius: 5px; height: 42.3em; text-align: center; padding: 0;}
-#description {text-align: justify; clear: both; display: none; padding: 1em;}
+#description, #information, #advertisment-description, #articles {text-align: justify; clear: both; display: none; padding: 1em;}
 #description img {float: right; width: 10em; height: 10em;}
 
 #table-of-compatibility {
@@ -67,7 +67,10 @@ div {text-align: justify;}
 	padding: 2em;
 	width: 100%;
 }
-#table-of-compatibility h3 {text-align: center;}
+#table-of-compatibility h3, #description h3, #information h3, #advertisment-description h3, #articles h3 {text-align: center;}
+#information p {
+	text-indent: 2em;
+}
 
 table p {
 	margin: 0;

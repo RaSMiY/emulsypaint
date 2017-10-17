@@ -745,10 +745,6 @@ function fillContent() {
 
 //=============================функции показа/скрытия разделов============================
 function showDescription() {
-	$('#description').show();
-	$('#table-of-compatibility').hide(); 
-	$('#kitchen').hide(); 
-	
 	if ($('#description').html()=='') {
 //		$('#description').html('<p style="text-align: center;"><img src="pictures/Loading-circles-acs-rectangles.gif" style="float: unset;"/></p>');
 		
@@ -757,6 +753,15 @@ function showDescription() {
 
 //		$('#description>:first-child').remove();
 	}
+
+	$('#description').show();
+	$('#table-of-compatibility').hide(); 
+	$('#kitchen').hide(); 
+	$('#vk_comments').show();
+	$('#vk_community_messages').hide();
+	$('#information').hide();
+	$('#advertisment-description').hide();
+	$('#articles').hide();
 }
 
 function showCompatibilityTable() {
@@ -770,13 +775,73 @@ function showCompatibilityTable() {
 	}
 	$('#description').hide();  
 	$('#table-of-compatibility').show(); 
+	$('#contact-us').hide();
 	$('#kitchen').hide();
+	$('#vk_comments').show();
+	$('#vk_community_messages').hide();
+	$('#information').hide();
+	$('#advertisment-description').hide();
+	$('#articles').hide();
 }
 
 function showMainPage() {
 	$('#description').hide(); 
 	$('#table-of-compatibility').hide(); 
+	$('#contact-us').hide();
 	$('#kitchen').show();
+	$('#vk_comments').show();
+	$('#vk_community_messages').hide();
+	$('#information').hide();
+	$('#advertisment-description').hide();
+	$('#articles').hide();
+}
+
+function showContactUs() {
+	$('#description').hide(); 
+	$('#table-of-compatibility').hide(); 
+	$('#contact-us').show();
+	$('#kitchen').hide();
+	$('#vk_comments').hide();
+	$('#vk_community_messages').hide();
+	$('#information').hide();
+	$('#advertisment-description').hide();
+	$('#articles').hide();
+}
+
+function showInformation() {
+	$('#description').hide(); 
+	$('#table-of-compatibility').hide(); 
+	$('#contact-us').hide();
+	$('#kitchen').hide();
+	$('#vk_comments').hide();
+	$('#vk_community_messages').show();
+	$('#information').show();
+	$('#advertisment-description').hide();
+	$('#articles').hide();
+}
+
+function showADdescription() {
+	$('#description').hide(); 
+	$('#table-of-compatibility').hide(); 
+	$('#contact-us').hide();
+	$('#kitchen').hide();
+	$('#vk_comments').hide();
+	$('#vk_community_messages').show();
+	$('#information').hide();
+	$('#advertisment-description').show();
+	$('#articles').hide();
+}
+
+function showArticles() {
+	$('#description').hide(); 
+	$('#table-of-compatibility').hide(); 
+	$('#contact-us').hide();
+	$('#kitchen').hide();
+	$('#vk_comments').show();
+	$('#vk_community_messages').hide();
+	$('#information').hide();
+	$('#advertisment-description').hide();
+	$('#articles').show();
 }
 //=======================конец блока функций показа/скрытия разделов========================
 
