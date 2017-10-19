@@ -59,10 +59,10 @@ div {text-align: justify;}
 #image {position: relative; top: 2.5em; left: 0.5em; width: 4em; height: 4em;}
 #logo {width: 2em; height; 2em;}
 #contentArea {border: 1px solid black; border-radius: 5px;}
-#breakfast {border: 1px solid black; border-radius: 5px; height: 10em; padding: 0;}
-#dinner {border: 1px solid black; border-radius: 5px; height: 10em; padding: 0;}
-#supper {border: 1px solid black; border-radius: 5px; height: 10em; padding: 0;}
-#vitandmins {border: 1px solid black; border-radius: 5px; height: 42.3em; text-align: center; padding: 0;}
+#breakfast {}
+#dinner {}
+#supper {}
+#vitandmins {}
 #description, #information, #advertisment-description, #articles, #for-smartphones {text-align: justify; clear: both; display: none; padding: 1em;}
 #description img {float: right; width: 10em; height: 10em;}
 #articles {
@@ -154,6 +154,10 @@ table tfoot td {
 }
 
 .carousel-horizontal {
+	border: 1px solid black; 
+	border-radius: 5px; 
+	height: 16vh; 
+	padding: 0;
 	display: -ms-flexbox;
 	display: flex;
 /*  -ms-flex-wrap: wrap;
@@ -165,18 +169,27 @@ table tfoot td {
 }
 
 .carousel-horizontal li {
-	padding: 1em 2em 1em 2em;
+	padding: 2vh 3vh 2vh 3vh;
 	border: 1px dashed grey;
 	position: relative;
-	width: 9em;
+	width: 14vh;
 /*	background-position: center 0.5em;
 	background-size: 5em 5em;
 	background-repeat: no-repeat;
 	z-index: 100;*/
 }
 
+.carousel-horizontal img {
+	width: 8vh;
+}
+
 .carousel-vertical {
-/*  -ms-flex-wrap: wrap;
+	border: 1px solid black; 
+	border-radius: 5px; 
+	height: 68vh; 
+	text-align: center; 
+	padding: 0;
+	/*  -ms-flex-wrap: wrap;
 	flex-wrap: wrap;*/
 	list-style: none;
 	list-style-position: inside;
@@ -185,18 +198,18 @@ table tfoot td {
 }
 
 .carousel-vertical li {
-	padding: 0.5em 0em 0.5em 0em;
+	padding: 1vh 0 1vh  0;
 	border: 1px dashed grey;
 	position: relative;
-	height: 7em;
+	height: 11vh;
 /*	background-position: center 0.5em;
 	background-size: 3em 3em;
 	background-repeat: no-repeat;*/
 }
 
 .carousel-vertical li img{
-	width: 3em;
-	height: 3em;
+	width: 5vh;
+	height: 5vh;
 	
 }
 
@@ -221,8 +234,8 @@ table tfoot td {
 .conflict {background-color: #fbb;}
 button.conflict {
 	position: absolute;
-	top: 8.8em;
-	right: 0.3em;
+	top: calc(11vh + 3px);
+	right: 1%;
 	color: #f22;
 	background-color: rgba(255, 200, 200,0);
 	font-size: 30%;
@@ -232,8 +245,8 @@ button.conflict {
 .support {background-color: #bfb;}
 button.support {
 	position: absolute;
-	top: 8.8em;
-	left: 0.3em;
+	top: calc(11vh + 3px);
+	left: 1%;
 	color: green;
 	background-color: rgba(200, 255, 200,0);
 	font-size: 30%;
