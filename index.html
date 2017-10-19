@@ -8,11 +8,13 @@
 		<meta name="keywords" content="витамины, минералы, витамины и минералы, совместимость витаминов и минералов, полезные свойства продуктов, диеты, правильное питание, дневной рацион, рацион">
 		<meta name="author" content="SMiY">
 		<meta name="application-name" content="VitAndMin">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<!--meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"-->
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
 
 		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" />
 		<link rel="stylesheet" type="text/css" href='https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.2/dragula.min.css' />
 		<link rel="stylesheet" type="text/css" href="css/Fixed-Header-Table.css" media="all" />
+		<link rel="stylesheet" type="text/css" href="css/ya-search.css" media="all" />
 		<link rel="stylesheet" type="text/css" href="css/vitandmin.css" media="all" />
 
 	</head>
@@ -72,84 +74,113 @@ This file is part of VitAndMin project.
 	
 	
 	<body>
-	  <nav class="navbar navbar-expand-md sticky-top navbar-inverse bg-warning">
-		<div class="container-fluid">
-		  <a class="navbar-brand" href="http://razum.top"><img id="logo" src="pictures/RazumLogo.png" draggable="true" ondragstart="drag(event)" alt='КоБЛаБ "РАЗУМ"' title='КоБЛаБ "РАЗУМ"'/></a>
-		  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
-		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="navbar-nav mr-auto">
-			  <li class="nav-item active">
-				<a class="nav-link" href="#" onclick="{showMainPage();}">Главная <span class="sr-only">(current)</span></a>
-			  </li>
-			  <li class="nav-item">
-				<!--a class="nav-link" href="#" onclick="{showDescription();}" >Витамины и минералы</a-->
-			  				<div class="dropdown">
-					<a href="#"class="nav-link dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Витамины и минералы<span class="caret"></span>
-					</a>
-					<ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-						<li class="dropdown-item" role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="{showDescription();}">Описание</a></li>
-						<li class="dropdown-item" role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="{showCompatibilityTable();}">Таблица совместимости</a></li>
-						<li role="presentation" class="dropdown-divider"></li>
-						<li class="dropdown-item" role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="{show4Smartphones();}">Для смартфонов</a></li>
-					</ul>
-				</div>
-</li>
-			  <li class="nav-item">
-				<a class="nav-link" href="#" onclick="{showArticles();}">Статьи</a>
-			  </li>
-			<!--li class="nav-item">
-				<div class="dropdown">
-					<a href="#"class="nav-link dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Статьи<span class="caret"></span>
-					</a>
-					<ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-						<li class="dropdown-item" role="presentation"><a role="menuitem" tabindex="-1" href="#">Общие темы</a></li>
-						<li role="presentation" class="dropdown-divider"></li>
-						<li class="dropdown-item" role="presentation">
-							<!--a role="menuitem" tabindex="-1" href="#">
+		<!-- Yandex.Metrika counter -->
+		<script type="text/javascript" >
+			(function (d, w, c) {
+				(w[c] = w[c] || []).push(function() {
+					try {
+						w.yaCounter46321851 = new Ya.Metrika({
+							id:46321851,
+							clickmap:true,
+							trackLinks:true,
+							accurateTrackBounce:true
+						});
+					} catch(e) { }
+				});
+
+				var n = d.getElementsByTagName("script")[0],
+					s = d.createElement("script"),
+					f = function () { n.parentNode.insertBefore(s, n); };
+				s.type = "text/javascript";
+				s.async = true;
+				s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+				if (w.opera == "[object Opera]") {
+					d.addEventListener("DOMContentLoaded", f, false);
+				} else { f(); }
+			})(document, window, "yandex_metrika_callbacks");
+		</script>
+		<noscript><div><img src="https://mc.yandex.ru/watch/46321851" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+		
+<!-- /Yandex.Metrika counter -->
+		<nav class="navbar navbar-expand-md sticky-top navbar-inverse bg-warning">
+			<div class="container-fluid">
+			  <a class="navbar-brand" href="http://razum.top"><img id="logo" src="pictures/RazumLogo.png" draggable="true" ondragstart="drag(event)" alt='КоБЛаБ "РАЗУМ"' title='КоБЛаБ "РАЗУМ"'/></a>
+			  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+			  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+				  <li class="nav-item active">
+					<a class="nav-link" href="#" onclick="{showMainPage();}">Главная <span class="sr-only">(current)</span></a>
+				  </li>
+				  <li class="nav-item">
+					<!--a class="nav-link" href="#" onclick="{showDescription();}" >Витамины и минералы</a-->
 								<div class="dropdown">
-									<a href="#"class="nav-link dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Диеты<span class="caret"></span>
-									</a>
-									<ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-										<li class="dropdown-item" role="presentation"><a role="menuitem" tabindex="-1" href="#">Всеядная</a></li>
-										<li role="presentation" class="dropdown-divider"></li>
-										<li class="dropdown-item" role="presentation"><a role="menuitem" tabindex="-1" href="#">Вегетарианская</a></li>
-										<li class="dropdown-item" role="presentation"><a role="menuitem" tabindex="-1" href="#">Сыроедческая</a></li>
-									</ul>
-								</div>
-							</a-->
-							
-							<!--a role="menuitem" tabindex="-1" href="#">Диеты</a>
-						</li>
-					</ul>
-				</div>
-			</li-->
-				
-			<li class="nav-item">
-				<!--a class="nav-link" href="#">О портале</a-->
-				<div class="dropdown">
-					<a href="#"class="nav-link dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">О портале<span class="caret"></span>
-					</a>
-					<ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-						<li class="dropdown-item" role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="{showInformation();}">Сведения</a></li>
-						<li role="presentation" class="dropdown-divider"></li>
-						<li class="dropdown-item" role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="{showADdescription();}">Реклама</a></li>
-						<li class="dropdown-item" role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="{showContactUs();}">Обратная связь</a></li>
-					</ul>
-				</div>
-			  </li>
-			</ul>
-			<form class="form-inline my-2 my-lg-0">
-			  <input class="form-control mr-sm-2" type="text" placeholder="Найти">
-			  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Поиск</button>
-			</form>
-		  </div>
-		</div>
-	  </nav>
+						<a href="#"class="nav-link dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Витамины и минералы<span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+							<li class="dropdown-item" role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="{showDescription();}">Описание</a></li>
+							<li class="dropdown-item" role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="{showCompatibilityTable();}">Таблица совместимости</a></li>
+							<li role="presentation" class="dropdown-divider"></li>
+							<li class="dropdown-item" role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="{show4Smartphones();}">Для смартфонов</a></li>
+						</ul>
+					</div>
+	</li>
+				  <li class="nav-item">
+					<a class="nav-link" href="#" onclick="{showArticles();}">Статьи</a>
+				  </li>
+				<!--li class="nav-item">
+					<div class="dropdown">
+						<a href="#"class="nav-link dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Статьи<span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+							<li class="dropdown-item" role="presentation"><a role="menuitem" tabindex="-1" href="#">Общие темы</a></li>
+							<li role="presentation" class="dropdown-divider"></li>
+							<li class="dropdown-item" role="presentation">
+								<!--a role="menuitem" tabindex="-1" href="#">
+									<div class="dropdown">
+										<a href="#"class="nav-link dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Диеты<span class="caret"></span>
+										</a>
+										<ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+											<li class="dropdown-item" role="presentation"><a role="menuitem" tabindex="-1" href="#">Всеядная</a></li>
+											<li role="presentation" class="dropdown-divider"></li>
+											<li class="dropdown-item" role="presentation"><a role="menuitem" tabindex="-1" href="#">Вегетарианская</a></li>
+											<li class="dropdown-item" role="presentation"><a role="menuitem" tabindex="-1" href="#">Сыроедческая</a></li>
+										</ul>
+									</div>
+								</a-->
+
+								<!--a role="menuitem" tabindex="-1" href="#">Диеты</a>
+							</li>
+						</ul>
+					</div>
+				</li-->
+
+				<li class="nav-item">
+					<!--a class="nav-link" href="#">О портале</a-->
+					<div class="dropdown">
+						<a href="#"class="nav-link dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">О портале<span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+							<li class="dropdown-item" role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="{showInformation();}">Сведения</a></li>
+							<li role="presentation" class="dropdown-divider"></li>
+							<li class="dropdown-item" role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="{showADdescription();}">Реклама</a></li>
+							<li class="dropdown-item" role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="{showContactUs();}">Обратная связь</a></li>
+						</ul>
+					</div>
+				  </li>
+				</ul>
+				<form class="form-inline my-2 my-lg-0">
+				  <input class="form-control mr-sm-2" type="text" placeholder="Найти">
+				  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Поиск</button>
+				</form>
+			  </div>
+			</div>
+		</nav>
 
 		<div id="advertisment-top" class="py-5 advertisment">
 			<div class="container-fluid">
 				<div class="row">
-					<div class="col-md-7">
+					<div class="col-md-6">
 						<div class="card">
 							<div class="card-block">
 								<div><h3>Рекламное место сдаётся</h3></div>
@@ -157,7 +188,7 @@ This file is part of VitAndMin project.
 						</div>
 					</div>
 						
-					<div class="col-md-5">
+					<div class="col-md-6">
 						<div class="card">
 							<div class="card-block">
 								<div id="profport">
@@ -357,6 +388,25 @@ This file is part of VitAndMin project.
 		<script type="text/javascript">
 			VK.init({apiId: 6219786, onlyWidgets: true});
 			VK.Widgets.Comments("vk_comments", {limit: 10, attach: "*"});
+		</script>
+
+		<!-- яндекс поиск по сайту-->
+		<!--div id="ya-site-results" onclick="return {'tld': 'ru','language': 'ru','encoding': '','htmlcss': '1.x','updatehash': true}"-->
+			
+			<!-- форма поиска-->
+			<!--div class="ya-site-form ya-site-form_inited_no" onclick="return {'action':'http://vitandmin.su/searchresult.html','arrow':false,'bg':'#ffcc00','fontsize':12,'fg':'#000000','language':'ru','logo':'rb','publicname':'Поиск по vitandmin.su','suggest':true,'target':'_blank','tld':'ru','type':2,'usebigdictionary':true,'searchid':2308066,'input_fg':'#000000','input_bg':'#ffffff','input_fontStyle':'normal','input_fontWeight':'normal','input_placeholder':null,'input_placeholderColor':'#000000','input_borderColor':'#7f9db9'}"><form action="https://yandex.ru/search/site/" method="get" target="_blank" accept-charset="utf-8"><input type="hidden" name="searchid" value="2308066"/><input type="hidden" name="l10n" value="ru"/><input type="hidden" name="reqenc" value=""/><input type="search" name="text" value=""/><input type="submit" value="Найти"/></form></div><style type="text/css">.ya-page_js_yes .ya-site-form_inited_no { display: none; }</style><script type="text/javascript">(function(w,d,c){var s=d.createElement('script'),h=d.getElementsByTagName('script')[0],e=d.documentElement;if((' '+e.className+' ').indexOf(' ya-page_js_yes ')===-1){e.className+=' ya-page_js_yes';}s.type='text/javascript';s.async=true;s.charset='utf-8';s.src=(d.location.protocol==='https:'?'https:':'http:')+'//site.yandex.net/v2.0/js/all.js';h.parentNode.insertBefore(s,h);(w[c]||(w[c]=[])).push(function(){Ya.Site.Form.init()})})(window,document,'yandex_site_callbacks');</script-->
+			<!-- конец формы поиска-->
+
+		<!--/div>
+		<script type="text/javascript">(function(w,d,c){var s=d.createElement('script'),h=d.getElementsByTagName('script')[0];s.type='text/javascript';s.async=true;s.charset='utf-8';s.src=(d.location.protocol==='https:'?'https:':'http:')+'//site.yandex.net/v2.0/js/all.js';h.parentNode.insertBefore(s,h);(w[c]||(w[c]=[])).push(function(){Ya.Site.Results.init();})})(window,document,'yandex_site_callbacks');</script-->
+		<!-- конец яндекс поиска по сайту-->
+
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<script>
+		  (adsbygoogle = window.adsbygoogle || []).push({
+			google_ad_client: "ca-pub-9819374678997498",
+			enable_page_level_ads: true
+		  });
 		</script>
 	</body>
 </html>
