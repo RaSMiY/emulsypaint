@@ -66,7 +66,8 @@ div {text-align: justify;}
 #description, #information, #advertisment-description, #articles, #for-smartphones {text-align: justify; clear: both; display: none; padding: 1em;}
 #description img {float: right; width: 10em; height: 10em;}
 #articles {
-	padding: 10em 0 10em 0;
+/*	padding: 10em 0 10em 0;*/
+	padding: 1em;
 }
 	
 #table-of-compatibility {
