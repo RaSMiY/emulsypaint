@@ -9,7 +9,7 @@
 		<meta name="author" content="SMiY">
 		<meta name="application-name" content="VitAndMin">
 		<!--meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"-->
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+		<meta name="viewport" content="width=device-width, initial-scale=0.7, shrink-to-fit=yes">
 
 		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" />
 		<link rel="stylesheet" type="text/css" href='https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.2/dragula.min.css' />
@@ -304,7 +304,8 @@ This file is part of VitAndMin project.
 			</p>
 		</div>
 		<div id="articles" style="display: none;">
-			<h3>Статьи готовятся и будут скоро добавлены</h3>
+			<!-- VK Widget -->
+			<div id="vk_groups"></div>
 		</div>
 		<div id="advertisment-description" style="display: none;"></div>
 		<div id="contact-us" style="display: none;">
@@ -312,7 +313,7 @@ This file is part of VitAndMin project.
 				<form class="form-horizontal" action="https://getsimpleform.com/messages?form_api_token=2d86d626a4d317ac3a539fcdbe78181d" method="post">
 					<div class="form-group">
 						<!-- the redirect_to is optional, the form will redirect to the referrer on submission -->
-						<input type='hidden' name='redirect_to' value='http://vk.com/vitandmin' />
+						<input type='hidden' name='redirect_to' value='http://vitandmin.su' />
 						<!-- all your input fields here.... -->
 					</div>
 					<div class="form-group">
@@ -382,7 +383,11 @@ This file is part of VitAndMin project.
 		<script type="text/javascript">
 			VK.Widgets.CommunityMessages("vk_community_messages", 155167160, {expanded: "0",tooltipButtonText: "Есть вопрос?"});
 		</script>
-	
+
+		<script type="text/javascript">
+			$('#vk_groups').data('turnedOff', 1);
+		</script>
+
 <!-- Put this div tag to the place, where the Comments block will be -->
 		<div id="vk_comments"></div>
 		<script type="text/javascript">

@@ -862,11 +862,15 @@ function showArticles() {
 	$('#for-smartphones').hide(); 
 	$('#contact-us').hide();
 	$('#kitchen').hide();
-	$('#vk_comments').show();
+	$('#vk_comments').hide();
 	$('#vk_community_messages').hide();
 	$('#information').hide();
 	$('#advertisment-description').hide();
 	$('#articles').show();
+	if ($('#vk_groups').data('turnedOff')) {
+		VK.Widgets.Group("vk_groups", {mode: 4, wide: 0, width: "auto", height: "1200"}, 155167160);
+		$('#vk_groups').data('turnedOff', 0);
+	}
 }
 //=======================конец блока функций показа/скрытия разделов========================
 
