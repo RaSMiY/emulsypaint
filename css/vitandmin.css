@@ -154,6 +154,26 @@ table tfoot td {
     cursor: pointer;
 }
 
+.roww {
+	position: relative;
+}
+
+.colmd11 {
+	width: calc(100% * 10.9 / 12);
+}
+
+.colmd1 {
+	width: calc(100% / 12);
+	top: 0;
+	right: 0;
+	position: absolute;
+}
+
+.carousel-label, .colmd1 p {
+	max-height: 2em;
+	overflow: hidden;
+}
+
 .carousel-horizontal {
 	border: 1px solid black; 
 	border-radius: 5px; 
@@ -170,7 +190,7 @@ table tfoot td {
 }
 
 .carousel-horizontal li {
-	padding: 2vh 3vh 2vh 3vh;
+/*	padding: 0 1rem 0 1rem;*/
 	border: 1px dashed grey;
 	position: relative;
 	width: 14vh;
@@ -181,13 +201,25 @@ table tfoot td {
 }
 
 .carousel-horizontal img {
+	margin: 2vh 3vh 0 3vh;
 	width: 8vh;
+	text-align: center;
+}
+
+.carousel-horizontal li p {
+	text-align: center;
+	margin: 0 1vmin 0 1vmin;
+/*	position: absolute;
+	bottom: 1.5em;
+	margin: 0;*/
+/*	vertical-align: bottom;
+	display: inline-block;*/
 }
 
 .carousel-vertical {
 	border: 1px solid black; 
 	border-radius: 5px; 
-	height: 68vh; 
+	height: 68vh;
 	text-align: center; 
 	padding: 0;
 	/*  -ms-flex-wrap: wrap;
@@ -202,8 +234,8 @@ table tfoot td {
 	padding: 1vh 0 1vh  0;
 	border: 1px dashed grey;
 	position: relative;
-	height: 11vh;
-/*	background-position: center 0.5em;
+/*	height: 11vh;
+	background-position: center 0.5em;
 	background-size: 3em 3em;
 	background-repeat: no-repeat;*/
 }
@@ -211,20 +243,11 @@ table tfoot td {
 .carousel-vertical li img{
 	width: 5vh;
 	height: 5vh;
-	
-}
-
-.carousel-horizontal li p {
-	text-align: center;
-/*	position: absolute;
-	bottom: 1.5em;
-	margin: 0;*/
-/*	vertical-align: bottom;
-	display: inline-block;*/
 }
 
 .carousel-vertical li p {
 	text-align: center;
+	margin: 0;
 /*	position: absolute;
 	bottom: 0.5em;
 	margin: 0;*/

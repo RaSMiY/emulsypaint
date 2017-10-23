@@ -559,6 +559,9 @@ function fillVitAndMins() {
 		
 		vitandmins.append(elementV);
 
+		$('#vitandmins').css('height', 'calc('+$('.colmd11').css('height')+' - 3em)');
+//		$('#vitandmins').css('height', $('.colmd11').css('height'));
+		
 //		$('.'+Vit_and_Min[vit].alias[1]).css('background-image', 'url("pictures/vitandmins/png/'+Vit_and_Min[vit].pict+'")');
 	}
 }
@@ -685,6 +688,9 @@ function fillTableOfComatibility() {
 //=========================Наполнение страницы=========================================
 function fillContent() {
 	description=document.getElementById('description');
+//	description.innerHTML='<div class="progress"><div id="load-progress" class="progress-bar" role="progressbar" aria-valuenow="70"  aria-valuemin="0" aria-valuemax="100" style="width:0%">0% Complete</div></div>';
+//	loadProgress=document.getElementById('load-progress');
+	
 	for (vit=0; vit<Vit_and_Min.length; vit++) {
 		element=document.createElement("div");
 		
@@ -909,5 +915,10 @@ onload = function() {
 			checkCompatibility(source.id);
 		});
 //	fillContent();
+	
+	$(window).resize(function(){
+//		console.log('resize', $('.colmd11').css('height'));
+		$('#vitandmins').css('height',  'calc('+$('.colmd11').css('height')+' - 3em)');
+	});
 }
 //===============================Конец пусковой функции================================
