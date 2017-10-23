@@ -559,7 +559,7 @@ function fillVitAndMins() {
 		
 		vitandmins.append(elementV);
 
-		$('#vitandmins').css('height', 'calc('+$('.colmd11').css('height')+' - 3em)');
+		$('#vitandmins').css('height',  'calc('+$('.colmd11').css('height')+' - '+$('#vitandmins').prev().css('height')+' - 1.5rem - 2px)');
 //		$('#vitandmins').css('height', $('.colmd11').css('height'));
 		
 //		$('.'+Vit_and_Min[vit].alias[1]).css('background-image', 'url("pictures/vitandmins/png/'+Vit_and_Min[vit].pict+'")');
@@ -917,8 +917,9 @@ onload = function() {
 //	fillContent();
 	
 	$(window).resize(function(){
-//		console.log('resize', $('.colmd11').css('height'));
-		$('#vitandmins').css('height',  'calc('+$('.colmd11').css('height')+' - 3em)');
+//		console.log('resize', $('#vitandmins').prev().css('height'));
+//		$('#vitandmins').css('height',  'calc('+$('.colmd11').css('height')+' - 3em)');
+		$('#vitandmins').css('height',  'calc('+$('.colmd11').css('height')+' - '+$('#vitandmins').prev().css('height')+' - 1.5rem - 2px)');
 	});
 }
 //===============================Конец пусковой функции================================
