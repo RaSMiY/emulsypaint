@@ -890,7 +890,7 @@ function showArticles() {
 //=======================конец блока функций показа/скрытия разделов========================
 
 //==================================Пусковая функция===================================
-onload = function() {
+function init() {
 //	$('[data-toggle="popover"]').popover();   
 	
 	$("#kitchen").on("click", ".rem", function() {
@@ -900,7 +900,7 @@ onload = function() {
 	});
 //	$("#kitchen").on("dragstart", "img", drag); 
 	
-	alert('Страница загружена');
+//	alert('Страница загружена');
 	
 //	setTimeout(function() { //ставим задержку запуска функции при загрузке страницы
 		fillVitAndMins(); // Заполняем карусель витаминов
@@ -937,4 +937,8 @@ onload = function() {
 		$('#vitandmins').css('height',  'calc('+$('.colmd11').css('height')+' - '+$('#vitandmins').prev().css('height')+' - 1.5rem - 2px)');
 	});
 }
+
+//onload = function() {
+//	init();
+//}
 //===============================Конец пусковой функции================================

@@ -170,6 +170,7 @@ This file is part of VitAndMin project.
 						<ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
 							<li class="dropdown-item" role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="{showInformation();}">Сведения</a></li>
 							<li role="presentation" class="dropdown-divider"></li>
+							<li class="dropdown-item" role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="{init();}">Отладка</a></li>
 							<li class="dropdown-item" role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="{showADdescription();}">Реклама</a></li>
 							<li class="dropdown-item" role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="{showContactUs();}">Обратная связь</a></li>
 						</ul>
@@ -412,12 +413,12 @@ This file is part of VitAndMin project.
 
 		<script type="text/javascript">
 //			маленькое облачко в углу экрана
-//			VK.Widgets.CommunityMessages("vk_community_messages", 155167160, {expanded: "0", tooltipButtonText: "Есть вопрос?"});
+			VK.Widgets.CommunityMessages("vk_community_messages", 155167160, {expanded: "0", tooltipButtonText: "Есть вопрос?"});
 //			подготовка стены сообщества
-//			$('#vk_groups').data('turnedOff', 1);
+			$('#vk_groups').data('turnedOff', 1);
 //			комментарии внизу страницы
-//			VK.init({apiId: 6219786, onlyWidgets: true});
-//			VK.Widgets.Comments("vk_comments", {limit: 10, attach: "*"});
+			VK.init({apiId: 6219786, onlyWidgets: true});
+			VK.Widgets.Comments("vk_comments", {limit: 10, attach: "*"});
 		</script>
 <!-- VK Widgets-->
 
@@ -438,6 +439,14 @@ This file is part of VitAndMin project.
 			google_ad_client: "ca-pub-9819374678997498",
 			enable_page_level_ads: true
 		  });
+		</script>
+		
+		<script>
+			document.addEventListener("DOMContentLoaded", init);
+//			window.onload = init;
+//				alert('Страница загружена');
+//				setTimeout(init(), 5000);
+//			}
 		</script>
 	</body>
 </html>
