@@ -732,6 +732,7 @@ function fillContent() {
 		
 		element.innerHTML+='<hr/>';
 
+//		Добавляем рекламный блок через определённые промежутки
 		if ((vit+1)%4==0&&(vit+1<Vit_and_Min.length)) 
 			element.innerHTML+='<div id="advertisment'+(vit+1)/4+'" class="py-5 advertisment">'+
 				'<div class="container-fluid">'+
@@ -739,7 +740,9 @@ function fillContent() {
 						'<div class="col-md-12">'+
 							'<div class="card">'+
 								'<div class="card-block">'+
-									'<div><h3>Рекламное место сдаётся</h3></div>'+
+									'<div>'+
+										'<a style="display:none!important" id="4640006"></a>'+
+									'</div>'+
 								'</div>'+
 							'</div>'+
 						'</div>'+
@@ -747,6 +750,7 @@ function fillContent() {
 				'</div>'+
 			'</div>'+
 			'<hr/>';
+//		конец блока рекламного кода
 								
 		description.append(element);
 	}
