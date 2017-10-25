@@ -864,6 +864,9 @@ function showADdescription() {
 	$('#information').hide();
 	$('#advertisment-description').show();
 	$('#articles').hide();
+	
+	$('.advertisment').hide();
+	setTimeout($('.advertisment').show(), 300000);
 }
 
 function showArticles() {
@@ -895,7 +898,8 @@ onload = function() {
 	});
 //	$("#kitchen").on("dragstart", "img", drag); 
 	
-	fillVitAndMins();
+	setTimeout(fillVitAndMins(), 4000); // Заполняем карусель витаминов
+	
 	drake = dragula([document.getElementById('vitandmins'), document.getElementById('breakfast'), document.getElementById('dinner'), document.getElementById('supper')], {
 		copy: function (el, source) {
 			return source === document.getElementById('vitandmins');
