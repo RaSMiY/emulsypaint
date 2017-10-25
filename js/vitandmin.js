@@ -540,7 +540,7 @@ function drop(ev){
 //=========================Наполнение карусели витаминов=================================
 function fillVitAndMins() {
 	vitandmins=document.getElementById('vitandmins');
-//	vitandmins.innerHTML='';
+	vitandmins.innerHTML='';
 	for (vit=0; vit<Vit_and_Min.length; vit++) {
 		elementV=document.createElement("li");
 
@@ -900,30 +900,35 @@ onload = function() {
 	});
 //	$("#kitchen").on("dragstart", "img", drag); 
 	
-	setTimeout(fillVitAndMins(), 60000); // Заполняем карусель витаминов
+	alert('Страница загружена');
 	
-	drake = dragula([document.getElementById('vitandmins'), document.getElementById('breakfast'), document.getElementById('dinner'), document.getElementById('supper')], {
-		copy: function (el, source) {
-			return source === document.getElementById('vitandmins');
-		},
-		accepts: function (el, target) {
-			return (target !== document.getElementById('vitandmins'))&&(contains(menu(target.id),el.classList.item(0))<=1);
-		},
-		revertOnSpill: true,
-		ignoreInputTextSelection: true,
-		direction: 'horizontal'
-	}).on('drop', function(el, target, source, sibling) {
-			if (source.id=='vitandmins') 
-				el.innerHTML+="<button class='rem'>X</button>";
-		
-			checkCompatibility(target.id)
-			if (source.id !== 'vitandmins') {
-				checkCompatibility(source.id)
-			}
-		})
-		.on('remove', function(el, container, source) {
-			checkCompatibility(source.id);
-		});
+//	setTimeout(function() { //ставим задержку запуска функции при загрузке страницы
+		fillVitAndMins(); // Заполняем карусель витаминов
+
+		drake = dragula([document.getElementById('vitandmins'), document.getElementById('breakfast'), document.getElementById('dinner'), document.getElementById('supper')], {
+			copy: function (el, source) {
+				return source === document.getElementById('vitandmins');
+			},
+			accepts: function (el, target) {
+				return (target !== document.getElementById('vitandmins'))&&(contains(menu(target.id),el.classList.item(0))<=1);
+			},
+			revertOnSpill: true,
+			ignoreInputTextSelection: true,
+			direction: 'horizontal'
+		}).on('drop', function(el, target, source, sibling) {
+				if (source.id=='vitandmins') 
+					el.innerHTML+="<button class='rem'>X</button>";
+
+				checkCompatibility(target.id)
+				if (source.id !== 'vitandmins') {
+					checkCompatibility(source.id)
+				}
+			})
+			.on('remove', function(el, container, source) {
+				checkCompatibility(source.id);
+			});
+//	}, 10000); // конец функции установки задержки
+
 //	fillContent();
 	
 	$(window).resize(function(){

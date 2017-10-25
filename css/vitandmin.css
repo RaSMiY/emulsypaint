@@ -242,11 +242,6 @@ table tfoot td {
 	background-repeat: no-repeat;*/
 }
 
-.carousel-vertical li img{
-	width: 5vh;
-	height: 5vh;
-}
-
 .carousel-vertical li p {
 /*	text-align: center;*/
 	margin: 0;
@@ -286,16 +281,43 @@ button.support {
 }
 .self {background-color: #ffb;}
 
+@media only screen and (orientation: landscape) {
+	.carousel-vertical li img{
+		width: 5vh;
+		height: 5vh;
+	}
+}
+
+@media only screen and (orientation: portrait) {
+.carousel-vertical li {
+	padding: 0;
+}
+	
+	.carousel-vertical li img{
+		width: 5vw;
+		height: 5vw;
+	}
+}
+
+@media only screen and (max-width: 650px) and (orientation: landscape) {
+	.carousel-vertical li img{
+		width: 7vh;
+		height: 7vh;
+	}
+}
+
+@media only screen and (max-width: 650px) and (orientation: portrait) {
+	.carousel-vertical li img{
+		width: 5vw;
+		height: 5vw;
+	}
+}
+
 @media only screen and (max-width: 650px) {
 	.carousel-vertical li {
 /*		display: inline-grid;*/
 		height: calc(12vw);
 /*		padding: calc(1%) 0 calc(1%)  0;*/
-	}
-
-	.carousel-vertical li img{
-		width: 7vh;
-		height: 7vh;
 	}
 
 	.carousel-horizontal li p, .carousel-vertical li p {
