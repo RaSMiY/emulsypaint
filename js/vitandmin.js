@@ -554,10 +554,10 @@ function fillVitAndMins() {
 		$(elementV).children(':first-child').attr('title', title);
 		p=document.createElement("p");
 		$(p).html(Vit_and_Min[vit].alias[0]);
-		elementV.append(p);
+		elementV.appendChild(p);
 		
 		
-		vitandmins.append(elementV);
+		vitandmins.appendChild(elementV);
 
 		$('#vitandmins').css('height',  'calc('+$('.colmd11').css('height')+' - '+$('#vitandmins').prev().css('height')+' - 1.5rem - 2px)');
 //		$('#vitandmins').css('height', $('.colmd11').css('height'));
@@ -574,11 +574,11 @@ function fillTableOfComatibility() {
 	compatibilityTable=document.getElementById('table-of-compatibility');
 		elHeader=document.createElement("h3");
 			elHeader.innerHTML='Таблица совместимости витаминов и минералов';
-	compatibilityTable.append(elHeader);
+	compatibilityTable.appendChild(elHeader);
 
 /*		elCaption=document.createElement("caption");
 			elCaption.innerHTML='Таблица совместимости витаминов и минералов';
-		elTable.append(elCaption);*/
+		elTable.appendChild(elCaption);*/
 
 //	Создаём заглавную строку (названия столбцов)
 		elTableHead=document.createElement("thead");
@@ -586,25 +586,25 @@ function fillTableOfComatibility() {
 				elCell=document.createElement("th"); //первая ячейка с координатами [0;0]
 					elName=document.createElement("p");
 						elName.innerHTML="Элементы"
-				elCell.append(elName);
-			elRow.append(elCell);
+				elCell.appendChild(elName);
+			elRow.appendChild(elCell);
 			for (vjt=0; vjt<Vit_and_Min.length; vjt++) {
 				elCell=document.createElement("th");
 					elName=document.createElement("p");
 						elName.innerHTML+=Vit_and_Min[vjt].alias[0];
 						elName.classList.toggle("vertical-text", true);
-					elCell.append(elName);
-				elRow.append(elCell);
+					elCell.appendChild(elName);
+				elRow.appendChild(elCell);
 			}
 
 				elCell=document.createElement("th"); //ячейка с координатами [<последний столбец>;0]
 					elName=document.createElement("p");
 						elName.innerHTML="Элементы"
-				elCell.append(elName);
-			elRow.append(elCell);
+				elCell.appendChild(elName);
+			elRow.appendChild(elCell);
 
-		elTableHead.append(elRow);
-	elTable.append(elTableHead);
+		elTableHead.appendChild(elRow);
+	elTable.appendChild(elTableHead);
 //	конец блока создания заглавной строки
 
 //	Создаём нижнюю строку названия столбцов (футтер)
@@ -613,25 +613,25 @@ function fillTableOfComatibility() {
 				elCell=document.createElement("th"); //ячейка с координатами [0;<последняя строка>]
 					elName=document.createElement("p");
 						elName.innerHTML="Элементы"
-					elCell.append(elName);
-			elRow.append(elCell);
+					elCell.appendChild(elName);
+			elRow.appendChild(elCell);
 			for (vjt=0; vjt<Vit_and_Min.length; vjt++) {
 				elCell=document.createElement("th");
 					elName=document.createElement("p");
 						elName.innerHTML+=Vit_and_Min[vjt].alias[0];
 						elName.classList.toggle("vertical-text", true);
-					elCell.append(elName);
-				elRow.append(elCell);
+					elCell.appendChild(elName);
+				elRow.appendChild(elCell);
 			}
 
 				elCell=document.createElement("th"); //ячейка с координатами [<последний столбец>;<последняя строка>]
 					elName=document.createElement("p");
 						elName.innerHTML="Элементы"
-				elCell.append(elName);
-			elRow.append(elCell);
+				elCell.appendChild(elName);
+			elRow.appendChild(elCell);
 
-			elTableFoot.append(elRow);
-		elTable.append(elTableFoot);
+			elTableFoot.appendChild(elRow);
+		elTable.appendChild(elTableFoot);
 //	конец блока создания нижней строки названий
 
 		elTableBody=document.createElement("tbody");
@@ -642,8 +642,8 @@ function fillTableOfComatibility() {
 				elCell=document.createElement("td");
 					elName=document.createElement("p");
 						elName.innerHTML+=Vit_and_Min[vit].alias[0];
-					elCell.append(elName);
-				elRow.append(elCell);
+					elCell.appendChild(elName);
+				elRow.appendChild(elCell);
 //	конец блока создания первой ячейки
 				for (vjt=0; vjt<Vit_and_Min.length; vjt++) {
 					elCell=document.createElement("td");
@@ -656,21 +656,21 @@ function fillTableOfComatibility() {
 							} else if (Vit_and_Min[vit].compatibility[Vit_and_Min[vjt].alias[1]]<0) {
 								elCell.classList.toggle("conflict");
 							}
-						elCell.append(elComp);
-					elRow.append(elCell);
+						elCell.appendChild(elComp);
+					elRow.appendChild(elCell);
 				}
 //	последняя ячейка каждой строки тоже содержит название элемента
 				elCell=document.createElement("td");
 					elName=document.createElement("p");
 						elName.innerHTML+=Vit_and_Min[vit].alias[0];
-					elCell.append(elName);
-				elRow.append(elCell);
+					elCell.appendChild(elName);
+				elRow.appendChild(elCell);
 //	конец блока создания последней ячейки
-			elTableBody.append(elRow);
+			elTableBody.appendChild(elRow);
 		}
 //	конец блока создания строк
 	
-		elTable.append(elTableBody);
+		elTable.appendChild(elTableBody);
 	
 // Определяем ширину окна
 //	$(window).width()
@@ -679,7 +679,7 @@ function fillTableOfComatibility() {
 	
 //	compatibilityTable.style.width=wWidth;
 //	compatibilityTable.style.height=wHeight;
-	compatibilityTable.append(elTable);
+	compatibilityTable.appendChild(elTable);
 //	$('#table-of-compatibility table').fixedHeaderTable({ width: wWidth, height: wHeight, footer: true, cloneHeadToFoot: false, fixedColumn: true });
 //	setTimeout(function(){$('#table-of-compatibility table').fixedHeaderTable({ footer: true, cloneHeadToFoot: false, fixedColumn: true })}, 2000);
 }
@@ -752,7 +752,7 @@ function fillContent() {
 			'<hr/>';
 //		конец блока рекламного кода
 								
-		description.append(element);
+		description.appendChild(element);
 	}
 }
 
