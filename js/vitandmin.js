@@ -732,6 +732,7 @@ function fillContent() {
 		
 		element.innerHTML+='<hr/>';
 
+//		Добавляем рекламный блок через определённые промежутки
 		if ((vit+1)%4==0&&(vit+1<Vit_and_Min.length)) 
 			element.innerHTML+='<div id="advertisment'+(vit+1)/4+'" class="py-5 advertisment">'+
 				'<div class="container-fluid">'+
@@ -739,7 +740,26 @@ function fillContent() {
 						'<div class="col-md-12">'+
 							'<div class="card">'+
 								'<div class="card-block">'+
-									'<div><h3>Рекламное место сдаётся</h3></div>'+
+									'<div>'+
+										'<script style="text/javascript">'+
+											'document.write(\'<a style="display:none!important" id="4640006"></a>\');'+
+											'if (window.AED_SHOW) {'+
+												"window.AED_SHOW({wid: '4640006',shortkey:'QzBeme2', size:'728x90', custom:{}});"+
+											'} else {'+
+												'window.AED_ONLOAD = window.AED_ONLOAD || [];'+
+												'window.AED_ONLOAD.push({wid:\'4640006\',shortkey:\'QzBeme2\',size:\'728x90\',custom:{}});'
+												'if (!document.getElementById("ae-ad-script-$")) {'+
+													'var s = document.createElement("script"),'+
+													'h = document.getElementsByTagName("head")[0];'+
+													's.id = \'ae-ad-script-$\';'+
+													's.charset = "utf-8";'+
+													's.async = !0;'+
+													's.src = "//i.alicdn.com/ae-game/thirdparty/show-window/index.js";'+
+													'h.insertBefore(s, h.firstChild)'+
+												'}'+
+											'}'+
+										'</script>'+
+									'</div>'+
 								'</div>'+
 							'</div>'+
 						'</div>'+
@@ -747,6 +767,7 @@ function fillContent() {
 				'</div>'+
 			'</div>'+
 			'<hr/>';
+//		конец блока рекламного кода
 								
 		description.append(element);
 	}
