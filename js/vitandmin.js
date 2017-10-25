@@ -741,7 +741,7 @@ function fillContent() {
 							'<div class="card">'+
 								'<div class="card-block">'+
 									'<div>'+
-										'<a style="display:none!important" id="4640006"></a>'+
+										'<h3>Рекламное место сдаётся</h3>'+
 									'</div>'+
 								'</div>'+
 							'</div>'+
