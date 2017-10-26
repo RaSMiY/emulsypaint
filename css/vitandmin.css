@@ -195,7 +195,7 @@ table tfoot td {
 /*	padding: 0 1rem 0 1rem;*/
 	border: 1px dashed grey;
 	position: relative;
-	overflow: hidden;
+	overflow: auto;
 /*	background-position: center 0.5em;
 	background-size: 5em 5em;
 	background-repeat: no-repeat;
@@ -229,7 +229,7 @@ table tfoot td {
 	padding: 1vh 0 1vh  0;
 	border: 1px dashed grey;
 	position: relative;
-	overflow: hidden;
+	overflow: auto;
 /*	height: 11vh;
 	background-position: center 0.5em;
 	background-size: 3em 3em;
@@ -337,6 +337,26 @@ button.support {
 		width: 5vw;
 		height: 5vw;
 	}
+	.carousel-horizontal li p, .carousel-vertical li p {
+/*		display: contents;*/
+		position: absolute;
+		bottom: 0;
+		right: 1px;
+/*		font-size: calc(30%);*/
+/*		-moz-text-align-last: right;*/
+		text-align: right;
+		white-space: nowrap;
+/*		width: calc(100%);*/
+}
+
+	button.conflict {
+		top: 50%;
+		right: 1px;
+	}
+	button.support {
+		top: 30%;
+		left: 1px;
+	}
 }
 
 @media only screen and (max-width: 650px) and (orientation: landscape) {
@@ -353,9 +373,32 @@ button.support {
 	.carousel-horizontal li {
 		width: 11vh;
 	}
+	.carousel-horizontal li img {
+		margin: 3px 0 0 8px;
+	}
 	.carousel-vertical li img{
 		width: 5vw;
 		height: 5vw;
+	}
+	.carousel-horizontal li p, .carousel-vertical li p {
+/*		display: contents;*/
+		position: absolute;
+		bottom: 0;
+		right: 1px;
+/*		font-size: calc(30%);*/
+/*		-moz-text-align-last: right;*/
+		text-align: right;
+		white-space: nowrap;
+/*		width: calc(100%);*/
+}
+
+	button.conflict {
+		top: 50%;
+		right: 1px;
+	}
+	button.support {
+		top: 30%;
+		left: 1px;
 	}
 }
 
