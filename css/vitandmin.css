@@ -159,12 +159,12 @@ table tfoot td {
 }
 
 .colmd11 {
-	width: calc(100% * 10.9 / 12);
+/*	width: calc(100% * 10.9 / 12);*/
 /*	width: 85vw;*/
 }
 
 .colmd1 {
-	width: calc(100% / 12);
+/*	width: calc(100% / 12);*/
 /*	width: 12vw;*/
 	top: 0;
 	right: 0;
@@ -273,6 +273,12 @@ button.support {
 .self {background-color: #ffb;}
 
 @media only screen and (orientation: landscape) {
+	.colmd11 {
+		width: calc(100% * 10.9 / 12);
+	}
+	.colmd1 {
+		width: calc(100% / 12);
+	}
 	.carousel-horizontal{
 		height: 16vh; 
 	}
@@ -294,6 +300,12 @@ button.support {
 }
 
 @media only screen and (orientation: portrait) {
+	.colmd11 {
+		width: calc(100% * 9.9 / 12);
+	}
+	.colmd1 {
+		width: calc(100% / 6);
+	}
 	.carousel-horizontal{
 		height: 8vh; 
 	}
