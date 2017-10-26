@@ -936,8 +936,17 @@ function init() {
 		$('#vitandmins').css('height',  'calc('+$('.colmd11').css('height')+' - '+$('#vitandmins').prev().css('height')+' - 1.5rem - 2px)');
 	});
 	
-	$('#kitchen li').on('dragstart', function(ev){ev.preventDefault();});
-}
+//	Предотвращаем прокрутку при перемещении элементов между списками на устройствах с сенсорными экранами
+//	$('#kitchen li').on('dragstart', function(ev){ev.preventDefault();});
+	/* element is an HTML element You want catch the touch */
+	$('#kitchen li').on('touchstart', function(e) {
+		$('html').css('overflow', 'hidden');
+	});
+
+	$('html').on('touchend', function(e) {
+		$('html').css('overflow', 'auto');
+	});
+	}
 
 //onload = function() {
 //	init();
