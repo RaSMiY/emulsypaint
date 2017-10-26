@@ -272,6 +272,14 @@ button.support {
 }
 .self {background-color: #ffb;}
 
+.lock-screen {
+    height: 100%;
+    overflow: hidden;
+    width: 100%;
+    position: fixed;
+}
+
+
 @media only screen and (orientation: landscape) {
 	.colmd11 {
 		width: calc(100% * 10.9 / 12);

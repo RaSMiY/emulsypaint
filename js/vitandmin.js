@@ -940,11 +940,11 @@ function init() {
 //	$('#kitchen li').on('dragstart', function(ev){ev.preventDefault();});
 	/* element is an HTML element You want catch the touch */
 	$('#kitchen li').on('touchstart', function(e) {
-		$('html').css('overflow', 'hidden');
+		$('body').toggleClass('.lock-screen');
 	});
 
-	$('html').on('touchend', function(e) {
-		$('html').css('overflow', 'auto');
+	$('body').on('touchend', function(e) {
+		$('body').toggleClass('.lock-screen');
 	});
 	}
 
