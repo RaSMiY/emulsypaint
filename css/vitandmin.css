@@ -195,6 +195,7 @@ table tfoot td {
 /*	padding: 0 1rem 0 1rem;*/
 	border: 1px dashed grey;
 	position: relative;
+	overflow: hidden;
 /*	background-position: center 0.5em;
 	background-size: 5em 5em;
 	background-repeat: no-repeat;
@@ -228,6 +229,7 @@ table tfoot td {
 	padding: 1vh 0 1vh  0;
 	border: 1px dashed grey;
 	position: relative;
+	overflow: hidden;
 /*	height: 11vh;
 	background-position: center 0.5em;
 	background-size: 3em 3em;
