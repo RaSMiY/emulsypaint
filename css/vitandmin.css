@@ -179,7 +179,6 @@ table tfoot td {
 .carousel-horizontal {
 	border: 1px solid black; 
 	border-radius: 5px; 
-	height: 16vh; 
 	padding: 0;
 	display: -ms-flexbox;
 	display: flex;
@@ -195,7 +194,6 @@ table tfoot td {
 /*	padding: 0 1rem 0 1rem;*/
 	border: 1px dashed grey;
 	position: relative;
-	width: 14vh;
 /*	background-position: center 0.5em;
 	background-size: 5em 5em;
 	background-repeat: no-repeat;
@@ -204,7 +202,6 @@ table tfoot td {
 
 .carousel-horizontal img {
 	margin: 2vh 3vh 0 3vh;
-	width: 8vh;
 	text-align: center;
 }
 
@@ -221,7 +218,6 @@ table tfoot td {
 .carousel-vertical {
 	border: 1px solid black; 
 	border-radius: 5px; 
-	height: 68vh;
 	text-align: center; 
 	padding: 0;
 	/*  -ms-flex-wrap: wrap;
@@ -259,7 +255,7 @@ button.conflict {
 	right: 1%;
 	color: #f22;
 	background-color: rgba(255, 200, 200,0);
-	font-size: 30%;
+/*	font-size: 30%;*/
 	z-index:0;
 	border: none;
 }
@@ -270,7 +266,7 @@ button.support {
 	left: 1%;
 	color: green;
 	background-color: rgba(200, 255, 200,0);
-	font-size: 30%;
+/*	font-size: 30%;*/
 	z-index: 0;
 	border: none;
 }
@@ -282,6 +278,15 @@ button.support {
 .self {background-color: #ffb;}
 
 @media only screen and (orientation: landscape) {
+	.carousel-horizontal{
+		height: 16vh; 
+	}
+	.carousel-horizontal li {
+		width: 14vh;
+	}
+	.carousel-vertical {
+		height: 68vh;
+	}
 	.carousel-vertical li img{
 		width: 5vh;
 		height: 5vh;
@@ -289,10 +294,22 @@ button.support {
 }
 
 @media only screen and (orientation: portrait) {
-.carousel-vertical li {
-	padding: 0;
-}
-	
+	.carousel-horizontal{
+		height: 8vh; 
+	}
+	.carousel-horizontal li {
+		width: 7vh;
+	}
+	.carousel-horizontal li img{
+		width: 5vh;
+		margin: 1px;
+	}
+	.carousel-vertical {
+		height: 34vh;
+	}
+	.carousel-vertical li {
+		padding: 0;
+	}
 	.carousel-vertical li img{
 		width: 5vw;
 		height: 5vw;
@@ -325,7 +342,7 @@ button.support {
 		position: absolute;
 		bottom: 0;
 		right: 1px;
-		font-size: calc(30%);
+/*		font-size: calc(30%);*/
 /*		-moz-text-align-last: right;*/
 		text-align: right;
 		white-space: nowrap;
@@ -350,7 +367,7 @@ button.support {
 		position: absolute;
 		bottom: 0;
 		right: 1px;
-		font-size: calc(30%);
+/*		font-size: calc(30%);*/
 /*		-moz-text-align-last: right;*/
 		text-align: right;
 		white-space: nowrap;

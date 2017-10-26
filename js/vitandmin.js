@@ -825,8 +825,6 @@ function showMainPage() {
 	$('#information').hide();
 	$('#advertisment-description').hide();
 	$('#articles').hide();
-	
-	fillVitAndMins();
 }
 
 function showContactUs() {
@@ -867,8 +865,8 @@ function showADdescription() {
 	$('#advertisment-description').show();
 	$('#articles').hide();
 	
-	$('.advertisment').hide();
-	setTimeout(function() {$('.advertisment').show()}, 300000);
+//	$('.advertisment').hide();
+//	setTimeout(function() {$('.advertisment').show()}, 300000);
 }
 
 function showArticles() {
@@ -934,6 +932,7 @@ function init() {
 	$(window).resize(function(){
 //		console.log('resize', $('#vitandmins').prev().css('height'));
 //		$('#vitandmins').css('height',  'calc('+$('.colmd11').css('height')+' - 3em)');
+//		$('.carousel-horizontal').css('height',  'calc('+$('.colmd11').css('height')+' - '+$('#vitandmins').prev().css('height')+' - 1.5rem - 2px)');
 		$('#vitandmins').css('height',  'calc('+$('.colmd11').css('height')+' - '+$('#vitandmins').prev().css('height')+' - 1.5rem - 2px)');
 	});
 }

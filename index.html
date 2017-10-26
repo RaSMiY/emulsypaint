@@ -112,7 +112,7 @@ This file is part of VitAndMin project.
 <!-- /Yandex.Metrika counter -->
 		<nav class="navbar navbar-expand-md sticky-top navbar-inverse bg-warning">
 			<div class="container-fluid">
-			  <a class="navbar-brand" href="http://razum.top"><img id="logo" src="pictures/RazumLogo.png" draggable="true" ondragstart="drag(event)" alt='КоБЛаБ "РАЗУМ"' title='КоБЛаБ "РАЗУМ"'/></a>
+			  <a class="navbar-brand" href="https://vk.com/razumufa" target="blanc"><img id="logo" src="pictures/RazumLogo.png" draggable="true" ondragstart="drag(event)" onclick="{$('.advertisment').hide(); setTimeout(function() {$('.advertisment').show()}, 300000);}" alt='КоБЛаБ "РАЗУМ"' title='КоБЛаБ "РАЗУМ" - скрыть рекламу на 5 минут'/></a>
 			  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
 			  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
@@ -170,7 +170,7 @@ This file is part of VitAndMin project.
 						<ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
 							<li class="dropdown-item" role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="{showInformation();}">Сведения</a></li>
 							<li role="presentation" class="dropdown-divider"></li>
-							<li class="dropdown-item" role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="{init();}">Отладка</a></li>
+							<!--li class="dropdown-item" role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="{init();}">Отладка</a></li-->
 							<li class="dropdown-item" role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="{showADdescription();}">Реклама</a></li>
 							<li class="dropdown-item" role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="{showContactUs();}">Обратная связь</a></li>
 						</ul>
@@ -443,6 +443,7 @@ This file is part of VitAndMin project.
 		
 		<script>
 			document.addEventListener("DOMContentLoaded", init);
+//			document.addEventListener("load", init);
 //			window.onload = init;
 //				alert('Страница загружена');
 //				setTimeout(init(), 5000);
