@@ -200,11 +200,6 @@ table tfoot td {
 	z-index: 100;*/
 }
 
-.carousel-horizontal img {
-	margin: 2vh 3vh 0 3vh;
-	text-align: center;
-}
-
 .carousel-horizontal li p {
 	text-align: center;
 	margin: 0 1vmin 0 1vmin;
@@ -283,6 +278,11 @@ button.support {
 	}
 	.carousel-horizontal li {
 		width: 14vh;
+	}
+	.carousel-horizontal img {
+		margin: 2vh 3vh 0 3vh;
+/*		text-align: center;*/
+		width: 8vh;
 	}
 	.carousel-vertical {
 		height: 68vh;
