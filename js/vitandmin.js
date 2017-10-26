@@ -940,13 +940,13 @@ function init() {
 //	$('#kitchen li').on('dragstart', function(ev){ev.preventDefault();});
 	/* element is an HTML element You want catch the touch */
 	$('#kitchen li').on('touchstart', function(e) {
-		$('body').toggleClass('.lock-screen');
+		$('body').toggleClass('lock-screen');
 	});
 
 	$('body').on('touchend', function(e) {
-		$('body').toggleClass('.lock-screen');
+		$('body').toggleClass('lock-screen');
 	});
-	}
+}
 
 //onload = function() {
 //	init();

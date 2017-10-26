@@ -180,8 +180,9 @@ table tfoot td {
 	border: 1px solid black; 
 	border-radius: 5px; 
 	padding: 0;
-	display: -ms-flexbox;
-	display: flex;
+/*	display: -ms-flexbox;
+	display: flex;*/
+	display: -webkit-box;
 /*  -ms-flex-wrap: wrap;
 	flex-wrap: wrap;*/
 	list-style: none;
@@ -344,6 +345,12 @@ button.support {
 }
 
 @media only screen and (max-width: 650px) and (orientation: portrait) {
+	.carousel-horizontal{
+		height: 12vh; 
+	}
+	.carousel-horizontal li {
+		width: 11vh;
+	}
 	.carousel-vertical li img{
 		width: 5vw;
 		height: 5vw;
@@ -382,6 +389,17 @@ button.support {
 }
 
 @media only screen and (min-width: 650px) and (max-width: 1000px) and (max-height: 600px) {
+	.carousel-horizontal{
+		height: 20vh; 
+	}
+	.carousel-horizontal li {
+		width: 18vh;
+	}
+	.carousel-horizontal img {
+		margin: 2vh 3vh 0 3vh;
+/*		text-align: center;*/
+		width: 12vh;
+	}
 	.carousel-horizontal li p, .carousel-vertical li p {
 /*		display: contents;*/
 		position: absolute;
@@ -394,11 +412,11 @@ button.support {
 /*		width: calc(100%);*/
 	}
 	button.conflict {
-		top: calc(11vh + 3px);
+/*		top: calc(11vh + 3px);*/
 		right: 1px;
 	}
 	button.support {
-		top: calc(8vh + 3px);
+/*		top: calc(8vh + 3px);*/
 		left: 1px;
 	}
 }
