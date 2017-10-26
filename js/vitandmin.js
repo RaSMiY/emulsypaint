@@ -935,6 +935,8 @@ function init() {
 //		$('.carousel-horizontal').css('height',  'calc('+$('.colmd11').css('height')+' - '+$('#vitandmins').prev().css('height')+' - 1.5rem - 2px)');
 		$('#vitandmins').css('height',  'calc('+$('.colmd11').css('height')+' - '+$('#vitandmins').prev().css('height')+' - 1.5rem - 2px)');
 	});
+	
+	$('#kitchen li').on('dragstart', function(ev){ev.preventDefault();});
 }
 
 //onload = function() {

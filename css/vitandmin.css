@@ -86,7 +86,7 @@ table p {
 table {
 }
 table {
-	border: 3px solid black;
+	border: 1px solid black;
 }
 th, td {
     border: 1px solid black;
@@ -99,11 +99,11 @@ th, td {
 th, table tfoot td {
 	width: 1em;
 	height: 5.6em;
-	border: 2px solid black;
+	border: 1px solid black;
 }
 td:first-child, th:first-child {
     text-align: left;
-	border: 2px solid black;
+	border: 1px solid black;
 }
 table tr:nth-child(even) {
     background-color: #eee;
@@ -301,10 +301,10 @@ button.support {
 
 @media only screen and (orientation: portrait) {
 	.colmd11 {
-		width: calc(100% * 9.9 / 12);
+		width: calc(100% * 10.4 / 12);
 	}
 	.colmd1 {
-		width: calc(100% / 6);
+		width: calc(100% / 8);
 	}
 	.carousel-horizontal{
 		height: 8vh; 
