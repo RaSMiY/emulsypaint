@@ -1,4 +1,4 @@
-<! DOCTYPE HTML>
+<!DOCTYPE HTML>
 
 <html>
 	<head>
@@ -122,9 +122,8 @@ This file is part of VitAndMin project.
 				  <li class="nav-item">
 					<!--a class="nav-link" href="#" onclick="{showDescription();}" >Витамины и минералы</a-->
 								<div class="dropdown">
-						<a href="#"class="nav-link dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Витамины и минералы<span class="caret"></span>
-						</a>
-						<ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+						<a href="#"class="nav-link dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Витамины и минералы<span class="caret"></span></a>
+						<ul class="dropdown-menu bg-warning" role="menu" aria-labelledby="menu1">
 							<li class="dropdown-item" role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="{showDescription();}">Описание</a></li>
 							<li class="dropdown-item" role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="{showCompatibilityTable();}">Таблица совместимости</a></li>
 							<li role="presentation" class="dropdown-divider"></li>
@@ -165,9 +164,8 @@ This file is part of VitAndMin project.
 				<li class="nav-item">
 					<!--a class="nav-link" href="#">О портале</a-->
 					<div class="dropdown">
-						<a href="#"class="nav-link dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">О портале<span class="caret"></span>
-						</a>
-						<ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+						<a href="#"class="nav-link dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">О портале<span class="caret"></span></a>
+						<ul class="dropdown-menu bg-warning" role="menu" aria-labelledby="menu1">
 							<li class="dropdown-item" role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="{showInformation();}">Сведения</a></li>
 							<li role="presentation" class="dropdown-divider"></li>
 							<!--li class="dropdown-item" role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="{init();}">Отладка</a></li-->
@@ -224,8 +222,11 @@ This file is part of VitAndMin project.
 					<div class="colmd11">
 						<div class="card">
 							<div class="card-block">
-								<h4 class="carousel-label">Завтрак (<i>примерный список витаминов и минералов</i>)</h4>
-								<p class="carousel-label"><b>витамины:</b> B5, B12, K, H, D; <b>минералы:</b> кальций, хром; <b>каротиноиды:</b> лютеин, ликопин</p>
+								<div class="carousel-label">
+									<h4>Завтрак</h4>
+									<p> (<i>примерный список витаминов и минералов</i>)</p>
+									<div><b>витамины:</b> B5, B12, K, H, D; <b>минералы:</b> кальций, хром; <b>каротиноиды:</b> лютеин, ликопин</div>
+								</div>
 								<ul id="breakfast" class="carousel-horizontal">
 									<!--li class="razum support-n-conflict">
 										<a href="#" class="support" data-toggle="popover" title="Усвоение элемента усиливают" data-content="Отображаются элементы, оказывающие поддержку" data-placement="bottom">support</a>
@@ -238,15 +239,21 @@ This file is part of VitAndMin project.
 						</div>
 						<div class="card">
 							<div class="card-block">
-								<h4 class="carousel-label">Обед (<i>примерный список витаминов и минералов</i>)</h4>
-								<p class="carousel-label"><b>витамины:</b> B2, B3, B6, C, E; <b>минералы:</b> магний, цинк, марганец, йод, молибден, селен; <b>каротиноиды:</b> бета-каротин; стоит добавить лесные ягоды</p>
+								<div class="carousel-label">
+									<h4>Обед</h4>
+									<p>(<i>примерный список витаминов и минералов</i>)</p>
+									<div><b>витамины:</b> B2, B3, B6, C, E; <b>минералы:</b> магний, цинк, марганец, йод, молибден, селен; <b>каротиноиды:</b> бета-каротин; стоит добавить лесные ягоды</div>
+								</div>
 								<ul id="dinner" class="carousel-horizontal"></ul>
 							</div>
 						</div>
 						<div class="card">
 							<div class="card-block">
-								<h4 class="carousel-label">Ужин (<i>примерный список витаминов и минералов</i>)</h4>
-								<p class="carousel-label"><b>витамины:</b> B1, B9, C, A; <b>минералы:</b> железо, медь</p>
+								<div class="carousel-label">
+									<h4>Ужин</h4>
+									<p> (<i>примерный список витаминов и минералов</i>)</p>
+									<div><b>витамины:</b> B1, B9, C, A; <b>минералы:</b> железо, медь</div>
+								</div>
 								<ul id="supper" class="carousel-horizontal"></ul>
 							</div>
 						</div>
@@ -254,7 +261,7 @@ This file is part of VitAndMin project.
 					<div class="colmd1 ">
 						<div class="card">
 							<div class="card-block">
-								<h4 class="carousel-label">Витамины</h4>
+								<div class="carousel-label"><h4>Витамины</h4></div>
 								<ul id="vitandmins" class="carousel-vertical">
 									<!--li class="razum">
 										<img id="image" src="RazumLogo.png" draggable="true" ondragstart="drag(event)" alt='КоБЛаБ "РАЗУМ"' title='КоБЛаБ "РАЗУМ"'/>
@@ -369,7 +376,7 @@ This file is part of VitAndMin project.
 						<div class="card">
 							<div class="card-block">
 								<div>
-									<script style="text/javascript">
+									<script type="text/javascript">
 										document.write('<a style="display:none!important" id="4640006"></a>');
 										if (window.AED_SHOW) {
 											window.AED_SHOW({wid: '4640006',shortkey:'QzBeme2', size:'728x90', custom:{}});
@@ -413,12 +420,12 @@ This file is part of VitAndMin project.
 
 		<script type="text/javascript">
 //			маленькое облачко в углу экрана
-			VK.Widgets.CommunityMessages("vk_community_messages", 155167160, {expanded: "0", tooltipButtonText: "Есть вопрос?"});
+//			VK.Widgets.CommunityMessages("vk_community_messages", 155167160, {expanded: "0", tooltipButtonText: "Есть вопрос?"});
 //			подготовка стены сообщества
-			$('#vk_groups').data('turnedOff', 1);
+//			$('#vk_groups').data('turnedOff', 1);
 //			комментарии внизу страницы
-			VK.init({apiId: 6219786, onlyWidgets: true});
-			VK.Widgets.Comments("vk_comments", {limit: 10, attach: "*"});
+//			VK.init({apiId: 6219786, onlyWidgets: true});
+//			VK.Widgets.Comments("vk_comments", {limit: 10, attach: "*"});
 		</script>
 <!-- VK Widgets-->
 
