@@ -84,6 +84,7 @@ div {text-align: justify;}
 	text-indent: 2em;
 }
 
+.table-responsive{display:block;width:100%;overflow-x:auto;-ms-overflow-style:-ms-autohiding-scrollbar}
 table p {
 	margin: 0;
 }
@@ -105,8 +106,7 @@ th, table tfoot td {
 	height: 5.6em;
 	border: 1px solid black;
 }
-td:first-child, th:first-child {
-    text-align: left;
+td:first-child {
 	border: 1px solid black;
 }
 table tr:nth-child(even) {
@@ -125,13 +125,11 @@ table tr td:first-child p, table tr td:last-child p {
 }
 
 table caption {
- /*   background-color: orange;*/
     color: black;
 	font-size: 150%;
 	font-weight: bold;
 	text-align: center;
 	caption-side: bottom;
-/*	text-indent: 1em;*/
 }
 table tfoot td {
 	font-weight: bold;
@@ -295,9 +293,22 @@ button.support {
 	.carousel-vertical {
 		height: 68vh;
 	}
+	.carousel-vertical li {
+		height: 9vw;
+		padding: 0;
+	}
 	.carousel-vertical li img{
-		width: 5vh;
-		height: 5vh;
+		width: 5vw;
+		height: 5vw;
+		margin-top: 0.1vh;
+	}
+	.carousel-vertical li p {
+		position: absolute;
+		bottom: 0;
+		right: 1px;
+		text-align: right;
+		font-size-adjust: 0.4;
+		white-space: nowrap;
 	}
 	.carousel-label>p {
 			margin-bottom: 0;
@@ -387,8 +398,8 @@ button.support {
 
 @media only screen and (max-width: 1200px) and (orientation: landscape) {
 	.carousel-vertical li img{
-		width: 7vh;
-		height: 7vh;
+		width: 6vw;
+		height: 6vw;
 	}
 	.carousel-horizontal {
 		height: 16vw; 
@@ -399,9 +410,6 @@ button.support {
 	.carousel-horizontal li img {
 		margin: 2vh 3vw 0 3vw;
 		width: 8vw;
-	}
-	.carousel-vertical {
-/*		font-size: 0.6rem;*/
 	}
 }
 

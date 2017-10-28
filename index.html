@@ -279,8 +279,8 @@ This file is part of VitAndMin project.
 		<div id="for-smartphones">
 			<h3>Скачайте приложение для вашего смартфона</h3>
 			<ul>
-				<li><a href="#" tarrget="blanc">Андроид</a></li>
-				<li><a href="#" tarrget="blanc">iOS</a></li>
+				<li><a href="#" target="blanc">Андроид</a></li>
+				<li><a href="#" target="blanc">iOS</a></li>
 			</ul>
 		</div>
 		<div id="information" style="display: none;">
@@ -377,12 +377,14 @@ This file is part of VitAndMin project.
 							<div class="card-block">
 								<div>
 									<script type="text/javascript">
+										if (document.body.clientWidth>=800) bannerSize='728x90';
+										else bannerSize='468x60';
 										document.write('<a style="display:none!important" id="4640006"></a>');
 										if (window.AED_SHOW) {
-											window.AED_SHOW({wid: '4640006',shortkey:'QzBeme2', size:'728x90', custom:{}});
+											window.AED_SHOW({wid: '4640006',shortkey:'QzBeme2', size:bannerSize, custom:{}});
 										} else {
 											window.AED_ONLOAD = window.AED_ONLOAD || [];
-											window.AED_ONLOAD.push({wid:'4640006',shortkey:'QzBeme2',size:'728x90',custom:{}});
+											window.AED_ONLOAD.push({wid:'4640006',shortkey:'QzBeme2',size:bannerSize,custom:{}});
 											if (!document.getElementById("ae-ad-script-$")) {
 												var s = document.createElement("script"),
 												h = document.getElementsByTagName("head")[0];

@@ -671,15 +671,23 @@ function fillTableOfComatibility() {
 //	конец блока создания строк
 	
 		elTable.appendChild(elTableBody);
+//		elTable.classList.toggle('table');
+//		elTable.classList.toggle('table-responsive');
+//		elTable.classList.toggle('table-warning');
+//		elTable.classList.toggle('table-striped');
+//		elTable.classList.toggle('table-bordered');
+//		elTable.classList.toggle('table-hover');
 	
 // Определяем ширину окна
-//	$(window).width()
+//	$(window).width();
 //	wWidth=String(document.body.clientWidth*0.96);
 //	wHeight=String(document.body.clientHeight*0.92);
 	
 //	compatibilityTable.style.width=wWidth;
 //	compatibilityTable.style.height=wHeight;
+
 	compatibilityTable.appendChild(elTable);
+
 //	$('#table-of-compatibility table').fixedHeaderTable({ width: wWidth, height: wHeight, footer: true, cloneHeadToFoot: false, fixedColumn: true });
 //	setTimeout(function(){$('#table-of-compatibility table').fixedHeaderTable({ footer: true, cloneHeadToFoot: false, fixedColumn: true })}, 2000);
 }
