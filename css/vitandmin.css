@@ -123,14 +123,7 @@ table tr td:first-child p, table tr td:last-child p {
 	width: 7em;
 	text-align: center;
 }
-/*thead th p, tfoot th p {
-	height: 7em;
-}*/
-/*.fht-fixed-body thead th p, .fht-fixed-body tfoot th p {
-	height: 7em;
-	width: 1.5em;
-	text-align: center;
-}*/
+
 table caption {
  /*   background-color: orange;*/
     color: black;
@@ -162,14 +155,7 @@ table tfoot td {
 	position: relative;
 }
 
-.colmd11 {
-/*	width: calc(100% * 10.9 / 12);*/
-/*	width: 85vw;*/
-}
-
 .colmd1 {
-/*	width: calc(100% / 12);*/
-/*	width: 12vw;*/
 	top: 0;
 	right: 0;
 	position: absolute;
@@ -197,7 +183,6 @@ table tfoot td {
 }
 
 .carousel-horizontal li {
-/*	padding: 0 1rem 0 1rem;*/
 	border: 1px dashed grey;
 	position: relative;
 /*	background-position: center 0.5em;
@@ -209,10 +194,10 @@ table tfoot td {
 .carousel-horizontal li p {
 	position: absolute;
 	right: 0.3rem;
-	bottom: 0.6rem;
+	bottom: 0.3rem;
 	text-align: center;
-	margin: 0 1vmin 0 1vmin;
-	word-wrap: no-wrap;
+	margin: 0;
+	white-space: nowrap;
 /*	position: absolute;
 	bottom: 1.5em;
 	margin: 0;*/
@@ -253,8 +238,8 @@ button.conflict {
 	bottom: calc(0.9rem + 3px);
 	right: 1%;
 	color: #f22;
+	font-size-adjust: 0.3;
 	background-color: rgba(255, 200, 200,0);
-/*	font-size: 30%;*/
 	z-index:0;
 	border: none;
 }
@@ -264,8 +249,8 @@ button.support {
 	bottom: calc(0.9rem + 3px);
 	left: 1%;
 	color: green;
+	font-size-adjust: 0.3;
 	background-color: rgba(200, 255, 200,0);
-/*	font-size: 30%;*/
 	z-index: 0;
 	border: none;
 }
@@ -274,13 +259,19 @@ button.support {
 	background: -webkit-linear-gradient(left, #bfb 50%, #fbb 50%);
 	background: -ms-linear-gradient(left, #bfb 50%, #fbb 50%);
 }
-.self {background-color: #ffb;}
+.self { /* для обозначения клетки с одинаковыми номирами строки и столбца */
+	background-color: #ffb;
+}
 
 .lock-screen {
     height: 100%;
     overflow: hidden;
     width: 100%;
     position: fixed;
+}
+
+.carousel-label>h4 {
+	margin-bottom: 0.1vh;
 }
 
 
@@ -297,6 +288,10 @@ button.support {
 	.carousel-horizontal li {
 		width: 14vh;
 	}
+	.carousel-horizontal li img {
+		margin: 2vh 3vh 0 3vh;
+		width: 8vh;
+	}
 	.carousel-vertical {
 		height: 68vh;
 	}
@@ -305,9 +300,11 @@ button.support {
 		height: 5vh;
 	}
 	.carousel-label>p {
+			margin-bottom: 0;
 			position: absolute;
 			top: 0;
 			right: 0;
+			white-space: nowrap;
 	}
 }
 
@@ -332,11 +329,6 @@ button.support {
 		text-align: right;
 		font-weight: bold;
 	}
-	.carousel-label>p {
-			position: absolute;
-			top: 0;
-			left: 0;
-	}
 	.carousel-label>div {
 		display: inline-grid;
 		float: left;
@@ -348,13 +340,15 @@ button.support {
 	
 	.carousel-horizontal{
 		height: 12vh; 
-		font-size: 0.6rem;
+/*		font-size: 0.6rem;*/
 	}
 	.carousel-horizontal li {
 		width: 11vh;
 	}
 	.carousel-horizontal li img {
-		margin: 3px 0 0 8px;
+		margin: 0.1vh 2vh 0.1vh 2vh;
+		width: 7vh;
+		height: 7vh;
 	}
 	.carousel-vertical {
 		height: 34vh;
@@ -364,21 +358,31 @@ button.support {
 		height: 12vw;
 		padding: 0;
 	}
-	.carousel-horizontal li img{
-		width: 12vw;
-		height: 12vw;
-	}
 	.carousel-vertical li img{
 		width: 5vw;
 		height: 5vw;
 	}
-	.carousel-horizontal li p, .carousel-vertical li p {
+	.carousel-horizontal li p {
+		position: absolute;
+		bottom: 0.4rem;
+		right: 1px;
+		text-align: right;
+		white-space: nowrap;
+	}
+	.carousel-vertical li p {
 		position: absolute;
 		bottom: 0;
 		right: 1px;
 		text-align: right;
 		white-space: nowrap;
-}
+	}
+	.carousel-label>p {
+			margin-bottom: 0;
+			position: absolute;
+			top: 0;
+			left: 0;
+			white-space: nowrap;
+	}
 }
 
 @media only screen and (max-width: 1200px) and (orientation: landscape) {
@@ -387,7 +391,6 @@ button.support {
 		height: 7vh;
 	}
 	.carousel-horizontal {
-		font-size: 0.6rem;
 		height: 16vw; 
 	}
 	.carousel-horizontal li {
@@ -398,14 +401,8 @@ button.support {
 		width: 8vw;
 	}
 	.carousel-vertical {
-		font-size: 0.6rem;
+/*		font-size: 0.6rem;*/
 	}
-
-
-@media only screen and (max-height: 650px) and (orientation: landscape) {
-}
-	
-@media only screen and (max-width: 650px) and (orientation: portrait) {
 }
 
 @media only screen and (min-width: 650px) and (max-width: 1200px) {

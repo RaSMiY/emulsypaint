@@ -559,7 +559,7 @@ function fillVitAndMins() {
 		
 		vitandmins.appendChild(elementV);
 
-		$('#vitandmins').css('height',  'calc('+$('.colmd11').css('height')+' - '+$('#vitandmins').prev().css('height')+' - 1.5rem - 2px)');
+		$('#vitandmins').css('height',  'calc('+$('.colmd11').css('height')+' - '+$('#vitandmins').prev().css('height')+' - 0.1vh - 1rem - 2px)');
 //		$('#vitandmins').css('height', $('.colmd11').css('height'));
 		
 //		$('.'+Vit_and_Min[vit].alias[1]).css('background-image', 'url("pictures/vitandmins/png/'+Vit_and_Min[vit].pict+'")');
@@ -585,7 +585,7 @@ function fillTableOfComatibility() {
 			elRow=document.createElement("tr");
 				elCell=document.createElement("th"); //первая ячейка с координатами [0;0]
 					elName=document.createElement("p");
-						elName.innerHTML="Элементы"
+						elName.innerHTML="Элементы";
 				elCell.appendChild(elName);
 			elRow.appendChild(elCell);
 			for (vjt=0; vjt<Vit_and_Min.length; vjt++) {
@@ -599,7 +599,7 @@ function fillTableOfComatibility() {
 
 				elCell=document.createElement("th"); //ячейка с координатами [<последний столбец>;0]
 					elName=document.createElement("p");
-						elName.innerHTML="Элементы"
+						elName.innerHTML="Элементы";
 				elCell.appendChild(elName);
 			elRow.appendChild(elCell);
 
@@ -612,7 +612,7 @@ function fillTableOfComatibility() {
 			elRow=document.createElement("tr");
 				elCell=document.createElement("th"); //ячейка с координатами [0;<последняя строка>]
 					elName=document.createElement("p");
-						elName.innerHTML="Элементы"
+						elName.innerHTML="Элементы";
 					elCell.appendChild(elName);
 			elRow.appendChild(elCell);
 			for (vjt=0; vjt<Vit_and_Min.length; vjt++) {
@@ -626,7 +626,7 @@ function fillTableOfComatibility() {
 
 				elCell=document.createElement("th"); //ячейка с координатами [<последний столбец>;<последняя строка>]
 					elName=document.createElement("p");
-						elName.innerHTML="Элементы"
+						elName.innerHTML="Элементы";
 				elCell.appendChild(elName);
 			elRow.appendChild(elCell);
 
@@ -933,7 +933,7 @@ function init() {
 //		console.log('resize', $('#vitandmins').prev().css('height'));
 //		$('#vitandmins').css('height',  'calc('+$('.colmd11').css('height')+' - 3em)');
 //		$('.carousel-horizontal').css('height',  'calc('+$('.colmd11').css('height')+' - '+$('#vitandmins').prev().css('height')+' - 1.5rem - 2px)');
-		$('#vitandmins').css('height',  'calc('+$('.colmd11').css('height')+' - '+$('#vitandmins').prev().css('height')+' - 1.5rem - 2px)');
+		$('#vitandmins').css('height',  'calc('+$('.colmd11').css('height')+' - '+$('#vitandmins').prev().css('height')+' - 0.1vh - 1rem - 2px)');
 	});
 	
 //	Предотвращаем прокрутку при перемещении элементов между списками на устройствах с сенсорными экранами
