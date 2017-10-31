@@ -36,29 +36,27 @@ This file is part of VitAndMin project.
 
 /*  *{margin:0;padding:0;}body{background:#222;} */
 
-/* bootstrap bug fix */
+/* bootstrap bug fixes and additions*/
 .navbar-toggler-icon{background-image:url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 0, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E")}
 
+.table-hover tbody tr:hover {
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+
+/* ====================блок настроек рекламных контэйнеров=================================*/
 .advertisment div {
-/*	display: inline-table;*/
 	text-align: center;
 }
 .advertisment {
-/*	display: table-cell;
-	vertical-align: middle;*/
 	border: 1px solid black; border-radius: 5px;
 	margin: 0.2em;
 }
-
 #profport img {
 	width: 100%;
 }
+/* ====================конец блока настроек рекламных контэйнеров===========================*/
 
-/*.navbar li ul li {
-	list-style: none;
-	list-style-position: inside;
-	margin-left: 0.8em;
-}*/
 div {text-align: justify;}
 #image {position: relative; top: 2.5em; left: 0.5em; width: 4em; height: 4em;}
 #logo {width: 2em; height: 2em;}
@@ -70,10 +68,10 @@ div {text-align: justify;}
 #description, #information, #advertisment-description, #articles, #for-smartphones {text-align: justify; clear: both; display: none; padding: 1em;}
 #description img {float: right; width: 10em; height: 10em;}
 #articles {
-/*	padding: 10em 0 10em 0;*/
 	padding: 1em;
 }
 	
+/* =========================настройки таблицы совместимости============================= */
 #table-of-compatibility {
 	display: none;
 	padding: 2em;
@@ -83,7 +81,6 @@ div {text-align: justify;}
 #information p {
 	text-indent: 2em;
 }
-
 .table-responsive{display:block;width:100%;overflow-x:auto;-ms-overflow-style:-ms-autohiding-scrollbar}
 table p {
 	margin: 0;
@@ -116,14 +113,13 @@ table tr:nth-child(odd) {
    background-color:#fff;
 }
 table th, table tfoot td, table tr td:first-child, table tr td:last-child {
-    background-color: orange;
+    background-color: rgba(255,165,0,0.75);
     color: purple;
 }
 table tr td:first-child p, table tr td:last-child p {
 	width: 7em;
 	text-align: center;
 }
-
 table caption {
     color: black;
 	font-size: 150%;
@@ -137,8 +133,9 @@ table tfoot td {
 .vertical-text {
    transform: rotate(-90deg);
 }
+/* ====================конец блока настройек таблицы совместимости============================= */
 
-.rem {
+.rem { /* кнопка удаления элемента */
 	position: absolute;
 	top: 0.2em;
 	right: 0.0em;
@@ -149,17 +146,15 @@ table tfoot td {
     cursor: pointer;
 }
 
-.roww {
+.roww { /* контейнер главного инструмента проверки составления рациона */
 	position: relative;
 }
-
-.colmd1 {
+.colmd1 { /* контейнер вертикально карусели витаминов */
+	position: absolute;
 	top: 0;
 	right: 0;
-	position: absolute;
 }
-
-#vitandmins p {
+#vitandmins p { /* вертикальная карусель витаминов */
 	max-height: 2em;
 	overflow: hidden;
 }
@@ -169,26 +164,19 @@ table tfoot td {
 	border-radius: 5px; 
 	padding: 0;
 	font-size: 2vh;
-/*	display: -ms-flexbox;
-	display: flex;*/
 	display: -webkit-box;
-/*  -ms-flex-wrap: wrap;
-	flex-wrap: wrap;*/
 	list-style: none;
 	list-style-position: inside;
 	overflow-X: auto;
 	overflow-Y: hidden;
 }
-
 .carousel-horizontal li {
 	border: 1px dashed grey;
 	position: relative;
 /*	background-position: center 0.5em;
 	background-size: 5em 5em;
-	background-repeat: no-repeat;
-	z-index: 100;*/
+	background-repeat: no-repeat;*/
 }
-
 .carousel-horizontal li p {
 	position: absolute;
 	right: 0.3rem;
@@ -196,11 +184,6 @@ table tfoot td {
 	text-align: center;
 	margin: 0;
 	white-space: nowrap;
-/*	position: absolute;
-	bottom: 1.5em;
-	margin: 0;*/
-/*	vertical-align: bottom;
-	display: inline-block;*/
 }
 
 .carousel-vertical {
@@ -230,7 +213,7 @@ table tfoot td {
 	margin: 0;
 }
 
-.conflict {background-color: #fbb;}
+.conflict {background-color: rgba(255,187,187,0.75);}
 button.conflict {
 	position: absolute;
 	bottom: calc(0.9rem + 3px);
@@ -241,7 +224,7 @@ button.conflict {
 	z-index:0;
 	border: none;
 }
-.support {background-color: #bfb;}
+.support {background-color: rgba(187,255,187,0.75);}
 button.support {
 	position: absolute;
 	bottom: calc(0.9rem + 3px);
@@ -257,8 +240,8 @@ button.support {
 	background: -webkit-linear-gradient(left, #bfb 50%, #fbb 50%);
 	background: -ms-linear-gradient(left, #bfb 50%, #fbb 50%);
 }
-.self { /* для обозначения клетки с одинаковыми номирами строки и столбца */
-	background-color: #ffb;
+.self { /* для обозначения клетки с одинаковыми номерами строки и столбца */
+	background-color: rgba(255,255,187,0.75);
 }
 
 .lock-screen {

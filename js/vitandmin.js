@@ -676,20 +676,9 @@ function fillTableOfComatibility() {
 //		elTable.classList.toggle('table-warning');
 //		elTable.classList.toggle('table-striped');
 //		elTable.classList.toggle('table-bordered');
-//		elTable.classList.toggle('table-hover');
+		elTable.classList.toggle('table-hover');
 	
-// Определяем ширину окна
-//	$(window).width();
-//	wWidth=String(document.body.clientWidth*0.96);
-//	wHeight=String(document.body.clientHeight*0.92);
-	
-//	compatibilityTable.style.width=wWidth;
-//	compatibilityTable.style.height=wHeight;
-
 	compatibilityTable.appendChild(elTable);
-
-//	$('#table-of-compatibility table').fixedHeaderTable({ width: wWidth, height: wHeight, footer: true, cloneHeadToFoot: false, fixedColumn: true });
-//	setTimeout(function(){$('#table-of-compatibility table').fixedHeaderTable({ footer: true, cloneHeadToFoot: false, fixedColumn: true })}, 2000);
 }
 //=====================конец блока создания таблицы совместимости===========================
 
@@ -791,11 +780,40 @@ function showDescription() {
 function showCompatibilityTable() {
 	if ($('#table-of-compatibility').html()=='') {
 		fillTableOfComatibility();
-		setTimeout(function(){$('#table-of-compatibility table').fixedHeaderTable({ footer: true, cloneHeadToFoot: false, fixedColumn: true })}, 100);
+
+//==============следующий блок кода необходим из-за неправильной работы плагина fht-table===========
+// Определяем ширину окна 
+//		$(window).width();
+//		wWidth=String(document.body.clientWidth*0.96);
+//		wHeight=String(document.body.clientHeight*0.92);
+//	compatibilityTable.style.width=wWidth;
+//	compatibilityTable.style.height=wHeight;
+//		console.log('wWidth, wHeight =', wWidth, ",",  wHeight, '$(window).height() =', $(window).height(), "$('.colmd11').css('height') =", $('.colmd11').css('height'));
+
+		setTimeout(function(){
+			$('#table-of-compatibility table').fixedHeaderTable({ footer: true, cloneHeadToFoot: false, fixedColumn: true })
+		}, 100);
+		
+		setTimeout(function(){
+//			$('.fht-table-wrapper').css('width', wWidth);
+			$('.fht-table-wrapper').css('width', $('#table-of-compatibility').width());
+//			$('.fht-table-wrapper').width($('#table-of-compatibility').width());
+			$('.fht-table-wrapper').css('height', $(window).height());
+			$('.fht-fixed-column').css('height', $(window).height());
+			$('.fht-tbody').css('height', 'calc(' + $(window).height() + 'px - 2 * 5.6em)');
+//			$('.fht-fixed-column .fht-tfoot').css('height', '5.6em');
+			$('.fht-fixed-column .fht-tfoot').css('top', 'unset');
+//			$('.fht-tbody').css('height', 'calc(wHeight - 5.6em)');
+		}, 1000);
+		
 //		setTimeout(function(){$(".fht-fixed-body thead th p, .fht-fixed-body tfoot th p").css("height", "7em")}, 100);
 //		$(".fht-fixed-body thead th p, .fht-fixed-body tfoot th p").css("height", "7em");
 //		$("table tr td:first-child p, table tr td:last-child p").css("width", "7em");
 //		setTimeout(function(){$(".fht-fixed-body thead th p, .fht-fixed-body tfoot th p").css("width", "1em")}, 100);
+//	$('#table-of-compatibility table').fixedHeaderTable({ width: wWidth, height: wHeight, footer: true, cloneHeadToFoot: false, fixedColumn: true });
+//	setTimeout(function(){$('#table-of-compatibility table').fixedHeaderTable({ footer: true, cloneHeadToFoot: false, fixedColumn: true })}, 2000);
+//==============конец блока кода необходимого из-за неправильной работы плагина fht-table===========
+		
 	}
 	$('#description').hide();  
 	$('#table-of-compatibility').show(); 
