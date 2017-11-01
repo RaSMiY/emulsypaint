@@ -682,6 +682,44 @@ function fillTableOfComatibility() {
 }
 //=====================конец блока создания таблицы совместимости===========================
 
+//==============следующий блок кода необходим из-за неправильной работы плагина fht-table===========
+function setCompatibilityTableSize() {
+// Определяем ширину окна 
+//		$(window).width();
+//	wWidth=String(document.body.clientWidth*0.96);
+//		wHeight=String(document.body.clientHeight*0.92);
+//	compatibilityTable.style.width=wWidth;
+//	compatibilityTable.style.height=wHeight;
+//		console.log('wWidth, wHeight =', wWidth, ",",  wHeight, '$(window).height() =', $(window).height(), "$('.colmd11').css('height') =", $('.colmd11').css('height'));
+
+		
+		setTimeout(function(){
+//			$('.fht-table-wrapper').css('width', wWidth);
+			$('.fht-table-wrapper, .fht-fixed-body').css('width', $('#table-of-compatibility').width());
+//			$('.fht-table-wrapper').width($('#table-of-compatibility').width());
+			if ($('.fht-table-init').height()>$(window).height()) {
+				$('.fht-table-wrapper, .fht-fixed-column').css('height',  'calc(' + $(window).height() + 'px)');
+				$('.fht-tbody').css('height', 'calc(' + $(window).height() + 'px - 2 * ' + $('th').height() + 'px)');
+			} else {
+				$('.fht-table-wrapper, .fht-fixed-column').css('height',  'calc(' + $('.fht-table-init').height() + 'px + ' + $('th').height() + 'px)');
+				$('.fht-tbody').css('height', 'calc(' + $('.fht-table-init').height() + 'px - ' + $('th').height() + 'px)');
+			}
+//			$('.fht-fixed-column').css('height', $(window).height());
+//			$('.fht-fixed-column .fht-tfoot').css('height', '5.6em');
+			$('.fht-fixed-column .fht-tfoot').css('top', 'unset');
+//			$('.fht-tbody').css('height', 'calc(wHeight - 5.6em)');
+//			$('.fht-tbody').css('z-index', 1); 
+		}, 1000);
+		
+//		setTimeout(function(){$(".fht-fixed-body thead th p, .fht-fixed-body tfoot th p").css("height", "7em")}, 100);
+//		$(".fht-fixed-body thead th p, .fht-fixed-body tfoot th p").css("height", "7em");
+//		$("table tr td:first-child p, table tr td:last-child p").css("width", "7em");
+//		setTimeout(function(){$(".fht-fixed-body thead th p, .fht-fixed-body tfoot th p").css("width", "1em")}, 100);
+//	$('#table-of-compatibility table').fixedHeaderTable({ width: wWidth, height: wHeight, footer: true, cloneHeadToFoot: false, fixedColumn: true });
+//	setTimeout(function(){$('#table-of-compatibility table').fixedHeaderTable({ footer: true, cloneHeadToFoot: false, fixedColumn: true })}, 2000);
+}
+//==============конец блока кода необходимого из-за неправильной работы плагина fht-table===========
+
 //=========================Наполнение страницы=========================================
 function fillContent() {
 	description=document.getElementById('description');
@@ -780,40 +818,10 @@ function showDescription() {
 function showCompatibilityTable() {
 	if ($('#table-of-compatibility').html()=='') {
 		fillTableOfComatibility();
-
-//==============следующий блок кода необходим из-за неправильной работы плагина fht-table===========
-// Определяем ширину окна 
-//		$(window).width();
-//		wWidth=String(document.body.clientWidth*0.96);
-//		wHeight=String(document.body.clientHeight*0.92);
-//	compatibilityTable.style.width=wWidth;
-//	compatibilityTable.style.height=wHeight;
-//		console.log('wWidth, wHeight =', wWidth, ",",  wHeight, '$(window).height() =', $(window).height(), "$('.colmd11').css('height') =", $('.colmd11').css('height'));
-
 		setTimeout(function(){
 			$('#table-of-compatibility table').fixedHeaderTable({ footer: true, cloneHeadToFoot: false, fixedColumn: true })
-		}, 100);
-		
-		setTimeout(function(){
-//			$('.fht-table-wrapper').css('width', wWidth);
-			$('.fht-table-wrapper').css('width', $('#table-of-compatibility').width());
-//			$('.fht-table-wrapper').width($('#table-of-compatibility').width());
-			$('.fht-table-wrapper').css('height', $(window).height());
-			$('.fht-fixed-column').css('height', $(window).height());
-			$('.fht-tbody').css('height', 'calc(' + $(window).height() + 'px - 2 * 5.6em)');
-//			$('.fht-fixed-column .fht-tfoot').css('height', '5.6em');
-			$('.fht-fixed-column .fht-tfoot').css('top', 'unset');
-//			$('.fht-tbody').css('height', 'calc(wHeight - 5.6em)');
-		}, 1000);
-		
-//		setTimeout(function(){$(".fht-fixed-body thead th p, .fht-fixed-body tfoot th p").css("height", "7em")}, 100);
-//		$(".fht-fixed-body thead th p, .fht-fixed-body tfoot th p").css("height", "7em");
-//		$("table tr td:first-child p, table tr td:last-child p").css("width", "7em");
-//		setTimeout(function(){$(".fht-fixed-body thead th p, .fht-fixed-body tfoot th p").css("width", "1em")}, 100);
-//	$('#table-of-compatibility table').fixedHeaderTable({ width: wWidth, height: wHeight, footer: true, cloneHeadToFoot: false, fixedColumn: true });
-//	setTimeout(function(){$('#table-of-compatibility table').fixedHeaderTable({ footer: true, cloneHeadToFoot: false, fixedColumn: true })}, 2000);
-//==============конец блока кода необходимого из-за неправильной работы плагина fht-table===========
-		
+		}, 100); // делаем таблицу интерактивной
+		setCompatibilityTableSize(); // устанавливаем размеры тэгов .fht- (иначе таблица будет не видна)
 	}
 	$('#description').hide();  
 	$('#table-of-compatibility').show(); 
@@ -960,9 +968,33 @@ function init() {
 //		$('#vitandmins').css('height',  'calc('+$('.colmd11').css('height')+' - 3em)');
 //		$('.carousel-horizontal').css('height',  'calc('+$('.colmd11').css('height')+' - '+$('#vitandmins').prev().css('height')+' - 1.5rem - 2px)');
 		$('#vitandmins').css('height',  'calc('+$('.colmd11').css('height')+' - '+$('#vitandmins').prev().css('height')+' - 0.1vh - 1rem - 2px)');
+		setCompatibilityTableSize(); // устанавливаем размеры тэгов .fht- (иначе таблица будет не видна)
+
+//		console.log('Внутри события resize');
+
+// изменение размера рекламы ali-express
+/*						if (document.body.clientWidth>=800) bannerSize='728x90';
+						else bannerSize='468x60';
+		
+						if (window.AED_SHOW) {
+							window.AED_SHOW({wid: '4640006',shortkey:'QzBeme2', size:bannerSize, custom:{}});
+						} else {
+							window.AED_ONLOAD = window.AED_ONLOAD || [];
+							window.AED_ONLOAD.push({wid:'4640006',shortkey:'QzBeme2',size:bannerSize,custom:{}});
+							if (!document.getElementById("ae-ad-script-$")) {
+								var s = document.createElement("script"),
+								h = document.getElementsByTagName("head")[0];
+								s.id = 'ae-ad-script-$';
+								s.charset = "utf-8";
+								s.async = !0;
+								s.src = "//i.alicdn.com/ae-game/thirdparty/show-window/index.js";
+								h.insertBefore(s, h.firstChild)
+							}
+						} */
+// конец блока изменения размера рекламы ali-express
 	});
-	
-//	Предотвращаем прокрутку при перемещении элементов между списками на устройствах с сенсорными экранами
+
+	//	Предотвращаем прокрутку при перемещении элементов между списками на устройствах с сенсорными экранами
 //	$('#kitchen li').on('dragstart', function(ev){ev.preventDefault();});
 	/* element is an HTML element You want catch the touch */
 /*	$('#kitchen li').on('touchstart', function(e) {
