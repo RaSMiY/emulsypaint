@@ -556,14 +556,13 @@ function fillVitAndMins() {
 		$(p).html(Vit_and_Min[vit].alias[0]);
 		elementV.appendChild(p);
 		
-		
 		vitandmins.appendChild(elementV);
-
-		$('#vitandmins').css('height',  'calc('+$('.colmd11').css('height')+' - '+$('#vitandmins').prev().css('height')+' - 0.1vh - 1rem - 2px)');
-//		$('#vitandmins').css('height', $('.colmd11').css('height'));
-		
-//		$('.'+Vit_and_Min[vit].alias[1]).css('background-image', 'url("pictures/vitandmins/png/'+Vit_and_Min[vit].pict+'")');
 	}
+//	console.log('calc('+$('.colmd11').css('height')+' - '+$('#vitandmins').prev().css('height')+' - '+$('.carousel-label>h4').css('margin-bottom')+' - 1rem - 2px)');
+	$('#vitandmins').css('height',  'calc(' + $('.colmd11').css('height') + ' - ' + $('#vitandmins').prev().css('height') + ' - ' + $('#vitandmins').prev().css('margin-bottom') + ' - 1rem - 2px)');
+//		$('#vitandmins').css('height',  'calc('+$('.colmd11').css('height')+' - '+$('#vitandmins').prev().css('height')+' - 0.1vh - 1rem - 2px)');
+//		$('#vitandmins').css('height', $('.colmd11').css('height'));
+//		$('.'+Vit_and_Min[vit].alias[1]).css('background-image', 'url("pictures/vitandmins/png/'+Vit_and_Min[vit].pict+'")');
 }
 //=========================Конец блока наполнения карусели витаминов=======================
 
@@ -707,6 +706,7 @@ function setCompatibilityTableSize() {
 //			$('.fht-fixed-column').css('height', $(window).height());
 //			$('.fht-fixed-column .fht-tfoot').css('height', '5.6em');
 			$('.fht-fixed-column .fht-tfoot').css('top', 'unset');
+			$('.fht-fixed-column table tr td:first-child').css('background-color', 'rgba(255,187,64,1)');
 //			$('.fht-tbody').css('height', 'calc(wHeight - 5.6em)');
 //			$('.fht-tbody').css('z-index', 1); 
 		}, 1000);
@@ -950,15 +950,15 @@ function init() {
 		}).on('drop', function(el, target, source, sibling) {
 				if (source.id=='vitandmins') 
 					el.innerHTML+="<button class='rem'>X</button>";
-
-				checkCompatibility(target.id)
-				if (source.id !== 'vitandmins') {
-					checkCompatibility(source.id)
-				}
+				else
+					checkCompatibility(source.id);
+				checkCompatibility(target.id);
 			})
 			.on('remove', function(el, container, source) {
 				checkCompatibility(source.id);
-			});
+			})
+			.on('drag', $('body').toggleClass('lock-screen'))
+			.on('dragend', $('body').toggleClass('lock-screen'));
 //	}, 10000); // конец функции установки задержки
 
 //	fillContent();
@@ -967,14 +967,16 @@ function init() {
 //		console.log('resize', $('#vitandmins').prev().css('height'));
 //		$('#vitandmins').css('height',  'calc('+$('.colmd11').css('height')+' - 3em)');
 //		$('.carousel-horizontal').css('height',  'calc('+$('.colmd11').css('height')+' - '+$('#vitandmins').prev().css('height')+' - 1.5rem - 2px)');
-		$('#vitandmins').css('height',  'calc('+$('.colmd11').css('height')+' - '+$('#vitandmins').prev().css('height')+' - 0.1vh - 1rem - 2px)');
+//		console.log("$('#vitandmins').prev().html()", $('#vitandmins').prev().html());
+	$('#vitandmins').css('height',  'calc(' + $('.colmd11').css('height') + ' - ' + $('#vitandmins').prev().css('height') + ' - ' + $('#vitandmins').prev().css('margin-bottom') + ' - 1rem - 2px)');
 		setCompatibilityTableSize(); // устанавливаем размеры тэгов .fht- (иначе таблица будет не видна)
 
 //		console.log('Внутри события resize');
 
 // изменение размера рекламы ali-express
-/*						if (document.body.clientWidth>=800) bannerSize='728x90';
+						if (document.body.clientWidth>=740) bannerSize='728x90';
 						else bannerSize='468x60';
+//						console.log('document.body.clientWidth =',document.body.clientWidth)
 		
 						if (window.AED_SHOW) {
 							window.AED_SHOW({wid: '4640006',shortkey:'QzBeme2', size:bannerSize, custom:{}});
@@ -990,7 +992,7 @@ function init() {
 								s.src = "//i.alicdn.com/ae-game/thirdparty/show-window/index.js";
 								h.insertBefore(s, h.firstChild)
 							}
-						} */
+						}
 // конец блока изменения размера рекламы ali-express
 	});
 
