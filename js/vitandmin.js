@@ -946,19 +946,21 @@ function init() {
 			},
 			revertOnSpill: true,
 			ignoreInputTextSelection: true,
-			direction: 'horizontal'
+			direction: 'horizontal',
+			mirrorContainer: document.getElementById('mirrorContainer')
 		}).on('drop', function(el, target, source, sibling) {
-				if (source.id=='vitandmins') 
+				if (source.id=='vitandmins')
 					el.innerHTML+="<button class='rem'>X</button>";
 				else
 					checkCompatibility(source.id);
+				
 				checkCompatibility(target.id);
 			})
 			.on('remove', function(el, container, source) {
 				checkCompatibility(source.id);
 			})
-			.on('drag', $('body').toggleClass('lock-screen'))
-			.on('dragend', $('body').toggleClass('lock-screen'));
+			.on('drag', function(el, source) {/*$('.roww').toggleClass('lock-screen')*/}) //попытка заблокировать прокрутку во время перетаскиваний
+			.on('dragend', function(el) {/*$('.roww').toggleClass('lock-screen')*/});
 //	}, 10000); // конец функции установки задержки
 
 //	fillContent();

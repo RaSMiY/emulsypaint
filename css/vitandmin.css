@@ -134,22 +134,43 @@ table tfoot td {
    transform: rotate(-90deg);
 }
 /* ====================конец блока настройек таблицы совместимости============================= */
+button {
+	padding: 0;
+}
 
 .rem { /* кнопка удаления элемента */
 	position: absolute;
-	top: 1vmin;
+	top: 0;
 	right: 1vmin;
 	margin-left: 1vmin;
     background-color: rgba(255,255,255,0);
     color: red;
     border: none;
     cursor: pointer;
-	padding: 0;
 }
 
-gu-unselectable { // убираем кружок из левого верхнего угла перемещаемого элемента
+ /* вид элемента во время перетаскивания */
+#mirrorContainer{
 	list-style: none;
+	list-style-position: inside;
+	position: relative;
 }
+.gu-mirror li {
+	position: relative;
+}
+.gu-mirror li p {
+	position: absolute;
+	right: 0.3em;
+	bottom: 0.3em;
+	text-align: center;
+	margin: 0;
+	white-space: nowrap;
+	font-size: 1vmax;
+}
+.gu-mirror.rem {
+	right: 0;
+}
+/* конец блока вида элемента во время перетаскивания */
 
 .roww { /* контейнер главного инструмента проверки составления рациона */
 	position: relative;
@@ -168,7 +189,7 @@ gu-unselectable { // убираем кружок из левого верхне�
 	border: 1px solid black; 
 	border-radius: 5px; 
 	padding: 0;
-	font-size: 2vh;
+	font-size: 2vmin;
 	display: -webkit-box;
 	list-style: none;
 	list-style-position: inside;
@@ -184,8 +205,9 @@ gu-unselectable { // убираем кружок из левого верхне�
 }
 .carousel-horizontal li p {
 	position: absolute;
-	right: 0.3rem;
-	bottom: 0.3rem;
+	right: 1ex;
+	top: 8.5vmax;
+/*	bottom: 1ch;*/
 	text-align: center;
 	margin: 0;
 	white-space: nowrap;
@@ -194,6 +216,7 @@ gu-unselectable { // убираем кружок из левого верхне�
 .carousel-vertical {
 	border: 1px solid black; 
 	border-radius: 5px; 
+	font-size: 2vmin;
 	text-align: center; 
 	padding: 0;
 	/*  -ms-flex-wrap: wrap;
@@ -221,8 +244,9 @@ gu-unselectable { // убираем кружок из левого верхне�
 .conflict {background-color: rgba(255,187,187,0.75);}
 button.conflict {
 	position: absolute;
-	bottom: calc(0.9em + 3px);
-	right: 1%;
+	top: 7.5vmax;
+	/*	bottom: 5ch;*/
+	right: 1ch;
 	color: #f22;
 	font-size-adjust: 0.3;
 	background-color: rgba(255, 200, 200,0);
@@ -232,8 +256,9 @@ button.conflict {
 .support {background-color: rgba(187,255,187,0.75);}
 button.support {
 	position: absolute;
-	bottom: calc(0.9em + 3px);
-	left: 1%;
+	top: 7.5vmax;
+/*	bottom: 5ch;*/
+	left: 1ch;
 	color: green;
 	font-size-adjust: 0.3;
 	background-color: rgba(200, 255, 200,0);
@@ -274,6 +299,12 @@ button.support {
 	.carousel-horizontal li {
 		width: 14vh;
 	}
+	.carousel-horizontal li p {
+		top: 6.5vmax;
+	}
+	button.conflict, button.support {
+		top: 5.5vmax;
+	}
 	.carousel-horizontal li img {
 		margin: 2vh 3vh 0 3vh;
 		width: 8vh;
@@ -288,21 +319,21 @@ button.support {
 	.carousel-vertical li img{
 		width: 5vw;
 		height: 5vw;
-		margin-top: 0.5vw;
+		margin-top: 1vw;
 	}
 	.carousel-vertical li p {
 		position: absolute;
 		bottom: 0;
-		right: 1px;
+		right: 1vmin;
 		text-align: right;
-		font-size-adjust: 0.4;
+/*		font-size-adjust: 0.4;*/
 		white-space: nowrap;
 	}
 	.carousel-label>p {
 			margin-bottom: 0;
 			position: absolute;
-			top: 0;
-			right: 0;
+			top: 1vmin;
+			right: 1vmin;
 			white-space: nowrap;
 	}
 }
@@ -331,7 +362,8 @@ button.support {
 	.carousel-label>div {
 		display: inline-grid;
 		float: left;
-		margin: 0 0.1em 0 0.1em;
+		margin: 0.1em;
+		padding-top: 0.1em;
 		width: 12vh;
 		height: calc(11vh + 1em);
 		overflow: auto;
@@ -345,7 +377,7 @@ button.support {
 		width: 11vh;
 	}
 	.carousel-horizontal li img {
-		margin: 0.1vh 2vh 0.1vh 2vh;
+		margin: 0.2vh 2.8vh 0.1vh 1.2vh;
 		width: 7vh;
 		height: 7vh;
 	}
@@ -364,8 +396,9 @@ button.support {
 	}
 	.carousel-horizontal li p {
 		position: absolute;
-		bottom: 0.4em;
-		right: 1vmin;
+/*		top: 8.5vh;*/
+/*		bottom: 1ch;*/
+		right: 1ex;
 		text-align: right;
 		white-space: nowrap;
 	}
@@ -379,26 +412,34 @@ button.support {
 	.carousel-label>p {
 			margin-bottom: 0;
 			position: absolute;
-			top: 0;
-			left: 0;
+			top: 1vmin;
+			left: 1vmin;
 			white-space: nowrap;
 	}
 }
 
 @media only screen and (min-width: 1200px) and (orientation: landscape) {
 	.carousel-vertical li img{
-		width: 6vw;
-		height: 6vw;
+		width: 6vmax;
+		height: 6vmax;
 	}
 	.carousel-horizontal {
-		height: 16vw; 
+		height: 16vmax; 
+		font-size: 2vmax;
 	}
+
 	.carousel-horizontal li {
-		width: 14vw;
+		width: 14vmax;
+	}
+	.carousel-horizontal li p {
+		top: 11vmax;
+	}
+	button.conflict, button.support {
+		top: 9vmax;
 	}
 	.carousel-horizontal li img {
-		margin: 2vh 3vw 0 3vw;
-		width: 8vw;
+		margin: 2vmin 3vmax 0 3vmax;
+		width: 8vmax;
 	}
 }
 
@@ -408,5 +449,22 @@ button.support {
 	}
 	.colmd1 {
 		width: calc(100% / 8);
+	}
+	button.conflict {
+		right: 1vmin;
+	}
+	button.support {
+		left: 1vmin;
+	}
+/*}
+
+@media only screen and (max-width: 1200px) and (orientation: landscape) {*/
+.carousel-label div, .carousel-label p{
+		font-size-adjust: 0.4;
+		line-height: 90%;
+	}
+	.carousel-label h4 {
+		font-size-adjust: 0.5;
+		line-height: 100%;
 	}
 }
