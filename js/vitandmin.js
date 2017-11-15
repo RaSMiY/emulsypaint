@@ -1,5 +1,5 @@
 /*/============================Блок лицензии============================================
-Copyright (c) SMiY semenov@razum.top
+Copyright (c) RaSMiY semenov@razum.top
 This file is part of VitAndMin project.
 
     VitAndMin project is free software: you can redistribute it and/or modify
@@ -15,7 +15,7 @@ This file is part of VitAndMin project.
     You should have received a copy of the GNU General Public License
     along with VitAndMin project.  If not, see <http://www.gnu.org/licenses/>.
 
-  (Этот файл — часть VitAndMin project.
+  (Этот файл — часть проекта VitAndMin.
 
    Проект VitAndMin - свободная программа: вы можете перераспространять ее и/или
    изменять ее на условиях Стандартной общественной лицензии GNU в том виде,
@@ -23,14 +23,13 @@ This file is part of VitAndMin project.
    либо версии 3 лицензии, либо (по вашему выбору) любой более поздней
    версии.
 
-   Проект VitAndMin распространяется в надежде, что она будет полезной,
+   Программа VitAndMin распространяется в надежде, что она будет полезной,
    но БЕЗО ВСЯКИХ ГАРАНТИЙ; даже без неявной гарантии ТОВАРНОГО ВИДА
    или ПРИГОДНОСТИ ДЛЯ ОПРЕДЕЛЕННЫХ ЦЕЛЕЙ. Подробнее см. в Стандартной
    общественной лицензии GNU.
 
    Вы должны были получить копию Стандартной общественной лицензии GNU
-   вместе с этой программой. Если это не так, см.
-   <http://www.gnu.org/licenses/>.)
+   вместе с этой программой. Если это не так, см. <http://www.gnu.org/licenses/>.)
 //=============================Конец блока Лицензии=====================================*/
 
 //===========================Блок определения объектов===================================
@@ -431,111 +430,6 @@ function checkCompatibility(cat) {
 }
 //===========================конец блока вспомогательных функций==========================
 
-
-//==================Перемещение объектов===============================================
-/* Turned-off because dragging made by using Dragula api
-function allowDrop(ev){
-	if (ev.target.tagName!='IMG') {
-		ev.preventDefault();
-// Set the dropEffect to move
-		ev.dataTransfer.dropEffect = "move"
-	}
-}
-
-function drag(ev){
-	switch (ev.target.tagName) {
-		case 'LI':
-			var tar = ev.target; console.log('тащим "li"', tar.classList); break;
-		case 'IMG':
-			var tar = ev.target.parentNode; console.log('тащим "img"', tar.classList); break;
-	}
-
-	ev.dataTransfer = ev.originalEvent.dataTransfer;
-	ev.dataTransfer.setData('text/html', getUniqueSelector(tar));
-	ev.dataTransfer.setData('text', tar.parentNode.id);
- console.log('dragStart uniqueSelector: ', getUniqueSelector(tar));
-}
-
-function drop(ev){
-	ev.preventDefault();
-	switch (ev.target.tagName) {
-		case 'UL':
-			var tar = ev.target; console.log('бросаем в "ul"', ev.target.id); break;
-		case 'LI':
-			var tar = ev.target.parentNode; console.log('бросаем в "li"', ev.target.classList[0]); break;
-		case 'IMG':
-			var tar = ev.target.parentNode.parentNode; console.log('бросаем в "img"', ev.target.parentNode.classList[0]); break;
-		case 'P':
-			var tar = ev.target.parentNode.parentNode; console.log('бросаем в "p"', ev.target.parentNode.classList[0]); break;
-		case 'BUTTON':
-			var tar = ev.target.parentNode.parentNode; console.log('бросаем в "button"', ev.target.parentNode.classList[0]); break;
-	}
-
-	data1=ev.dataTransfer.getData('text/html');
-	data2=ev.dataTransfer.getData('text');
-	
-	if (data2=='vitandmins') {
-		elem = document.querySelectorAll(data1)[0].cloneNode(true);
-		elem.innerHTML+="<button class='rem'>X</button>";
-		tar.appendChild(elem);
-	}
-	else {
-		if (data2!=tar.id) {
-			elem = document.querySelectorAll(data1)[0];
-			console.log('функция drop(ev); document.querySelectorAll(data1)[0]=', elem.tagName);
-			console.log('функция drop(ev); data1=', data1);
-			tar.appendChild(elem);
-			checkCompatibility(data2);
-			checkCompatibility(tar.id);
-		}
-		else {
-			elem = document.querySelectorAll(data1)[0];
-			console.log('функция drop(ev); document.querySelectorAll(data1)[0]=', elem.tagName);
-			tar.appendChild(elem);
-		}
-	}
-//		tar.appendChild(document.querySelectorAll(data1)[0]);
-//		console.log('document.querySelectorAll(data1)[0]', document.querySelectorAll(data1));
-
-	console.log('data1', elem);
-	console.log('data1.innerHTML', elem.innerHTML);
-	console.log('ev.dataTransfer.getData("text/html"): ', data1);
-	console.log('ev.dataTransfer.getData("text"): ', data2);
-	console.log('tar.id = ', tar.id);
-	console.log('menu ' + tar.id, menu(tar.id));
-
-//проверка элементов списка на совместимость и включение соответствующей подсветки
-	checkCompatibility(tar.id);
-	
-	//	$(tar).children(':last-child').attr('id', ev.target.id+'-'+)
-//	alert(Object.keys(data)[0]);
-//	$(ev.target).append($(data));*/
-
-/*//вывод сведений в консоль
-// Print each format type
- if (ev.dataTransfer.types != null) {
-   for (var i=0; i < ev.dataTransfer.types.length; i++) {
-     console.log("... types[" + i + "] = " + ev.dataTransfer.types[i]);
-   }
- }
- // Print each item's "kind" and "type"
- if (ev.dataTransfer.items != null) {
-   for (var i=0; i < ev.dataTransfer.items.length; i++) {
-     console.log("... items[" + i + "].kind = " + ev.dataTransfer.items[i].kind + " ; type = " + ev.dataTransfer.items[i].type);
-   }
- }*/
-//}
-
-
-
-/*function drop(ev){ //Исходная копия функции переноса
-	ev.preventDefault();
-	var data = ev.dataTransfer.getData('text');
-	ev.target.appendChild(document.getElementById(data));
-	
-}*/
-
-//==================Конец блока перемещения объектов=====================================
 
 //=========================Наполнение карусели витаминов=================================
 function fillVitAndMins() {

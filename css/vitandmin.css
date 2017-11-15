@@ -1,6 +1,6 @@
-/* Created by SMiY */ 
+/* Created by RaSMiY */ 
 /*/============================Блок лицензии============================================
-Copyright (c) SMiY semenov@razum.top
+Copyright (c) RaSMiY semenov@razum.top
 This file is part of VitAndMin project.
 
     VitAndMin project is free software: you can redistribute it and/or modify
@@ -16,7 +16,7 @@ This file is part of VitAndMin project.
     You should have received a copy of the GNU General Public License
     along with VitAndMin project.  If not, see <http://www.gnu.org/licenses/>.
 
-  (Этот файл — часть VitAndMin project.
+  (Этот файл — часть проекта VitAndMin.
 
    Проект VitAndMin - свободная программа: вы можете перераспространять ее и/или
    изменять ее на условиях Стандартной общественной лицензии GNU в том виде,
@@ -24,14 +24,13 @@ This file is part of VitAndMin project.
    либо версии 3 лицензии, либо (по вашему выбору) любой более поздней
    версии.
 
-   Проект VitAndMin распространяется в надежде, что она будет полезной,
+   Программа VitAndMin распространяется в надежде, что она будет полезной,
    но БЕЗО ВСЯКИХ ГАРАНТИЙ; даже без неявной гарантии ТОВАРНОГО ВИДА
    или ПРИГОДНОСТИ ДЛЯ ОПРЕДЕЛЕННЫХ ЦЕЛЕЙ. Подробнее см. в Стандартной
    общественной лицензии GNU.
 
    Вы должны были получить копию Стандартной общественной лицензии GNU
-   вместе с этой программой. Если это не так, см.
-   <http://www.gnu.org/licenses/>.)
+   вместе с этой программой. Если это не так, см. <http://www.gnu.org/licenses/>.)
 //=============================Конец блока Лицензии=====================================*/
 
 /*  *{margin:0;padding:0;}body{background:#222;} */
@@ -133,7 +132,7 @@ table tfoot td {
 .vertical-text {
    transform: rotate(-90deg);
 }
-/* ====================конец блока настройек таблицы совместимости============================= */
+/* ====================конец блока настроек таблицы совместимости============================= */
 button {
 	padding: 0;
 }
