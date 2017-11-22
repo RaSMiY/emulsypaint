@@ -44,6 +44,16 @@ This file is part of VitAndMin project.
 
 
 /* ====================блок настроек рекламных контэйнеров=================================*/
+/*
+#advertisment-bottom>div>div {
+	position: relative;
+}
+#advertisment-bottom>div>div>div {
+	position: absolute;
+	top: -45px;
+	left: calc((100% - 720px) / 2);
+}
+*/
 .advertisment div {
 	text-align: center;
 }
@@ -137,6 +147,13 @@ button {
 	padding: 0;
 }
 
+.handle { /* handle for moving element */
+	position: absolute;
+	padding: 0 3vmin 3vmin 1vmin;
+	top: 0;
+	left: 0;
+	cursor: move;
+}
 .rem { /* кнопка удаления элемента */
 	position: absolute;
 	top: 0;
