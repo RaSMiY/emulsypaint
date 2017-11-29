@@ -1,30 +1,30 @@
 /* Created by RaSMiY */ 
 /*/============================Блок лицензии============================================
 Copyright (c) RaSMiY semenov@razum.top
-This file is part of VitAndMin project.
+This file is part of EmulsyPaint project.
 
-    VitAndMin project is free software: you can redistribute it and/or modify
+    EmulsyPaint project is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
-    VitAndMin project is distributed in the hope that it will be useful,
+    EmulsyPaint project is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
 
     You should have received a copy of the GNU General Public License
-    along with VitAndMin project.  If not, see <http://www.gnu.org/licenses/>.
+    along with EmulsyPaint project.  If not, see <http://www.gnu.org/licenses/>.
 
-  (Этот файл — часть проекта VitAndMin.
+  (Этот файл — часть проекта EmulsyPaint.
 
-   Проект VitAndMin - свободная программа: вы можете перераспространять ее и/или
+   Проект EmulsyPaint - свободная программа: вы можете перераспространять ее и/или
    изменять ее на условиях Стандартной общественной лицензии GNU в том виде,
    в каком она была опубликована Фондом свободного программного обеспечения;
    либо версии 3 лицензии, либо (по вашему выбору) любой более поздней
    версии.
 
-   Программа VitAndMin распространяется в надежде, что она будет полезной,
+   Программа EmulsyPaint распространяется в надежде, что она будет полезной,
    но БЕЗО ВСЯКИХ ГАРАНТИЙ; даже без неявной гарантии ТОВАРНОГО ВИДА
    или ПРИГОДНОСТИ ДЛЯ ОПРЕДЕЛЕННЫХ ЦЕЛЕЙ. Подробнее см. в Стандартной
    общественной лицензии GNU.
@@ -69,80 +69,18 @@ This file is part of VitAndMin project.
 div {text-align: justify;}
 #image {position: relative; top: 2.5em; left: 0.5em; width: 4em; height: 4em;}
 #logo {width: 2em; height: 2em;}
-#contentArea {border: 1px solid black; border-radius: 5px;}
-#breakfast {}
-#dinner {}
-#supper {}
-#vitandmins {}
+#craftsplace {border: 1px solid black; border-radius: 5px;}
 #description, #information, #advertisment-description, #articles, #for-smartphones {text-align: justify; clear: both; display: none; padding: 1em;}
 #description img {float: right; width: 10em; height: 10em;}
 #articles {
 	padding: 1em;
 }
 	
-/* =========================настройки таблицы совместимости============================= */
-#table-of-compatibility {
-	display: none;
-	padding: 1.5em;
-	width: 100%;
-}
-#table-of-compatibility h3, #description h3, #information h3, #advertisment-description h3, #articles h3, #for-smartphones h3 {text-align: center;}
+
+#description h3, #information h3, #advertisment-description h3, #articles h3, #for-smartphones h3 {text-align: center;}
 #information p {
 	text-indent: 2em;
 }
-.table-responsive{display:block;width:100%;overflow-x:auto;-ms-overflow-style:-ms-autohiding-scrollbar}
-table p {
-	margin: 0;
-}
-table {
-}
-table {
-	border: 1px solid black;
-}
-th, td {
-    border: 1px solid black;
-}
-th, td {
-    padding: 5px;
-    text-align: center;
-	vertical-align: middle;
-}
-th, table tfoot td {
-	width: 1em;
-	height: 5.6em;
-	border: 1px solid black;
-}
-td:first-child {
-	border: 1px solid black;
-}
-table tr:nth-child(even) {
-    background-color: #eee;
-}
-table tr:nth-child(odd) {
-   background-color:#fff;
-}
-table th, table tfoot td, table tr td:first-child, table tr td:last-child {
-    background-color: rgba(255,165,0,0.75);
-    color: purple;
-}
-table tr td:first-child p, table tr td:last-child p {
-	width: 7em;
-	text-align: center;
-}
-table caption {
-    color: black;
-	font-size: 150%;
-	font-weight: bold;
-	text-align: center;
-	caption-side: bottom;
-}
-table tfoot td {
-	font-weight: bold;
-}
-.vertical-text {
-   transform: rotate(-90deg);
-}
-/* ====================конец блока настроек таблицы совместимости============================= */
 button {
 	padding: 0;
 }

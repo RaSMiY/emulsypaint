@@ -437,28 +437,15 @@ function fillVitAndMins() {
 	vitandmins.innerHTML='';
 	for (vit=0; vit<Vit_and_Min.length; vit++) {
 		elementV=document.createElement("li");
-		elementV.innerHTML+='<span class="handle">+</span>';
 
 		elementV.innerHTML+='<img src="pictures/vitandmins/png/'+Vit_and_Min[vit].pict+'" alt="'+Vit_and_Min[vit].alias[0]+'" />';
 		$(elementV).addClass(Vit_and_Min[vit].alias[1]);
-/*		
+		
 		title='Источники: ';
 		for (i in Vit_and_Min[vit].sources) {
 			i!=Vit_and_Min[vit].sources.length-1?title+=Vit_and_Min[vit].sources[i]+', ':title+=Vit_and_Min[vit].sources[i];
 		}
-		$(elementV).children(':last-child').attr('title', title);
-*/
-		titleSrcs='';
-		for (i in Vit_and_Min[vit].sources) {
-			i!=Vit_and_Min[vit].sources.length-1?titleSrcs+=Vit_and_Min[vit].sources[i]+', ':titleSrcs+=Vit_and_Min[vit].sources[i];
-		}
-		
-		$(elementV).children(':last-child').attr('title', 'Источники: ');
-		$(elementV).children(':last-child').attr('data-toggle', "popover");
-		$(elementV).children(':last-child').attr('data-content', titleSrcs);
-		$(elementV).children(':last-child').attr('data-placement', 'bottom');
-
-
+		$(elementV).children(':first-child').attr('title', title);
 		p=document.createElement("p");
 		$(p).html(Vit_and_Min[vit].alias[0]);
 		elementV.appendChild(p);
@@ -845,9 +832,6 @@ function init() {
 		fillVitAndMins(); // Заполняем карусель витаминов
 
 		drake = dragula([document.getElementById('vitandmins'), document.getElementById('breakfast'), document.getElementById('dinner'), document.getElementById('supper')], {
-			moves: function (el, container, handle) {
-			    return handle.classList.contains('handle');
-  			},
 			copy: function (el, source) {
 				return source === document.getElementById('vitandmins');
 			},
