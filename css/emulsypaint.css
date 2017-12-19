@@ -129,7 +129,11 @@ button {
 .roww { /* контейнер главного инструмента проверки составления рациона */
 	position: relative;
 }
+.colmd11 {
+	width: calc(100% * 10.9 / 12);
+}
 .colmd1 { /* контейнер вертикальной карусели витаминов */
+	width: calc(100% / 12);
 	position: absolute;
 	top: 0;
 	right: 0;
@@ -138,6 +142,7 @@ button {
 	max-height: 2em;
 	overflow: hidden;
 }
+
 
 .carousel-horizontal {
 	border: 1px solid black; 
@@ -149,6 +154,7 @@ button {
 	list-style-position: inside;
 	overflow-X: auto;
 	overflow-Y: hidden;
+	height: calc(100vw / 12);
 }
 .carousel-horizontal li {
 	border: 1px dashed grey;
@@ -195,11 +201,74 @@ button {
 	margin: 0;
 }
 
+.carousel-label {
+	font-size: 0.6em;
+	position: relative;
+}
+.carousel-label>h4{
+	max-height: 2em;
+	overflow: hidden;
+	font-size: 1.5em;
+	margin-right: 1vmin;
+	white-space: nowrap;
+	text-align: right;
+	font-weight: bold;
+}
+.carousel-label>div {
+	display: inline-grid;
+	float: left;
+	margin: 0.1em;
+	padding-top: 0.1em;
+	width: 12vh;
+	height: calc(11vh + 1em);
+	overflow: auto;
+}
+
+.left-container {
+	width: calc(100% / 2.03);
+	position: relative;
+	top: 0;
+	left: 0;
+}
+
+.left-container>div {
+	height: calc(100vw * 10.9 / 12 / 2.03);
+	border: 1px solid black;
+	border-radius: 5px;
+	padding: 0;
+	font-size: 2vmin;
+	display: -webkit-box;
+	list-style: none;
+	list-style-position: outside;
+	list-style-position: inside;
+}
+
+.right-container {
+	width: calc(100% / 2.03);
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.right-container>div {
+	height: calc(100vw * 10.9 / 12 / 2.03);
+	border: 1px solid black;
+	border-radius: 5px;
+	padding: 0;
+	font-size: 2vmin;
+	display: -webkit-box;
+	list-style: none;
+	list-style-position: outside;
+	list-style-position: inside;
+}
+
+
+/*
+
 .conflict {background-color: rgba(255,187,187,0.75);}
 button.conflict {
 	position: absolute;
 	top: 7.5vmax;
-	/*	bottom: 5ch;*/
 	right: 1ch;
 	color: #f22;
 	font-size-adjust: 0.3;
@@ -211,7 +280,6 @@ button.conflict {
 button.support {
 	position: absolute;
 	top: 7.5vmax;
-/*	bottom: 5ch;*/
 	left: 1ch;
 	color: green;
 	font-size-adjust: 0.3;
@@ -223,9 +291,6 @@ button.support {
 	background: -moz-linear-gradient(left, #bfb 50%, #fbb 50%);
 	background: -webkit-linear-gradient(left, #bfb 50%, #fbb 50%);
 	background: -ms-linear-gradient(left, #bfb 50%, #fbb 50%);
-}
-.self { /* для обозначения клетки с одинаковыми номерами строки и столбца */
-	background-color: rgba(255,255,187,0.75);
 }
 
 .lock-screen {
@@ -248,7 +313,7 @@ button.support {
 		width: calc(100% / 12);
 	}
 	.carousel-horizontal{
-		height: 16vh; 
+		height: calc(100vw / 12);
 	}
 	.carousel-horizontal li {
 		width: 14vh;
@@ -264,7 +329,6 @@ button.support {
 		width: 8vh;
 	}
 	.carousel-vertical {
-/*		height: 68vh;*/
 	}
 	.carousel-vertical li {
 		height: 10vw;
@@ -280,7 +344,6 @@ button.support {
 		bottom: 0;
 		right: 1vmin;
 		text-align: right;
-/*		font-size-adjust: 0.4;*/
 		white-space: nowrap;
 	}
 	.carousel-label>p {
@@ -325,7 +388,6 @@ button.support {
 	
 	.carousel-horizontal{
 		height: 12vh; 
-/*		font-size: 0.6em;*/
 	}
 	.carousel-horizontal li {
 		width: 11vh;
@@ -336,7 +398,6 @@ button.support {
 		height: 7vh;
 	}
 	.carousel-vertical {
-/*		height: 34vh;*/
 		font-size: 0.6em;
 	}
 	.carousel-vertical li {
@@ -350,8 +411,6 @@ button.support {
 	}
 	.carousel-horizontal li p {
 		position: absolute;
-/*		top: 8.5vh;*/
-/*		bottom: 1ch;*/
 		right: 1ex;
 		text-align: right;
 		white-space: nowrap;
@@ -410,9 +469,9 @@ button.support {
 	button.support {
 		left: 1vmin;
 	}
-/*}
+}
 
-@media only screen and (max-width: 1200px) and (orientation: landscape) {*/
+@media only screen and (max-width: 1200px) and (orientation: landscape) {
 .carousel-label div, .carousel-label p{
 		font-size-adjust: 0.4;
 		line-height: 90%;
@@ -422,3 +481,4 @@ button.support {
 		line-height: 100%;
 	}
 }
+*/
