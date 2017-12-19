@@ -33,27 +33,12 @@ This file is part of EmulsyPaint project.
    вместе с этой программой. Если это не так, см. <http://www.gnu.org/licenses/>.)
 //=============================Конец блока Лицензии=====================================*/
 
-/*  *{margin:0;padding:0;}body{background:#222;} */
 
 /* bootstrap bug fixes and additions*/
 .navbar-toggler-icon{background-image:url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 0, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E")}
 
-.table-hover tbody tr:hover {
-  background-color: rgba(0, 0, 0, 0.15);
-}
-
 
 /* ====================блок настроек рекламных контэйнеров=================================*/
-/*
-#advertisment-bottom>div>div {
-	position: relative;
-}
-#advertisment-bottom>div>div>div {
-	position: absolute;
-	top: -45px;
-	left: calc((100% - 720px) / 2);
-}
-*/
 .advertisment div {
 	text-align: center;
 }
@@ -66,8 +51,6 @@ This file is part of EmulsyPaint project.
 }
 /* ====================конец блока настроек рекламных контэйнеров===========================*/
 
-div {text-align: justify;}
-#image {position: relative; top: 2.5em; left: 0.5em; width: 4em; height: 4em;}
 #logo {width: 2em; height: 2em;}
 #craftsplace {border: 1px solid black; border-radius: 5px;}
 #description, #information, #advertisment-description, #articles, #for-smartphones {text-align: justify; clear: both; display: none; padding: 1em;}
@@ -75,16 +58,17 @@ div {text-align: justify;}
 #articles {
 	padding: 1em;
 }
-	
-
 #description h3, #information h3, #advertisment-description h3, #articles h3, #for-smartphones h3 {text-align: center;}
 #information p {
 	text-indent: 2em;
 }
+
+
+
+
 button {
 	padding: 0;
 }
-
 .handle { /* handle for moving element */
 	position: absolute;
 	padding: 0 3vmin 3vmin 1vmin;
@@ -126,23 +110,6 @@ button {
 }
 /* конец блока вида элемента во время перетаскивания */
 
-.roww { /* контейнер главного инструмента проверки составления рациона */
-	position: relative;
-}
-.colmd11 {
-	width: calc(100% * 10.9 / 12);
-}
-.colmd1 { /* контейнер вертикальной карусели витаминов */
-	width: calc(100% / 12);
-	position: absolute;
-	top: 0;
-	right: 0;
-}
-#vitandmins p { /* текст в вертикальной карусели витаминов */
-	max-height: 2em;
-	overflow: hidden;
-}
-
 
 .carousel-horizontal {
 	border: 1px solid black; 
@@ -154,331 +121,94 @@ button {
 	list-style-position: inside;
 	overflow-X: auto;
 	overflow-Y: hidden;
-	height: calc(100vw / 12);
+	height: 14vw;
+	margin-bottom: 0;
 }
 .carousel-horizontal li {
 	border: 1px dashed grey;
 	position: relative;
-/*	background-position: center 0.5em;
-	background-size: 5em 5em;
-	background-repeat: no-repeat;*/
+	width: 14vw;
 }
-.carousel-horizontal li p {
-	position: absolute;
-	right: 1ex;
-	top: 8.5vmax;
-/*	bottom: 1ch;*/
-	text-align: center;
-	margin: 0;
-	white-space: nowrap;
-}
-
 .carousel-vertical {
 	border: 1px solid black; 
 	border-radius: 5px; 
 	font-size: 2vmin;
 	text-align: center; 
 	padding: 0;
-	/*  -ms-flex-wrap: wrap;
-	flex-wrap: wrap;*/
 	list-style: none;
 	list-style-position: inside;
 	overflow-X: hidden;
 	overflow-Y: auto;
+	width: 14vw;
+	height: calc(14vw + 10px + 2rem + 43vw);
+	margin-top: 2rem;
+	margin-bottom: 0;
 }
-
 .carousel-vertical li {
 	padding: 1vh 0 1vh  0;
 	border: 1px dashed grey;
 	position: relative;
-/*	height: 11vh;
-	background-position: center 0.5em;
-	background-size: 3em 3em;
-	background-repeat: no-repeat;*/
+	height: 14vw;
+}
+ul {
+	list-style: none;
+	list-style-position: inside;
 }
 
-.carousel-vertical li p {
-	margin: 0;
+#craftsplace img {
+	width: 90%;
+	height: 90%
 }
 
-.carousel-label {
-	font-size: 0.6em;
-	position: relative;
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto 14vw;
+  grid-template-rows: calc(14vw + 2rem) auto;
+  grid-gap: 10px;
+/*  background-color: #2196F3;*/
 }
-.carousel-label>h4{
-	max-height: 2em;
+.grid-container > div {
+/*  background-color: rgba(255, 255, 255, 0.8);*/
+  text-align: center;
+/*  font-size: 30px;*/
+  box-sizing: border-box;
+}
+
+
+.item1 { grid-area: 1 / 1 / 2 / 3; position: relative; }
+.item2 { grid-area: 1 / 3 / 3 / 4; position: relative; }
+.item3 { grid-area: 2 / 1 / 3 / 2; }
+.item4 { grid-area: 2 / 2 / 3 / 3; }
+
+#first-input input, #second-input input {
+	width: 100%;
+}
+
+.item2>h4 {
+	position: absolute;
 	overflow: hidden;
-	font-size: 1.5em;
-	margin-right: 1vmin;
+	right: 0;
 	white-space: nowrap;
-	text-align: right;
-	font-weight: bold;
-}
-.carousel-label>div {
-	display: inline-grid;
-	float: left;
-	margin: 0.1em;
-	padding-top: 0.1em;
-	width: 12vh;
-	height: calc(11vh + 1em);
-	overflow: auto;
 }
 
-.left-container {
-	width: calc(100% / 2.03);
+.polygons>h4 {
+	text-align: center;
+}
+.polygon {
+	width: 100%;
+	height: calc(100% - 2rem - 2px);
+	border: 1px solid black;
+	border-radius: 5px;
+	box-sizing: border-box;
 	position: relative;
+	padding: 0;
+}
+
+.polygon li{
+	position: absolute;
 	top: 0;
 	left: 0;
+	height: 100%;
+	width: 100%;
 }
-
-.left-container>div {
-	height: calc(100vw * 10.9 / 12 / 2.03);
-	border: 1px solid black;
-	border-radius: 5px;
-	padding: 0;
-	font-size: 2vmin;
-	display: -webkit-box;
-	list-style: none;
-	list-style-position: outside;
-	list-style-position: inside;
-}
-
-.right-container {
-	width: calc(100% / 2.03);
-	position: absolute;
-	top: 0;
-	right: 0;
-}
-
-.right-container>div {
-	height: calc(100vw * 10.9 / 12 / 2.03);
-	border: 1px solid black;
-	border-radius: 5px;
-	padding: 0;
-	font-size: 2vmin;
-	display: -webkit-box;
-	list-style: none;
-	list-style-position: outside;
-	list-style-position: inside;
-}
-
-
-/*
-
-.conflict {background-color: rgba(255,187,187,0.75);}
-button.conflict {
-	position: absolute;
-	top: 7.5vmax;
-	right: 1ch;
-	color: #f22;
-	font-size-adjust: 0.3;
-	background-color: rgba(255, 200, 200,0);
-	z-index:0;
-	border: none;
-}
-.support {background-color: rgba(187,255,187,0.75);}
-button.support {
-	position: absolute;
-	top: 7.5vmax;
-	left: 1ch;
-	color: green;
-	font-size-adjust: 0.3;
-	background-color: rgba(200, 255, 200,0);
-	z-index: 0;
-	border: none;
-}
-.support-n-conflict {
-	background: -moz-linear-gradient(left, #bfb 50%, #fbb 50%);
-	background: -webkit-linear-gradient(left, #bfb 50%, #fbb 50%);
-	background: -ms-linear-gradient(left, #bfb 50%, #fbb 50%);
-}
-
-.lock-screen {
-    height: 100%;
-    overflow: hidden;
-    width: 100%;
-    position: fixed;
-}
-
-.carousel-label>h4 {
-	margin-bottom: 0.1vh;
-}
-
-
-@media only screen and (orientation: landscape) {
-	.colmd11 {
-		width: calc(100% * 10.9 / 12);
-	}
-	.colmd1 {
-		width: calc(100% / 12);
-	}
-	.carousel-horizontal{
-		height: calc(100vw / 12);
-	}
-	.carousel-horizontal li {
-		width: 14vh;
-	}
-	.carousel-horizontal li p {
-		top: 6.5vmax;
-	}
-	button.conflict, button.support {
-		top: 5.5vmax;
-	}
-	.carousel-horizontal li img {
-		margin: 2vh 3vh 0 3vh;
-		width: 8vh;
-	}
-	.carousel-vertical {
-	}
-	.carousel-vertical li {
-		height: 10vw;
-		padding: 0;
-	}
-	.carousel-vertical li img{
-		width: 5vw;
-		height: 5vw;
-		margin-top: 1vw;
-	}
-	.carousel-vertical li p {
-		position: absolute;
-		bottom: 0;
-		right: 1vmin;
-		text-align: right;
-		white-space: nowrap;
-	}
-	.carousel-label>p {
-			margin-bottom: 0;
-			position: absolute;
-			top: 1vmin;
-			right: 1vmin;
-			white-space: nowrap;
-	}
-}
-
-@media only screen and (orientation: portrait) {
-	.colmd11 {
-		width: calc(100% * 10.4 / 12);
-	}
-	.colmd1 {
-		width: calc(100% / 8);
-	}
-
-	.carousel-label {
-		font-size: 0.6em;
-		position: relative;
-	}
-	.carousel-label>h4{
-		max-height: 2em;
-		overflow: hidden;
-		font-size: 1.5em;
-		margin-right: 1vmin;
-		white-space: nowrap;
-		text-align: right;
-		font-weight: bold;
-	}
-	.carousel-label>div {
-		display: inline-grid;
-		float: left;
-		margin: 0.1em;
-		padding-top: 0.1em;
-		width: 12vh;
-		height: calc(11vh + 1em);
-		overflow: auto;
-	}
-	
-	.carousel-horizontal{
-		height: 12vh; 
-	}
-	.carousel-horizontal li {
-		width: 11vh;
-	}
-	.carousel-horizontal li img {
-		margin: 0.2vh 2.8vh 0.1vh 1.2vh;
-		width: 7vh;
-		height: 7vh;
-	}
-	.carousel-vertical {
-		font-size: 0.6em;
-	}
-	.carousel-vertical li {
-		height: 12vw;
-		padding: 0;
-	}
-	.carousel-vertical li img{
-		width: 5vw;
-		height: 5vw;
-		margin-top: 0.5vw;
-	}
-	.carousel-horizontal li p {
-		position: absolute;
-		right: 1ex;
-		text-align: right;
-		white-space: nowrap;
-	}
-	.carousel-vertical li p {
-		position: absolute;
-		bottom: 0;
-		right: 1vmin;
-		text-align: right;
-		white-space: nowrap;
-	}
-	.carousel-label>p {
-			margin-bottom: 0;
-			position: absolute;
-			top: 1vmin;
-			left: 1vmin;
-			white-space: nowrap;
-	}
-}
-
-@media only screen and (min-width: 1200px) and (orientation: landscape) {
-	.carousel-vertical li img{
-		width: 6vmax;
-		height: 6vmax;
-	}
-	.carousel-horizontal {
-		height: 16vmax; 
-		font-size: 2vmax;
-	}
-
-	.carousel-horizontal li {
-		width: 14vmax;
-	}
-	.carousel-horizontal li p {
-		top: 11vmax;
-	}
-	button.conflict, button.support {
-		top: 9vmax;
-	}
-	.carousel-horizontal li img {
-		margin: 2vmin 3vmax 0 3vmax;
-		width: 8vmax;
-	}
-}
-
-@media only screen and (max-width: 1200px) {
-	.colmd11 {
-		width: calc(100% * 10.4 / 12);
-	}
-	.colmd1 {
-		width: calc(100% / 8);
-	}
-	button.conflict {
-		right: 1vmin;
-	}
-	button.support {
-		left: 1vmin;
-	}
-}
-
-@media only screen and (max-width: 1200px) and (orientation: landscape) {
-.carousel-label div, .carousel-label p{
-		font-size-adjust: 0.4;
-		line-height: 90%;
-	}
-	.carousel-label h4 {
-		font-size-adjust: 0.5;
-		line-height: 100%;
-	}
-}
-*/
