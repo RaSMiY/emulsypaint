@@ -1,30 +1,30 @@
 <!DOCTYPE HTML>
 
 <html>
-	<head>
-		<title>Эмульсионные изобржения. Проверьте, как будет выглядеть ваш объект.</title>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Примерьте ваше изображение к объекту">
-		<meta name="keywords" content="Эмульсионные изображения">
-		<meta name="author" content="RaSMiY">
-		<meta name="application-name" content="EmulsyPaint">
-		<!--meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"-->
-		<meta name="viewport" content="width=device-width, initial-scale=0.7, shrink-to-fit=yes">
+    <head>
+        <title>Эмульсионные изобржения. Проверьте, как будет выглядеть ваш объект.</title>
+        <meta charset="UTF-8" />
+        <meta name="description" content="Примерьте ваше изображение к объекту">
+        <meta name="keywords" content="Эмульсионные изображения">
+        <meta name="author" content="RaSMiY">
+        <meta name="application-name" content="EmulsyPaint">
+        <!--meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"-->
+        <meta name="viewport" content="width=device-width, initial-scale=0.7, shrink-to-fit=yes">
 
-		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" />
-		<link rel="stylesheet" type="text/css" href='https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.2/dragula.min.css' />
-		<link rel="stylesheet" type="text/css" href='css/emulsypaint.css' />
-		
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>		
-	
-		<script type="text/javascript">
-			window.onerror = function (msg, url, num) {
-				alert(msg + ';' + url + ';' + num);
-				return true;
-			}
-		</script>
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href='https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.2/dragula.min.css' />
+        <link rel="stylesheet" type="text/css" href='css/emulsypaint.css' />
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>        
+    
+        <script type="text/javascript">
+            window.onerror = function (msg, url, num) {
+                alert(msg + ';' + url + ';' + num);
+                return true;
+            }
+        </script>
 
-	</head>
+    </head>
 
 <!--------EmulsyPaint---------------author: RaSMiY-------
 
@@ -64,176 +64,188 @@ This file is part of EmulsyPaint project.
 //=============================Конец блока Лицензии=====================================*/
   -->
 
-		<nav class="navbar navbar-expand-md sticky-top navbar-inverse bg-warning">
-			<div class="container-fluid">
-			  <a class="navbar-brand" href="https://vk.com/razumufa" target="blanc"><img id="logo" width="30vw"  src="pictures/RazumLogo.png" draggable="true" ondragstart="drag(event)" onclick="{$('.advertisment').hide(); setTimeout(function() {$('.advertisment').show()}, 300000);}" alt='КоБЛаБ "РАЗУМ"' title='КоБЛаБ "РАЗУМ" - скрыть рекламу на 5 минут'/></a>
-			  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
-			  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav mr-auto">
-					<li class="nav-item active">
-						<a class="nav-link" href="#" onclick="{showMainPage();}">Главная <span class="sr-only">(current)</span></a>
-					</li>
-					<li class="nav-item">
-						<!--a class="nav-link" href="#" onclick="{showDescription();}" >Пункт 1</a-->
-						<div class="dropdown">
-							<a href="#"class="nav-link dropdown-toggle bg-warning" type="button" id="menu1" data-toggle="dropdown">Пункт 1<span class="caret"></span></a>
-							<ul class="dropdown-menu bg-warning" role="menu" aria-labelledby="menu1">
-								<li class="dropdown-item" role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="{showDescription();}">Пункт 1.1</a></li>
-								<li class="dropdown-item" role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="{showCompatibilityTable();}">Пункт 1.2</a></li>
-								<li role="presentation" class="dropdown-divider"></li>
-								<li class="dropdown-item" role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="{show4Smartphones();}">Пункт 1.3</a></li>
-							</ul>
-						</div>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#" onclick="{showArticles();}">Пункт 2</a>
-					</li>
-					<!--li class="nav-item">
-						<div class="dropdown">
-							<a href="#"class="nav-link dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Статьи<span class="caret"></span>
-							</a>
-							<ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-								<li class="dropdown-item" role="presentation"><a role="menuitem" tabindex="-1" href="#">Пункт 2</a></li>
-								<li role="presentation" class="dropdown-divider"></li>
-								<li class="dropdown-item" role="presentation">									<!--a role="menuitem" tabindex="-1" href="#">
-										<div class="dropdown">
-											<a href="#"class="nav-link dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Пункт 2<span class="caret"></span>
-											</a>
-											<ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-												<li class="dropdown-item" role="presentation"><a role="menuitem" tabindex="-1" href="#">Пункт 2.1</a></li>
-												<li role="presentation" class="dropdown-divider"></li>
-												<li class="dropdown-item" role="presentation"><a role="menuitem" tabindex="-1" href="#">Пункт 2.2</a></li>
-												<li class="dropdown-item" role="presentation"><a role="menuitem" tabindex="-1" href="#">Пункт 2.3</a></li>
-											</ul>
-										</div>
-									</a-->
+        <nav class="navbar navbar-expand-md sticky-top navbar-inverse bg-warning">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="https://vk.com/razumufa" target="blanc"><img id="logo" width="30vw"  src="pictures/RazumLogo.png" draggable="true" ondragstart="drag(event)" onclick="{$('.advertisment').hide(); setTimeout(function() {$('.advertisment').show()}, 300000);}" alt='КоБЛаБ "РАЗУМ"' title='КоБЛаБ "РАЗУМ" - скрыть рекламу на 5 минут'/></a>
+              <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#" onclick="{showMainPage();}">Главная <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <!--a class="nav-link" href="#" onclick="{showDescription();}" >Пункт 1</a-->
+                        <div class="dropdown">
+                            <a href="#"class="nav-link dropdown-toggle bg-warning" type="button" id="menu1" data-toggle="dropdown">Пункт 1<span class="caret"></span></a>
+                            <ul class="dropdown-menu bg-warning" role="menu" aria-labelledby="menu1">
+                                <li class="dropdown-item" role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="{showDescription();}">Пункт 1.1</a></li>
+                                <li class="dropdown-item" role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="{showCompatibilityTable();}">Пункт 1.2</a></li>
+                                <li role="presentation" class="dropdown-divider"></li>
+                                <li class="dropdown-item" role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="{show4Smartphones();}">Пункт 1.3</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="{showArticles();}">Пункт 2</a>
+                    </li>
+                    <!--li class="nav-item">
+                        <div class="dropdown">
+                            <a href="#"class="nav-link dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Статьи<span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                                <li class="dropdown-item" role="presentation"><a role="menuitem" tabindex="-1" href="#">Пункт 2</a></li>
+                                <li role="presentation" class="dropdown-divider"></li>
+                                <li class="dropdown-item" role="presentation">                                    <!--a role="menuitem" tabindex="-1" href="#">
+                                        <div class="dropdown">
+                                            <a href="#"class="nav-link dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Пункт 2<span class="caret"></span>
+                                            </a>
+                                            <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                                                <li class="dropdown-item" role="presentation"><a role="menuitem" tabindex="-1" href="#">Пункт 2.1</a></li>
+                                                <li role="presentation" class="dropdown-divider"></li>
+                                                <li class="dropdown-item" role="presentation"><a role="menuitem" tabindex="-1" href="#">Пункт 2.2</a></li>
+                                                <li class="dropdown-item" role="presentation"><a role="menuitem" tabindex="-1" href="#">Пункт 2.3</a></li>
+                                            </ul>
+                                        </div>
+                                    </a-->
 
-									<!--a role="menuitem" tabindex="-1" href="#">Диеты</a>
-								</li>
-							</ul>
-						</div>
-					</li-->
+                                    <!--a role="menuitem" tabindex="-1" href="#">Диеты</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li-->
 
-					<li class="nav-item">
-						<!--a class="nav-link" href="#">О портале</a-->
-						<div class="dropdown">
-							<a href="#"class="nav-link dropdown-toggle bg-warning" type="button" id="menu1" data-toggle="dropdown">О портале<span class="caret"></span></a>
-							<ul class="dropdown-menu bg-warning" role="menu" aria-labelledby="menu1">
-								<li class="dropdown-item" role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="{showInformation();}">Сведения</a></li>
-								<li role="presentation" class="dropdown-divider"></li>
-								<!--li class="dropdown-item" role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="{init();}">Отладка</a></li-->
-								<li class="dropdown-item" role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="{showADdescription();}">Реклама</a></li>
-								<li class="dropdown-item" role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="{showContactUs();}">Обратная связь</a></li>
-							</ul>
-						</div>
-					</li>
-				</ul>
-				<form class="form-inline my-2 my-lg-0">
-				  <input class="form-control mr-sm-2" type="text" placeholder="Найти">
-				  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Поиск</button>
-				</form>
-			  </div>
-			</div>
-		</nav>
+                    <li class="nav-item">
+                        <!--a class="nav-link" href="#">О портале</a-->
+                        <div class="dropdown">
+                            <a href="#"class="nav-link dropdown-toggle bg-warning" type="button" id="menu1" data-toggle="dropdown">О портале<span class="caret"></span></a>
+                            <ul class="dropdown-menu bg-warning" role="menu" aria-labelledby="menu1">
+                                <li class="dropdown-item" role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="{showInformation();}">Сведения</a></li>
+                                <li role="presentation" class="dropdown-divider"></li>
+                                <!--li class="dropdown-item" role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="{init();}">Отладка</a></li-->
+                                <li class="dropdown-item" role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="{showADdescription();}">Реклама</a></li>
+                                <li class="dropdown-item" role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="{showContactUs();}">Обратная связь</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                  <input class="form-control mr-sm-2" type="text" placeholder="Найти">
+                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Поиск</button>
+                </form>
+              </div>
+            </div>
+        </nav>
 
-		<div id="advertisment-top" class="py-5 advertisment">
-			<div class="container-fluid">
-				<div class="row">
-					<div class="col-md-12">
-						<div class="card">
-							<div class="card-block">
-								<div id="vitandmin" style="text-align: center;">
-									<a href="http://vitandmin.su" target="blanc">
-										<img style="width: 80vw; height: 16vw;" src="pictures/Advirtisment/vitandmin.png" alt="vitandmin.su" title="Витамины и минералы. Составьте ваш дневной рацион, с учётом рекомендуемого содержания витаминов и минералов и их совместимости, перетащив нужные продукты в области, соответствующие меню завтрака, обеда и ужина"/>
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	
+        <div id="advertisment-top" class="py-5 advertisment">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-block">
+                                <div id="vitandmin" style="text-align: center;">
+                                    <a href="http://vitandmin.su" target="blanc">
+                                        <img style="width: 80vw; height: 16vw;" src="pictures/Advirtisment/vitandmin.png" alt="vitandmin.su" title="Витамины и минералы. Составьте ваш дневной рацион, с учётом рекомендуемого содержания витаминов и минералов и их совместимости, перетащив нужные продукты в области, соответствующие меню завтрака, обеда и ужина"/>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
 
 <!----------------------пространство для опытов---------------------->
 
-	
-		<div id="craftsplace" class="py-5">
-			<div class="container-fluid">
-				<div class="row">
-					<div class="col-md-12">
-						<h3 class="">Эмульсионные изображения на ваших объектах</h3>
-						<h6>Введите адреса изображений, чтобы добавить их в список. Перетащите изображения в центральную область, чтобы проверить как онибудут выглядеть друг поверх друга. Перетаскивайте элементы, "схватив" за знак "+". Чтобы удалить элемент, щёлкните по крестику в его правом верхнем углу.</h6>
-					</div>
-			  	</div>
+    
+        <div id="craftsplace" class="py-5" ng-app="puma" ng-controller="craft">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3 class="">Эмульсионные изображения на ваших объектах</h3>
+                        <h6>Введите адреса изображений, чтобы добавить их в список. Перетащите изображения в центральную область, чтобы проверить как они будут выглядеть друг поверх друга. Перетаскивайте элементы, "схватив" за знак "+". Чтобы удалить элемент, выброcите их из контейнеров. Изображения можете брать, например, <a href="https://clipartpng.com/" target="blanc">отсюда</a>.</h6>
+                    </div>
+                  </div>
 
 
 
-
-				<div id="first-input">
-					<div ng-app="myApp" ng-controller="myCtrl">
-					
-					<input type="text" placeholder="New item" />
-					<button ng-click="count = count + 1">Add image to the 1st list</button>
-
-					<p>{{ count }}</p>
-
-					</div>
-					<script>
-					var app = angular.module('myApp', []);
-					app.controller('myCtrl', function($scope) {
-					    $scope.count = 0;
-					});
-					</script> 
-				</div>
-				<div id="second-input">
-					<input type="text" placeholder="New item" />
-					<button>Add image to the 1st list</button>
-				</div>
+				<form id="imgAdd">
+					<input type="url" placeholder="Введите адрес изображения и выберите список, в который его добавить" ng-model="imgURL" ng-keypress="catchEnter($event)" />
+					<div class="form-inline">
+						<button ng-click="addItem()">Добавить</button>
+						<input type="radio" value="backgrounds" ng-model="chosenList" /> в список Фонов
+						<input type="radio" value="foregrounds" ng-model="chosenList" /> в список Образов
+					</div>					
+				</form>
 
 
+                <div class="grid-container">
+                  <div class="item1">
+                    <h4>Фоны</h4>
+                    <ul id="1st-list" class="carousel-horizontal">
+                        <li ng-repeat="bgrnd in bgrnds" style="background-image: url({{bgrnd}});
+                                    background-size: cover;
+                                    background-position: center;
+                                    background-repeat: no-repeat;">
+                            <span class="handle">+</span>
+                        </li>
+                    </ul>
+                  </div>
+                  <div class="item2">    
+                    <h4>Образы</h4>
+                    <ul id="2nd-list" class="carousel-vertical">
+                        <li ng-repeat="fgrnd in fgrnds" class="razum" style="background-image: url({{fgrnd}});
+                                    background-size: 80%;
+                                    background-position: center;
+                                    background-repeat: no-repeat;">
+                            <span class="handle">+</span>
+                        </li>
+                    </ul>
+                  </div>
+                  <div class="item3">        
+                    <h4>Вариант 1</h4>
+                    <ul id="left-polygon" class="polygon">
+                    </ul>
+                  </div>  
+                  <div class="item4">    
+                    <h4>Вариант 1</h4>
+                    <ul id="right-polygon" class="polygon">
+                    </ul>
+                  </div>
+                </div>
+            </div>
+        </div>
 
+        <script>
+			var puma = angular.module('puma', []);
+			puma.controller('craft', function($scope) {
+				$scope.bgrnds = [ "https://image.freepik.com/free-psd/abstract-background-design_1297-82.jpg", "https://cdn.pixabay.com/photo/2017/09/05/23/01/background-2719572__340.jpg", "https://image.freepik.com/free-psd/abstract-background-design_1297-84.jpg" ];
+				$scope.fgrnds = [ "http://images.clipartpanda.com/penguin-clipart-MiLxy44pT.png", "https://cdn.pixabay.com/photo/2017/09/23/11/14/butterfly-2778502_960_720.png", "https://pics.clipartpng.com/Angry_White_Bear_PNG_Clipart-1044.png" ];
+				
+				$scope.chosenList = 'backgrounds';
 
+				$scope.addItem = function() {
+					if ($scope.imgURL !== '') {
+						if ($scope.chosenList == 'backgrounds') {
+							$scope.bgrnds.push($scope.imgURL);
+							$scope.imgURL = '';
+						}
+						else {
+							$scope.fgrnds.push($scope.imgURL);
+							$scope.imgURL = '';
+						}
+					}
+				}
 
-
-				<div class="grid-container">
-				  <div class="item1">
-					<h4>Фоны</h4>
-					<ul id="1st-list" class="carousel-horizontal">
-						<li style="background-image: url(pictures/vitandmins/png/bread.png);
-									background-size: contain;
-									background-position: center;
-									background-repeat: no-repeat;">
-							<span class="handle">+</span>
-						</li>
-					</ul>
-				  </div>
-				  <div class="item2">	
-					<h4>Образы</h4>
-					<ul id="2nd-list" class="carousel-vertical">
-						<li class="razum" style="background-image: url(pictures/RazumLogo.png);
-									background-size: contain;
-									background-position: center;
-									background-repeat: no-repeat;">
-							<span class="handle">+</span>
-						</li>
-					</ul>
-				  </div>
-				  <div class="item3">		
-					<h4>Вариант 1</h4>
-					<ul id="left-polygon" class="polygon">
-					</ul>
-				  </div>  
-				  <div class="item4">	
-					<h4>Вариант 1</h4>
-					<ul id="right-polygon" class="polygon">
-					</ul>
-				  </div>
-				</div>
-			</div>
-		</div>
-
-
+			    $scope.catchEnter = function($event){
+			  	    var keyCode = $event.which || $event.keyCode;
+				    if (keyCode === 13) {
+					   // Do that thing you finally wanted to do
+					   $scope.addItem();
+				    }
+			    }
+			});
+        </script>
 <!----------------------конец пространства для опытов---------------------->
 
 
@@ -242,127 +254,127 @@ This file is part of EmulsyPaint project.
 
 
 <!------------------------------------------------------------------------------------------------------------------------>
-		<div id="description" style="display: none;"></div>
-		<div id="for-smartphones" style="display: none;">
-			<h3>Скачайте приложение для вашего смартфона</h3>
-			<ul>
-				<li><a href="#" target="blanc">Андроид</a></li>
-				<li><a href="#" target="blanc">iOS</a></li>
-			</ul>
-		</div>
-		<div id="information" style="display: none;">
-			<h3>О портале</h3>
-			<h2>Здравствуй, путник!</h2>
-			<p>
-			</p>
-			<p style="text-align: right;">
-				<em><strong>С уважением,</strong><br />коллектив портала VitAndMin</em>
-			</p>
-			<p>
-				P.S. Портал постоянно пополняется новыми статьями и приложениями, а инструмент составления меню - новыми продуктами и элементами. Заходите почаще!
-			</p>
-		</div>
-		<div id="articles" style="display: none;">
-			<!-- VK Widget -->
-			<div id="vk_groups"></div>
-		</div>
-		<div id="advertisment-description" style="display: none;"></div>
-		<div id="contact-us" style="display: none;">
-			<div class="container-fluid">
-				<form class="form-horizontal" action="https://getsimpleform.com/messages?form_api_token=2d86d626a4d317ac3a539fcdbe78181d" method="post">
-					<div class="form-group">
-						<!-- the redirect_to is optional, the form will redirect to the referrer on submission -->
-						<input type='hidden' name='redirect_to' value='http://vitandmin.su' />
-						<!-- all your input fields here.... -->
-					</div>
-					<div class="form-group">
-						<label class="control-label" for="simple_form-field-name"></label>
-						<div class="col-md-12">
-							<input type="text" id="simple_form-field-name" name="name" class="form-control" placeholder="Ваше имя" value="" required="required" />
-						</div>
-					</div>
+        <div id="description" style="display: none;"></div>
+        <div id="for-smartphones" style="display: none;">
+            <h3>Скачайте приложение для вашего смартфона</h3>
+            <ul>
+                <li><a href="#" target="blanc">Андроид</a></li>
+                <li><a href="#" target="blanc">iOS</a></li>
+            </ul>
+        </div>
+        <div id="information" style="display: none;">
+            <h3>О портале</h3>
+            <h2>Здравствуй, путник!</h2>
+            <p>
+            </p>
+            <p style="text-align: right;">
+                <em><strong>С уважением,</strong><br />коллектив портала VitAndMin</em>
+            </p>
+            <p>
+                P.S. Портал постоянно пополняется новыми статьями и приложениями, а инструмент составления меню - новыми продуктами и элементами. Заходите почаще!
+            </p>
+        </div>
+        <div id="articles" style="display: none;">
+            <!-- VK Widget -->
+            <div id="vk_groups"></div>
+        </div>
+        <div id="advertisment-description" style="display: none;"></div>
+        <div id="contact-us" style="display: none;">
+            <div class="container-fluid">
+                <form class="form-horizontal" action="https://getsimpleform.com/messages?form_api_token=2d86d626a4d317ac3a539fcdbe78181d" method="post">
+                    <div class="form-group">
+                        <!-- the redirect_to is optional, the form will redirect to the referrer on submission -->
+                        <input type='hidden' name='redirect_to' value='http://vitandmin.su' />
+                        <!-- all your input fields here.... -->
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="simple_form-field-name"></label>
+                        <div class="col-md-12">
+                            <input type="text" id="simple_form-field-name" name="name" class="form-control" placeholder="Ваше имя" value="" required="required" />
+                        </div>
+                    </div>
 
-					<div class="form-group">
-						<label class="control-label" for="simple_form-field-email"></label>
-						<div class="col-md-12">
-							<input type="email" id="simple_form-field-email" name="email" class="form-control" placeholder="Электронная почта" value="" required="required" />
-						</div>
-					</div>
+                    <div class="form-group">
+                        <label class="control-label" for="simple_form-field-email"></label>
+                        <div class="col-md-12">
+                            <input type="email" id="simple_form-field-email" name="email" class="form-control" placeholder="Электронная почта" value="" required="required" />
+                        </div>
+                    </div>
 
-					<div class="form-group">
-						<label class="control-label" for="simple_form-field-phone"></label>
-						<div class="col-md-12">
-							<input type="text" id="simple_form-field-phone" name="phone" class="form-control" placeholder="Номер телефона" value=""  />
-						</div>
-					</div>
+                    <div class="form-group">
+                        <label class="control-label" for="simple_form-field-phone"></label>
+                        <div class="col-md-12">
+                            <input type="text" id="simple_form-field-phone" name="phone" class="form-control" placeholder="Номер телефона" value=""  />
+                        </div>
+                    </div>
 
-					<div class="form-group">
-						<label class="control-label" for="simple_form-field-comments"></label>
-						<div class="col-md-12">
-							<textarea id="simple_form-field-content" rows="10"  name="content" class="form-control input-lg" placeholder="Ваше сообщение" required="required"></textarea>
-						</div>
-					</div>
+                    <div class="form-group">
+                        <label class="control-label" for="simple_form-field-comments"></label>
+                        <div class="col-md-12">
+                            <textarea id="simple_form-field-content" rows="10"  name="content" class="form-control input-lg" placeholder="Ваше сообщение" required="required"></textarea>
+                        </div>
+                    </div>
 
-					<div class="form-group">
-						<div class="col-md-offset-2 col-md-10">
-							<br />
-							<button id="simple_form-field-submit" name="submit" class="btn btn-warning">Отправить <span></span></button>
-						</div>
-					</div>
-				</form>
-			</div>
-		</div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <br />
+                            <button id="simple_form-field-submit" name="submit" class="btn btn-warning">Отправить <span></span></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
 
-		<div id="advertisment-bottom" class="py-5 advertisment">
-			<div class="container-fluid">
-				<div class="row">
-					<div>
-					</div>
-				</div>
-			</div>
-		</div>
+        <div id="advertisment-bottom" class="py-5 advertisment">
+            <div class="container-fluid">
+                <div class="row">
+                    <div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 <!-- CDN scripts locally -->
-		<script src="js/jquery-3.2.1.slim.min.js"></script>
-		<script src="js/popper.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
-		<script type="text/javascript" src='js/dragula.min.js'></script>
-		<!--script src="js/angular.min.js"></script-->
-		<!--script type="text/javascript" src="http://vk.com/js/api/openapi.js?150"></script-->
+        <script src="js/jquery-3.2.1.slim.min.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src='js/dragula.min.js'></script>
+        <!--script src="js/angular.min.js"></script-->
+        <!--script type="text/javascript" src="http://vk.com/js/api/openapi.js?150"></script-->
 <!-- CDN scripts >
-		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
-		<script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.2/dragula.min.js'></script-->
-		<!--script type="text/javascript" src="http://vk.com/js/api/openapi.js?150"></script-->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+        <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.2/dragula.min.js'></script-->
+        <!--script type="text/javascript" src="http://vk.com/js/api/openapi.js?150"></script-->
 <!-- Local scripts -->
-		<script type="text/javascript" src="js/emulsypaint.js"></script>
+        <script type="text/javascript" src="js/emulsypaint.js"></script>
 
 <!-- VK Widgets-->
-		<div id="vk_community_messages" style="display: none;"></div>
+        <div id="vk_community_messages" style="display: none;"></div>
 
 <!-- Put this div tag to the place, where the Comments block will be -->
-		<div id="vk_comments"></div>
+        <div id="vk_comments"></div>
 
-		<script type="text/javascript">
-//			маленькое облачко в углу экрана
-//			VK.Widgets.CommunityMessages("vk_community_messages", 155167160, {expanded: "0", tooltipButtonText: "Есть вопрос?"});
-//			подготовка стены сообщества
-//			$('#vk_groups').data('turnedOff', 1);
-//			комментарии внизу страницы
-//			VK.init({apiId: 6219786, onlyWidgets: true});
-//			VK.Widgets.Comments("vk_comments", {limit: 10, attach: "*"});
-		</script>
+        <script type="text/javascript">
+//            маленькое облачко в углу экрана
+//            VK.Widgets.CommunityMessages("vk_community_messages", 155167160, {expanded: "0", tooltipButtonText: "Есть вопрос?"});
+//            подготовка стены сообщества
+//            $('#vk_groups').data('turnedOff', 1);
+//            комментарии внизу страницы
+//            VK.init({apiId: 6219786, onlyWidgets: true});
+//            VK.Widgets.Comments("vk_comments", {limit: 10, attach: "*"});
+        </script>
 <!-- VK Widgets-->
-	
+    
 
-		<script>
-			document.addEventListener("DOMContentLoaded", init);
-//			document.addEventListener("load", init);
-//			window.onload = init;
-//				alert('Страница загружена');
-//				setTimeout(init(), 5000);
-		</script>
-		<ul id='mirrorContainer'></ul>
-	</body>
+        <script>
+            document.addEventListener("DOMContentLoaded", init);
+//            document.addEventListener("load", init);
+//            window.onload = init;
+//                alert('Страница загружена');
+//                setTimeout(init(), 5000);
+        </script>
+        <ul id='mirrorContainer'></ul>
+    </body>
 </html>

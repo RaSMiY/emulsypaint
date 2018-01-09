@@ -573,9 +573,9 @@ function init() {
 				return (source === document.getElementById('1st-list'))||(source === document.getElementById('2nd-list'));
 			},
 			accepts: function (el, target) {
-				return true; // (target !== document.getElementById(''));&&(contains(menu(target.id),el.classList.item(0))<=1);
+				return (target !== document.getElementById('1st-list'))&&(target !== document.getElementById('2nd-list'));
 			},
-			revertOnSpill: true,
+			removeOnSpill: true,
 			ignoreInputTextSelection: true,
 			direction: 'horizontal',
 			mirrorContainer: document.getElementById('mirrorContainer')
