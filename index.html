@@ -188,7 +188,8 @@ This file is part of EmulsyPaint project.
                                     background-position: center;
                                     background-repeat: no-repeat;">
                             <span class="handle">+</span>
-                        </li>
+                    		<button class='rem'>X</button>
+					    </li>
                     </ul>
                   </div>
                   <div class="item2">    
@@ -199,6 +200,7 @@ This file is part of EmulsyPaint project.
                                     background-position: center;
                                     background-repeat: no-repeat;">
                             <span class="handle">+</span>
+                    		<button class='rem'>X</button>
                         </li>
                     </ul>
                   </div>
@@ -219,8 +221,16 @@ This file is part of EmulsyPaint project.
         <script>
 			var puma = angular.module('puma', []);
 			puma.controller('craft', function($scope) {
-				$scope.bgrnds = [ "https://image.freepik.com/free-psd/abstract-background-design_1297-82.jpg", "https://cdn.pixabay.com/photo/2017/09/05/23/01/background-2719572__340.jpg", "https://image.freepik.com/free-psd/abstract-background-design_1297-84.jpg" ];
-				$scope.fgrnds = [ "http://images.clipartpanda.com/penguin-clipart-MiLxy44pT.png", "https://cdn.pixabay.com/photo/2017/09/23/11/14/butterfly-2778502_960_720.png", "https://pics.clipartpng.com/Angry_White_Bear_PNG_Clipart-1044.png" ];
+				$scope.bgrnds = [ 
+								"https://image.freepik.com/free-psd/abstract-background-design_1297-82.jpg", 
+								"https://cdn.pixabay.com/photo/2017/09/05/23/01/background-2719572__340.jpg", 
+								"https://image.freepik.com/free-psd/abstract-background-design_1297-84.jpg" 
+				];
+				$scope.fgrnds = [ 
+								"http://images.clipartpanda.com/penguin-clipart-MiLxy44pT.png", 
+								"https://pics.clipartpng.com/midle/Colourful_Parrot_PNG_Clipart-497.png", 
+								"https://pics.clipartpng.com/Angry_White_Bear_PNG_Clipart-1044.png"
+				];
 				
 				$scope.chosenList = 'backgrounds';
 

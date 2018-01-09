@@ -561,10 +561,8 @@ function showArticles() {
 //==================================Пусковая функция===================================
 function init() {
 	
-	$("#kitchen").on("click", ".rem", function() {
-		cat=this.parentNode.parentNode.id;
+	$("#craftsplace").on("click", ".rem", function() {
 		this.parentNode.parentNode.removeChild(this.parentNode);
-		checkCompatibility(cat);
 	});
 	
 	
